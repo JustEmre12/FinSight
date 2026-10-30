@@ -39,12 +39,12 @@ FinSight is a proposed web application for beginner and individual investors. It
 - [Risk management](docs/RISK_REGISTER.md)
 - [Team charter and responsibilities](docs/TEAM_CHARTER.md)
 - [Project roadmap and milestones](docs/ROADMAP.md)
-- [Kanban task board — all 55 Issues in seven stages](docs/KANBAN.md)
+- [Kanban task board — all 68 Issues in seven stages](docs/KANBAN.md)
 - [Interactive read-only board](board/index.html) (load locally, or enable GitHub Pages to host)
 - [Source-document inventory (15 provided files)](docs/SOURCE_MATERIALS.md)
 - [Open decisions and discrepancies](docs/DECISIONS.md)
 - [How we collaborate](CONTRIBUTING.md)
-- [All 55 GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
+- [All 68 GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
 
 ## Feature baseline
 
