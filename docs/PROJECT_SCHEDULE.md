@@ -34,3 +34,8 @@ flowchart LR
 M1 Requirements Day 3; M2 Design Day 7; M3 Core + Analytics Day 22; M4 Integration Day 25; M5 QA Day 29; M6 Delivery Day 31.
 
 **Scope mismatch:** Sprint 3 used a portfolio-management work package; final Sprint 4/5 scope is stock research. Re-estimate/relabel before setting real deadlines. Do not treat these relative days as a dated live Gantt chart.
+
+## New modeling/design gate following the historical Sprint 3 plan
+On **October 28, 2026**, the Sprint 6 Object-Oriented Modeling report documents six logical objects, use cases, sequence/state/activity models, and **recommends conditional approval** to enter detailed design. This is a *new project phase checkpoint*, not evidence that the 31-working-day Sprint 3 delivery schedule actually ran. Do not assign automatic dates to code tasks from the historical relative-day Gantt.
+
+Before setting an implementation calendar: review Sprint 6 models, approve the current stock-research MVP boundary, choose licensed APIs and AI services, confirm security and test criteria, and record actual instructor/management decision. See [Sprint 6 design review](SPRINT6_DESIGN_REVIEW.md) and [roadmap](ROADMAP.md).

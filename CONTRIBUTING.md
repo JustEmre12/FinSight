@@ -18,3 +18,6 @@ Use small reviewable changes, e.g. feature/stock-search or docs/research. Update
 The repo's [Kanban overview](docs/KANBAN.md) groups Issues by seven stages. A **native GitHub Projects board** can also be created in the GitHub UI with matching Status columns; the connected GitHub tool does not expose creation of Project boards.
 
 See the [team charter](docs/TEAM_CHARTER.md) for role proposals, meetings and decisions.
+
+## Sprint 6 evidence and model traceability
+New features should link their **FR ID**, **US ID**, relevant Sprint 6 object(s) (User, Stock, Watchlist, MarketData, AIAnalysis or StockComparison), and **UC-01 / UC-02** where applicable. Use the [traceability table](docs/TRACEABILITY.md) and [object-oriented diagrams](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md) to review message order, errors and state transitions. If a new detailed use case was not in the original Sprint 6 document, label it as a **proposed design extension**, not coursework already completed. Management/instructor *conditional approval recommendation* must not be labeled accepted until evidenced. Source files have not been published in this public repository.
