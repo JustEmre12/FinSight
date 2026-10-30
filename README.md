@@ -61,9 +61,23 @@ FinSight is a proposed web application for beginner and individual investors. It
 
 All eight are **requirements**, not finished implementations. The [work board](docs/KANBAN.md) separates documentation completion from engineering work.
 
-## Work tracker
+## Work tracker (October 30, 2026)
 
-The [Kanban page](docs/KANBAN.md) and [GitHub Issues](https://github.com/JustEmre12/FinSight/issues) track seven status lanes, including Sprint 6 modeling and pending review. The interactive board uses issue labels for current counts. **Done refers only to completed artifacts** unless tested application code is explicitly evidenced. In Progress is provisional and should be verified by the team.
+**68 GitHub Issues: 21 closed written deliverables and 47 open tasks.**
+
+| Stage | Issues |
+| --- | ---: |
+| Product Backlog | 12 |
+| Ready | 12 |
+| In Progress | 4 |
+| In Review | 7 |
+| Done | 21 |
+| Blocked | 5 |
+| Future | 7 |
+
+[Kanban snapshot](docs/KANBAN.md) · [Interactive read-only board](board/index.html) · [Sprint 6 modeling](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md) · [All Issues](https://github.com/JustEmre12/FinSight/issues).
+
+**Done means completed documentation/modeling unless actual tested code is evidenced.** In Progress is a provisional planning placement; team approval is not assumed.
 
 ## Team and workflow
 
