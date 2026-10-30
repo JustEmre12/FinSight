@@ -1,6 +1,6 @@
 # All seven FinSight user stories
 
-The numbered stories were supplied in **FinSight - User Stories.docx**, and repeated in Sprints 4–5. The checklists below are intended engineering acceptance conditions, not finished work.
+The numbered stories were supplied in **FinSight - User Stories.docx**, and repeated in Sprints 4–5 and mapped to Sprint 6. The checklists below are intended engineering acceptance conditions, not finished work.
 
 ## US-01 — Stock Search (FR-02; High)
 > As an investor, I want to search for stocks using a company name or ticker symbol so that I can quickly find information about companies I am interested in.
@@ -45,3 +45,16 @@ The numbered stories were supplied in **FinSight - User Stories.docx**, and repe
 - [ ] Include date/source and no-advice caveats.
 
 **Additional required work:** FR-01 sign-up/login is tracked in its own engineering issue. News aggregation/alerts are historic candidate features, not yet formally part of US-01–US-07.
+
+## Sprint 6 use-case and object traceability
+| Story | Sprint 6 link | Behavioral acceptance to preserve | Engineering Issue |
+| --- | --- | --- | --- |
+| US-01 | UC-01 Search; User/Stock/MarketData; Fig. 6-18 | Validate before market-provider request; error on invalid input/provider failure | [#37](https://github.com/JustEmre12/FinSight/issues/37) |
+| US-02 | Stock/MarketData; Fig. 6-18 | Show source and timestamp when available | [#38](https://github.com/JustEmre12/FinSight/issues/38) |
+| US-03 | UC-02 AI; AIAnalysis; Fig. 6-19/20A | Fetch market context, then AI; label result; handle missing data/failure | [#39](https://github.com/JustEmre12/FinSight/issues/39) |
+| US-04 | Manage Watchlist; User/Watchlist/Stock; Fig. 6-20B | Sign-in required; Empty ⇄ Populated as stocks added/removed | [#40](https://github.com/JustEmre12/FinSight/issues/40) |
+| US-05 | Compare Stocks; StockComparison | Detailed UC table/logic not supplied in Sprint 6 | [#41](https://github.com/JustEmre12/FinSight/issues/41) |
+| US-06 | Stock/MarketData | Historical visualization still in FR-07; advanced charts later than core per Sprint 6 recommendation | [#42](https://github.com/JustEmre12/FinSight/issues/42) |
+| US-07 | AIAnalysis/MarketData | Risk explanations remain informational, not direct investment advice | [#43](https://github.com/JustEmre12/FinSight/issues/43) |
+
+**FR-01** registration/login/logout is tracked in [#44](https://github.com/JustEmre12/FinSight/issues/44). Sprint 6 includes exactly **two** detailed use-case descriptions (UC-01 and UC-02) and four named primary use cases overall. [Complete modeling document](SPRINT6_OBJECT_ORIENTED_MODEL.md) · [Cross-model matrix](TRACEABILITY.md).
