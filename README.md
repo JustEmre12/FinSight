@@ -1,101 +1,108 @@
-# FinSight — AI-Powered Financial Market Research
+# FinSight
+**AI-assisted financial market research, explained simply.**
 
-> **Project stage: Sprints 1–6 documented (including object-oriented models); detailed design approval and implementation not yet demonstrated.**  
-> **Course:** BCS 301W · Systems Analysis & Design · Fall 2026  
-> **Team:** Salih (Project Manager / Business Analyst), Jake (Frontend / UI), Asad (Backend / Database), Henry (AI / Data)
+FinSight is a proposed website that helps beginner and individual investors research stocks from one organized place. The planned experience brings together market data, historical charts, stock comparisons, personal watchlists, and AI-generated explanations that make financial information easier to understand.
 
-FinSight is a proposed web application for beginner and individual investors. It aims to bring stock-market information into one easy-to-use research space with historical prices, stock comparisons, watchlists, clear charts, AI-assisted explanations, and investment-risk context. The broader original vision also includes financial news and trend detection.
+**Current phase:** Sprint 6 object-oriented modeling **documented** → detailed system design **pending review/approval**.  
+**Project:** BCS 301W · Systems Analysis & Design · Fall 2026  
+**Team:** Salih, Jake, Asad, and Henry
 
-**Research support only.** FinSight is not a brokerage, does not execute trades or hold funds, and is not intended to provide personalized investment advice or guaranteed predictions.
+> **Project status:** This repository contains the team's project planning, requirements, system models, and work tracking. **It does not yet contain a running or deployed FinSight website.** Completed modeling assignments do not mean software features have been implemented.
 
-## Current progress — October 30, 2026
+## Explore FinSight
 
-| Area | Evidence / current state |
+| Start here | Purpose |
 | --- | --- |
-| Sprint 1 | Initial proposal and problem framing documented |
-| Sprint 2 | Preliminary investigation, Five Whys, fishbone, SWOT, feasibility documented |
-| Sprint 3 | WBS, Gantt schedule, PERT/CPM critical path, risk register documented |
-| Sprint 4 | Functional / nonfunctional requirements and user stories documented |
-| Sprint 5 | Context, functional decomposition, Level 0 & 1 DFDs, data dictionary documented |
-| **Sprint 6** | **Six objects, relationships, four primary use cases, two detailed use-case tables, sequence/state/activity diagrams documented**; recommendation for conditional approval, not approval itself |
-| Actual product implementation | **Not verified / not started in this repository** |
-| APIs and AI model | Not selected or integrated |
-| User research and design validation | Questions prepared; completed interviews and tested prototype not evidenced |
+| **[Product Overview](docs/PRODUCT_OVERVIEW.md)** | What FinSight aims to do, who it serves, and the intended user experience |
+| **[Work Board / Kanban](docs/KANBAN.md)** | Planned, active, review, completed, blocked, and future work |
+| **[All GitHub Issues](https://github.com/JustEmre12/FinSight/issues)** | Track tasks, requirements, reviews, and progress |
+| **[Documentation Hub](docs/README.md)** | Browse every sprint, model, requirement, and project document |
+| **[Sprint 6 Object-Oriented Models](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)** | Objects, relationships, use cases, sequences, state transitions, and activity flows |
+| **[Roadmap](docs/ROADMAP.md)** | What the team has documented and what must happen next |
 
-**Documentation completed ≠ code implemented.** Items shown as “Done” on our work board refer to the *documented deliverable*, not working product functionality.
+## Product goal
 
-## Start here
+Individual investors often switch between separate sources for stock prices, historical data, market analysis, and financial news. FinSight aims to reduce that research effort by presenting selected information in a clear, beginner-friendly interface.
 
-- [Project goals and boundaries](docs/PROJECT_BRIEF.md)
-- [Requirements FR-01–FR-08 and NFR-01–NFR-07](docs/REQUIREMENTS.md)
-- [All user stories US-01–US-07](docs/USER_STORIES.md)
-- [Sprint 5 structured system diagrams](docs/SYSTEM_DESIGN.md)
-- **[Sprint 6 object-oriented model — relationships, use cases, sequences, states, activities](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)**
-- [FR / US / Sprint 6 model / engineering Issue traceability](docs/TRACEABILITY.md)
-- [Sprint 6 design review and approval checklist](docs/SPRINT6_DESIGN_REVIEW.md)
-- [Data dictionary](docs/DATA_DICTIONARY.md)
-- [Sprint history and completed artifacts](docs/SPRINT_HISTORY.md)
-- [Work breakdown / schedule](docs/PROJECT_SCHEDULE.md)
-- [Risk management](docs/RISK_REGISTER.md)
-- [Team charter and responsibilities](docs/TEAM_CHARTER.md)
-- [Project roadmap and milestones](docs/ROADMAP.md)
-- [Kanban task board — all 68 Issues in seven stages](docs/KANBAN.md)
-- [Interactive read-only board](board/index.html) (load locally, or enable GitHub Pages to host)
-- [Source-document inventory (15 provided files)](docs/SOURCE_MATERIALS.md)
-- [Open decisions and discrepancies](docs/DECISIONS.md)
-- [How we collaborate](CONTRIBUTING.md)
-- [All 68 GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
+The latest **Sprint 4–6 requirements and models** focus on a stock **research-support** website. Financial-news aggregation, market alerts, and broader portfolio features appear in earlier project ideas but are **not automatically included in the current MVP**.
 
-## Feature baseline
+### Proposed core features
 
-| ID | Function | Priority in Sprint 4 |
+| Requirement | Planned capability | Implementation |
 | --- | --- | --- |
-| FR-01 | Register and sign in securely | High |
-| FR-02 | Search by company/ticker | High |
-| FR-03 | View quotes, history, timestamps | High |
-| FR-04 | AI-generated understandable analysis | High |
-| FR-05 | Personalized watchlist | Medium |
-| FR-06 | Compare multiple stocks | Medium |
-| FR-07 | Labeled stock charts | Medium |
-| FR-08 | Explain historical risk / volatility | High |
+| FR-01 | Secure user registration and login | Not implemented |
+| FR-02 | Search stocks by company name or ticker | Not implemented |
+| FR-03 | View available quotes, historical prices, and timestamps | Not implemented |
+| FR-04 | Request plain-language AI market explanations | Not implemented |
+| FR-05 | Add and remove stocks from a personal watchlist | Not implemented |
+| FR-06 | Compare two or more stocks | Not implemented |
+| FR-07 | View historical price charts | Not implemented |
+| FR-08 | Understand general investment risk and volatility | Not implemented |
 
-All eight are **requirements**, not finished implementations. The [work board](docs/KANBAN.md) separates documentation completion from engineering work.
+**[Full functional/nonfunctional requirements](docs/REQUIREMENTS.md)** · **[Seven user stories](docs/USER_STORIES.md)** · **[Requirements-to-design traceability](docs/TRACEABILITY.md)**
 
-## Work tracker (October 30, 2026)
+## Project progress — October 30, 2026
 
-**68 GitHub Issues: 21 closed written deliverables and 47 open tasks.**
-
-| Stage | Issues |
-| --- | ---: |
-| Product Backlog | 12 |
-| Ready | 12 |
-| In Progress | 4 |
-| In Review | 7 |
-| Done | 21 |
-| Blocked | 5 |
-| Future | 7 |
-
-[Kanban snapshot](docs/KANBAN.md) · [Interactive read-only board](board/index.html) · [Sprint 6 modeling](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md) · [All Issues](https://github.com/JustEmre12/FinSight/issues).
-
-**Done means completed documentation/modeling unless actual tested code is evidenced.** In Progress is a provisional planning placement; team approval is not assumed.
-
-## Team and workflow
-
-| Team member | Role from October 6 charter |
+| Sprint | Documented work |
 | --- | --- |
-| Salih | Project management, requirements, meetings, progress |
-| Jake | Frontend, UI/UX, charts, navigation |
-| Asad | Backend, database, financial APIs, authentication |
-| Henry | AI / data analysis, trend and insight work |
+| 1 — Proposal | Problem statement, business case, and project concept |
+| 2 — Investigation | Five Whys, fishbone diagrams, SWOT, feasibility, risks |
+| 3 — Project management | Work Breakdown Structure, Gantt, PERT/CPM, risk response |
+| 4 — Requirements | FR-01–FR-08, NFR-01–NFR-07, user stories, acceptance criteria |
+| 5 — Logical modeling | Functional decomposition, context and data-flow diagrams, data dictionary |
+| **6 — Object-oriented modeling** | **Six objects; four named use cases; two detailed use-case descriptions; object relationship, derived class, sequence, state and activity diagrams** |
 
-Roles other than project manager were proposed in the charter and can change after team agreement. Use a feature branch and pull request for implementation; link each change to an Issue. Never commit API keys or financial account credentials.
+**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. The market-data provider, AI service, technology stack, and working application still require decisions and development.
 
-## Scope caution
+### Task tracking
 
-Some early files discuss banking, transactions, financial goals or portfolio management; the **Sprint 4+5 combined logical model** explicitly treats FinSight as a **stock research system** and excludes brokerage trading, linked banks, custodial portfolios and personal financial advice. We preserve those broader ideas as historical or future-scope suggestions rather than silently treating them as approved MVP features.
+The project has **68 GitHub Issues** in the October 30 snapshot: **21 closed documentation/modeling tasks and 47 open tasks**.
 
-## Getting started
+[View seven-stage Kanban](docs/KANBAN.md) · [Browse Issues](https://github.com/JustEmre12/FinSight/issues) · [Read-only interactive board source](board/index.html)
 
-This repository begins with a **planning and tracking baseline**, not a deployed website. Next decisions: confirm MVP scope, validate data provider licensing and AI costs, pick a stack, produce UI wireframes, then build small tested vertical slices. See [roadmap](docs/ROADMAP.md) and [issues](../../issues).
+The seven stages are **Product Backlog, Ready, In Progress, In Review, Done, Blocked, Future**. Some In Progress items represent provisional planning focus, not verified engineering activity. The interactive board reads live public Issues when served, but GitHub Pages is **not currently enabled**, and this is **not** a native GitHub Projects drag-and-drop board.
 
-_This documentation was prepared from the team's supplied project materials. Original .docx/.pdf files remain outside this repository unless the team chooses to upload them separately._
+## How the system is intended to work
+
+The **Investor/User** searches companies, views market data, manages an authenticated watchlist, compares stocks, and may request an AI explanation. FinSight's logical model communicates with a **Market Data Provider** and an **AI Service Provider**.
+
+Sprint 6 identifies six main logical objects: **User, Stock, Watchlist, MarketData, AIAnalysis, StockComparison**. Search should validate input before requesting provider data. AI analysis should use available market context, show an AI disclosure, and handle missing data or service failures.
+
+[Explore Sprint 5 structured design](docs/SYSTEM_DESIGN.md) · [Explore Sprint 6 object-oriented design](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md) · [Review outstanding design decisions](docs/DECISIONS.md)
+
+## Team
+
+| Team member | Role in the October 6 team charter |
+| --- | --- |
+| **Salih** | Project Manager / Business Analyst |
+| **Jake** | Frontend Developer / UI Designer |
+| **Asad** | Backend Developer / Database Manager |
+| **Henry** | AI / Data Analyst |
+
+The charter describes roles other than Project Manager as proposed and adjustable by team agreement.
+
+## Repository layout
+
+| Location | Contents |
+| --- | --- |
+| [docs/](docs/README.md) | Project overview, discovery, Sprints 1–6, requirements, diagrams, risks, planning, testing and status |
+| [board/](board/README.md) | Read-only GitHub Issues Kanban webpage (not hosted yet) |
+| [app/](app/README.md) | Placeholder and guidance for future app implementation; **no working app yet** |
+| [.github/](.github/) | Feature and bug issue templates, pull-request template |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Team collaboration and review workflow |
+| [.env.example](.env.example) | Empty configuration variable template; **no real credentials** |
+
+## Contributing and next steps
+
+1. Review the [Sprint 6 design gate](docs/SPRINT6_DESIGN_REVIEW.md) and [scope decisions](docs/DECISIONS.md).
+2. Resolve access and provider dependencies in [GitHub Issues](https://github.com/JustEmre12/FinSight/issues).
+3. Agree on the implementation stack and convert designs to small feature branches and reviewed pull requests.
+4. Demonstrate and test each story before moving an **implementation** issue to Done.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the group's suggested workflow.
+
+---
+
+**Important:** FinSight is intended for informational investment research. It does **not** execute trades, hold funds, provide personalized financial advice, or guarantee outcomes. Market information must display its source and freshness, and AI-generated content must be identified as such.
+
+_This public repository contains organized summaries of the team's **15 supplied project documents**. The original Word/PDF submissions are not uploaded here. Nothing in this README claims instructor approval or a completed software application._
