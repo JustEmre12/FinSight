@@ -23,7 +23,7 @@ Sprint 6 expands the earlier Sprint 4 requirements and Sprint 5 structured logic
 The names describe **logical responsibilities**. Their attribute types, storage, ownership rules, exact return values, multiplicities, and service design are **not** finalized in the source.
 
 ## 3. Object relationship diagram — Figure 6-10
-\`\`\`mermaid
+```mermaid
 flowchart TB
   U["User"] -->|owns| W["Watchlist"]
   U -->|searches| S["Stock"]
@@ -31,13 +31,13 @@ flowchart TB
   S -->|has data| MD["MarketData"]
   S -->|analyzed by| AI["AIAnalysis"]
   S -->|compared in| SC["StockComparison"]
-\`\`\`
+```
 These are **logical associations only**, not foreign keys/cardinalities. User accounts own watchlists; watchlists reference Stocks; Stock uses MarketData, AIAnalysis, and StockComparison for research.
 
 ## 4. Class diagram — derived view of the §2 object table
 The source document gives an **object table and Figure 6-10 relationship diagram**, but does not identify a separate fully detailed UML class diagram. This Mermaid class view transcribes those definitions to support subsequent technical design; data types and multiplicities deliberately remain unspecified.
 
-\`\`\`mermaid
+```mermaid
 classDiagram
   class User {
     userID
@@ -93,12 +93,12 @@ classDiagram
   Stock --> MarketData : has data
   Stock --> AIAnalysis : analyzed by
   Stock --> StockComparison : compared in
-\`\`\`
+```
 
 ## 5. Actors and primary use cases — Figure 6-15
 **External actors**: (1) **Investor** — searches, analyzes, compares, manages watchlist; (2) **Market Data Provider** — external quote/history source; (3) **AI Service Provider** — external explanation service. These providers support FinSight and are **not additional investors**.
 
-\`\`\`mermaid
+```mermaid
 flowchart LR
   I["Investor"] --> Search(["Search Stocks"])
   I --> Analyze(["Generate AI Analysis"])
@@ -114,7 +114,7 @@ flowchart LR
   M -.-> Analyze
   M -.-> Compare
   A["AI Service Provider"] -.-> Analyze
-\`\`\`
+```
 *The dotted provider links visualize supporting interactions described in §4; the original simple use-case figure explicitly shows the investor and four tasks, rather than detailing provider-to-use-case links.*
 
 ### UC-01 — Search for a Stock (Sprint 6 §5)
@@ -138,7 +138,7 @@ flowchart LR
 The source labels **Manage Watchlist** and **Compare Stocks** as use cases but does **not** provide equally detailed UC-03/UC-04 tables. Avoid presenting newly invented steps as source-provided use-case descriptions. Watchlist management requires sign-in.
 
 ## 6. Sequence diagram — Figure 6-18: Stock Search
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor Investor
   participant FinSight
@@ -156,10 +156,10 @@ sequenceDiagram
   else Input invalid
     FinSight-->>Investor: Display validation error
   end
-\`\`\`
+```
 
 ## 7. Sequence diagram — Figure 6-19: AI Analysis
-\`\`\`mermaid
+```mermaid
 sequenceDiagram
   actor Investor
   participant FinSight
@@ -179,10 +179,10 @@ sequenceDiagram
   else Market data unavailable
     FinSight-->>Investor: Display data error
   end
-\`\`\`
+```
 
 ## 8. State transitions — Figure 6-20A: AIAnalysis
-\`\`\`mermaid
+```mermaid
 stateDiagram-v2
   [*] --> Requested
   Requested --> Processing: market data available
@@ -191,21 +191,21 @@ stateDiagram-v2
   Processing --> Failed: service error
   Completed --> [*]
   Failed --> [*]
-\`\`\`
+```
 **Status values:** Requested, Processing, Completed, Failed. The model does not define retry logic or background execution timing.
 
 ## 9. State transitions — Figure 6-20B: Watchlist
-\`\`\`mermaid
+```mermaid
 stateDiagram-v2
   [*] --> Empty
   Empty --> Populated: add first stock
   Populated --> Populated: add/remove (still nonempty)
   Populated --> Empty: remove last stock
-\`\`\`
+```
 **Status values:** Empty, Populated. Watchlist operations require an authenticated investor. In a final system, persisted count, authorization and duplicate controls need detailed design.
 
 ## 10. Activity diagram — Figure 6-21: Search + optional analysis
-\`\`\`mermaid
+```mermaid
 flowchart TD
   Start(["Start"]) --> Validate["Validate stock ticker"]
   Validate --> Valid{"Valid input?"}
@@ -222,7 +222,7 @@ flowchart TD
   Success -->|Yes| Output["Display explanation + AI disclosure"]
   Output --> End
   Error --> End
-\`\`\`
+```
 Source §11 specifies both tasks and success/error exits; no trading or automatic buy/sell branch exists.
 
 ## 11. Proposed consistency corrections — Sprint 6 §12
