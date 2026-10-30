@@ -1,6 +1,6 @@
 # Project brief and scope
 
-**Based on:** Sprint 1 proposal, Sprint 2 preliminary investigation, October 6 charter and the combined Sprints 4–5 requirements.
+**Based on:** Sprint 1 proposal, Sprint 2 preliminary investigation, October 6 charter and the combined Sprints 4–5 requirements and Sprint 6 object-oriented modeling.
 
 ## Mission and users
 FinSight is an AI-powered financial-market *research* platform for beginner and individual investors. Stock information is scattered across market data services, company information, news and social media; credibility, relevance and timeliness vary. FinSight aims to make research understandable and organized through search, data visualization, simple AI explanations, source references and personal watchlists.
@@ -16,3 +16,6 @@ A user searches a ticker or company, views dated price history and charts, compa
 
 ## Current reality
 The team has delivered *planning and analysis documents* through Sprint 5. None of the provided files demonstrates a running website, selected API vendor, deployed database, validated AI service, user study results or tested implementation. Engineering work is represented as open tracked tasks.
+
+## Sprint 6 object-oriented refinement
+The October 28 Sprint 6 report introduces six logical objects: **User, Stock, Watchlist, MarketData, AIAnalysis, StockComparison**. Investor, Market Data Provider and AI Service Provider support **Search Stocks**, **Generate AI Analysis**, **Manage Watchlist**, and **Compare Stocks**. Two workflows—UC-01 Search and UC-02 Generate Analysis—include detailed error paths. AI analysis moves **Requested → Processing → Completed/Failed**; a watchlist moves between **Empty** and **Populated**. These are proposed system behaviors, **not implemented classes or deployed services**. The document recommends *conditional*, not granted, approval for detailed design. [See complete Sprint 6 model](SPRINT6_OBJECT_ORIENTED_MODEL.md).

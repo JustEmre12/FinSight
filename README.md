@@ -1,6 +1,6 @@
 # FinSight — AI-Powered Financial Market Research
 
-> **Project stage: Systems analysis completed in documents; implementation not yet demonstrated.**  
+> **Project stage: Sprints 1–6 documented (including object-oriented models); detailed design approval and implementation not yet demonstrated.**  
 > **Course:** BCS 301W · Systems Analysis & Design · Fall 2026  
 > **Team:** Salih (Project Manager / Business Analyst), Jake (Frontend / UI), Asad (Backend / Database), Henry (AI / Data)
 
@@ -8,7 +8,7 @@ FinSight is a proposed web application for beginner and individual investors. It
 
 **Research support only.** FinSight is not a brokerage, does not execute trades or hold funds, and is not intended to provide personalized investment advice or guaranteed predictions.
 
-## Current progress — October 28, 2026
+## Current progress — October 30, 2026
 
 | Area | Evidence / current state |
 | --- | --- |
@@ -17,6 +17,7 @@ FinSight is a proposed web application for beginner and individual investors. It
 | Sprint 3 | WBS, Gantt schedule, PERT/CPM critical path, risk register documented |
 | Sprint 4 | Functional / nonfunctional requirements and user stories documented |
 | Sprint 5 | Context, functional decomposition, Level 0 & 1 DFDs, data dictionary documented |
+| **Sprint 6** | **Six objects, relationships, four primary use cases, two detailed use-case tables, sequence/state/activity diagrams documented**; recommendation for conditional approval, not approval itself |
 | Actual product implementation | **Not verified / not started in this repository** |
 | APIs and AI model | Not selected or integrated |
 | User research and design validation | Questions prepared; completed interviews and tested prototype not evidenced |
@@ -28,7 +29,10 @@ FinSight is a proposed web application for beginner and individual investors. It
 - [Project goals and boundaries](docs/PROJECT_BRIEF.md)
 - [Requirements FR-01–FR-08 and NFR-01–NFR-07](docs/REQUIREMENTS.md)
 - [All user stories US-01–US-07](docs/USER_STORIES.md)
-- [System diagrams and logical model](docs/SYSTEM_DESIGN.md)
+- [Sprint 5 structured system diagrams](docs/SYSTEM_DESIGN.md)
+- **[Sprint 6 object-oriented model — relationships, use cases, sequences, states, activities](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)**
+- [FR / US / Sprint 6 model / engineering Issue traceability](docs/TRACEABILITY.md)
+- [Sprint 6 design review and approval checklist](docs/SPRINT6_DESIGN_REVIEW.md)
 - [Data dictionary](docs/DATA_DICTIONARY.md)
 - [Sprint history and completed artifacts](docs/SPRINT_HISTORY.md)
 - [Work breakdown / schedule](docs/PROJECT_SCHEDULE.md)
@@ -37,7 +41,7 @@ FinSight is a proposed web application for beginner and individual investors. It
 - [Project roadmap and milestones](docs/ROADMAP.md)
 - [Kanban task board — all 55 Issues in seven stages](docs/KANBAN.md)
 - [Interactive read-only board](board/index.html) (load locally, or enable GitHub Pages to host)
-- [Source-document inventory (14 provided files)](docs/SOURCE_MATERIALS.md)
+- [Source-document inventory (15 provided files)](docs/SOURCE_MATERIALS.md)
 - [Open decisions and discrepancies](docs/DECISIONS.md)
 - [How we collaborate](CONTRIBUTING.md)
 - [All 55 GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
@@ -57,13 +61,9 @@ FinSight is a proposed web application for beginner and individual investors. It
 
 All eight are **requirements**, not finished implementations. The [work board](docs/KANBAN.md) separates documentation completion from engineering work.
 
-## GitHub tracking snapshot (October 28, 2026)
+## Work tracker
 
-| Product Backlog | Ready | In Progress* | In Review | Done (docs) | Blocked | Future |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 12 | 9 | 4 | 4 | 15 | 4 | 7 |
-
-*In Progress is a **provisional planning placement** requiring team confirmation. Done means written assignments and repo setup, **not functioning software**. GitHub stage labels are the ongoing source of truth; the [Kanban page](docs/KANBAN.md) is a dated snapshot.*
+The [Kanban page](docs/KANBAN.md) and [GitHub Issues](https://github.com/JustEmre12/FinSight/issues) track seven status lanes, including Sprint 6 modeling and pending review. The interactive board uses issue labels for current counts. **Done refers only to completed artifacts** unless tested application code is explicitly evidenced. In Progress is provisional and should be verified by the team.
 
 ## Team and workflow
 
