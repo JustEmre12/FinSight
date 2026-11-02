@@ -27,3 +27,9 @@ Proposed first engineering slice: market lookup + dated quotes + basic chart; th
 | MVP implementation order | Accounts, search, reliable market data, AI explanations, watchlists; compare/charts follow | Confirm plan, taking care not to silently rewrite Sprint 4 priorities |
 
 See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist](SPRINT6_DESIGN_REVIEW.md). No provider, stack, legal/data license, instructor sign-off or running app is evidenced as of the update.
+
+## New implementation evidence (November 2, 2026)
+- [PR #69](https://github.com/JustEmre12/FinSight/pull/69) merged a **Next.js + TypeScript + Tailwind + Recharts** sample-data frontend prepared by Jake. This is the frontend prototype technology, **not a final endorsement of backend/database/vendor choices**.
+- A GitHub Actions workflow now checks frontend lint/type/tests/build; the [PR run passed](https://github.com/JustEmre12/FinSight/actions/runs/41519999919).
+- **Unresolved:** market provider/license, actual AI service, secure auth, database-backed watchlists, production deployment, full QA and formal design approval.
+- [Frontend handoff](FRONTEND_PROTOTYPE.md) records exactly what is mock versus implemented.

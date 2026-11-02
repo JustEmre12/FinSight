@@ -1,4 +1,4 @@
-# Draft acceptance test plan (not yet executed)
+# Test plan — initial frontend unit checks passed; full acceptance still pending
 
 | Req | Test | Expected |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ NFR-01 measure local performance vs three-second target, excluding external prov
 
 **Definition of Done for code:** PR reviewed and merged; tests/edge cases passed; docs updated; security and data-source attribution preserved. A completed paper requirements assignment never means the app feature passed testing.
 
-## Sprint 6 modeling-based test design (not executed)
+## Sprint 6 modeling-based production test design (not fully executed)
 These cases follow the supplied Sprint 6 behaviors and [diagrams](SPRINT6_OBJECT_ORIENTED_MODEL.md). They are **planned checks**, not passing tests.
 
 | Case | Model | Input / scenario | Expected behavior |
@@ -35,3 +35,6 @@ These cases follow the supplied Sprint 6 behaviors and [diagrams](SPRINT6_OBJECT
 | S6-T12 | Activity Fig. 6-21 | Valid lookup without requesting AI | Display stock details and finish without contacting AI |
 
 **Do not invent tests already run.** Record actual test code, execution results, environment and PR link before closing implementation issues. [Traceability](TRACEABILITY.md) · [Sprint 6 review gate](SPRINT6_DESIGN_REVIEW.md).
+
+## Frontend prototype automated verification — November 2, 2026
+On [PR #69](https://github.com/JustEmre12/FinSight/pull/69), GitHub Actions ran **npm ci, npm run lint, npm run typecheck, npm test and npm run build**. [Run 41519999919](https://github.com/JustEmre12/FinSight/actions/runs/41519999919) completed successfully. The existing `app/tests/lib.test.ts` covers selected mock search, freshness, sample data, risk math and comparisons. This is **not evidence** of real API/AI integration, password security, cross-user backend access, comprehensive browser/accessibility testing or the full Sprint 6 production use-case criteria. Those remain open.

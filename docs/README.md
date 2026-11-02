@@ -1,6 +1,6 @@
 # FinSight Documentation Hub
 
-This directory organizes the FinSight team's **15 supplied project documents** into readable, linked references. The files describe **planning and systems analysis through Sprint 6**, not an already built stock-research website.
+This directory organizes the FinSight team's **15 supplied project documents** into readable, linked references. The documents cover **planning and systems analysis through Sprint 6**. A **sample-data frontend prototype** was merged November 2; it is not a production investment website.
 
 **[Back to the FinSight homepage](../README.md)** · **[Product overview](PRODUCT_OVERVIEW.md)** · **[Kanban](KANBAN.md)** · **[GitHub Issues](https://github.com/JustEmre12/FinSight/issues)**
 
@@ -28,17 +28,23 @@ This directory organizes the FinSight team's **15 supplied project documents** i
 - **[Sprint 6 Object-Oriented Modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md)** — six objects, relationship and derived class diagrams, use cases, sequences, state and activity diagrams
 - [Sprint 6 Design Review](SPRINT6_DESIGN_REVIEW.md) — review and management approval checkpoint
 
+## Frontend implementation demo
+
+- **[Frontend Prototype Handoff](FRONTEND_PROTOTYPE.md)** — Jake's PR #69, Next.js setup, demo screens, passing CI and known limitations
+- [Application README](../app/README.md) — local commands and sample-stock scenarios
+- [Merged PR #69](https://github.com/JustEmre12/FinSight/pull/69) — authored frontend changes and review
+
 ## Planning, execution, and quality
 
 - [Roadmap](ROADMAP.md) — proposed implementation order and next steps
 - [Project Schedule](PROJECT_SCHEDULE.md) — Sprint 3 WBS, Gantt, PERT and critical path; **historical estimate**
 - [Risk Register](RISK_REGISTER.md) — identified risks and Sprint 6 implications
-- [Draft Test Plan](TEST_PLAN.md) — proposed test scenarios; tests **not executed**
+- [Test Plan](TEST_PLAN.md) — frontend unit/CI checks passed; full system acceptance still pending
 - [Issue-Based Kanban](KANBAN.md) — 7 stages and GitHub Issue links
 - [Contributing Guide](../CONTRIBUTING.md) — branches, pull requests, and done criteria
 
 ## Notes for reviewers
 
-The **Sprint 6 document recommends conditional approval**, which is not verified instructor approval. The project's current main work consists of written deliverables and GitHub Issues; application code, production data sources, and tested functionality are not yet provided. Original Word/PDF submissions have not been posted to this public repository.
+The **Sprint 6 document recommends conditional approval**, which is not verified instructor approval. The repository now includes Jake's runnable demonstration frontend and passing automated checks. **Production** market data, AI services, secure authentication, deployed service and full acceptance tests are still not provided. Original Word/PDF submissions have not been posted to this public repository.
 
 For a quick overview, visit the [main README](../README.md). For the exact documented model, start with [Sprint 6](SPRINT6_OBJECT_ORIENTED_MODEL.md) and compare with the [Sprint 4/5 requirements and structured model](REQUIREMENTS.md).

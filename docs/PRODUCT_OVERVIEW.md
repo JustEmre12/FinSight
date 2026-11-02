@@ -1,7 +1,7 @@
 # FinSight — Product Overview
 
 **Product:** FinSight — AI-Powered Financial Market Analysis Platform  
-**Phase:** Sprint 6 Object-Oriented Modeling documented; detailed design review/approval pending  
+**Phase:** Sprint 6 documented; sample-data frontend prototype merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69) on November 2; real APIs, AI and backend still pending  
 **Audience:** Beginner investors and individuals researching publicly traded stocks  
 **Course:** BCS 301W, Fall 2026
 
@@ -26,7 +26,7 @@ The Five Whys and fishbone studies identified **fragmented information and manua
 5. **Check limitations.** See an AI-content disclosure, potential historical risk, and a helpful error if data or services are unavailable.
 6. **Follow companies.** Signed-in users can maintain personal watchlists and return to saved stocks.
 
-These are planned behaviors, **not a demonstration of a working application**.
+These are intended production behaviors. The [merged frontend prototype](FRONTEND_PROTOTYPE.md) demonstrates many of the screen flows with **fictional data, template-generated text, and mock authentication**, not real provider integrations.
 
 ## Core MVP baseline from Sprint 4–6
 
@@ -65,7 +65,8 @@ The supplied Sprint 6 document details **UC-01 Search for a Stock** and **UC-02 
 
 - **Documented:** Sprints 1–6, requirements, user stories, conceptual diagrams, feasibility, planning schedule, team roles, and draft test scenarios.
 - **Pending decision/review:** Team agreement on final MVP boundaries; provider selection, licensing, refresh/freshness policy, AI service and cost, stack, database/physical design, usability validation, and management/instructor approval.
-- **Not demonstrated by the repository:** A deployed website, real API integration, functional login, working watchlists, AI analysis, passing tests, or verified user-research results.
+- **Implemented as demonstration only (November 2):** Jake's Next.js frontend with stock search, charts, comparisons, risk displays, a template explanation panel and local demo watchlists. Automated lint, typechecks, unit tests and production build passed on [PR #69](https://github.com/JustEmre12/FinSight/pull/69).
+- **Still not demonstrated by the repository:** A deployed production website, real licensed market-data or AI integration, secure backend sign-in, server-side watchlists, full production acceptance testing, or verified user research.
 
 Sprint 6 **recommends conditional approval to enter detailed system design**. That recommendation should not be presented as approval already granted.
 
@@ -73,6 +74,6 @@ Sprint 6 **recommends conditional approval to enter detailed system design**. Th
 
 Salih — Project Manager / Business Analyst; Jake — Frontend / UI; Asad — Backend / Database; Henry — AI / Data. These roles are drawn from the October 6 charter; non-PM roles were described as proposed.
 
-[Full documentation index](README.md) · [Roadmap](ROADMAP.md) · [Seven-stage Kanban](KANBAN.md) · [Open decisions](DECISIONS.md) · [Source inventory](SOURCE_MATERIALS.md)
+[Frontend prototype handoff](FRONTEND_PROTOTYPE.md) · [Full documentation index](README.md) · [Roadmap](ROADMAP.md) · [Seven-stage Kanban](KANBAN.md) · [Open decisions](DECISIONS.md) · [Source inventory](SOURCE_MATERIALS.md)
 
 _Source basis: the team's initial proposal; Sprint 2 preliminary investigation and root-cause work; Sprint 3 management plan; Sprint 4 SRD; combined Sprint 4–5 logical models; Sprint 6 Object-Oriented Modeling document. This page is a structured description of those sources rather than a claim of completed software._

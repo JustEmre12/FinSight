@@ -9,6 +9,17 @@
 - [x] Sprint 6 object tables, relationships, actors/use cases, sequences, state/activity diagrams and consistency recommendations **documented**.
 - [x] Repository documentation and Issue tracking baseline.
 
+## Frontend prototype milestone (November 2, 2026)
+- [x] Jake's Next.js frontend branch reviewed and merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69).
+- [x] Automated frontend lint, typecheck, unit tests and build passed in GitHub Actions.
+- [x] A sample-data application skeleton, pages, charts, comparisons and demo watchlists exist.
+- [ ] Replace fictional quotes with approved market APIs and documented freshness/rights.
+- [ ] Replace template explanations with controlled AI service integrations.
+- [ ] Replace mock browser-only login/watchlists with secure backend auth/data storage.
+- [ ] Complete hands-on UX, accessibility and security verification, then staging/deployment.
+
+[Frontend prototype details](FRONTEND_PROTOTYPE.md).
+
 ## Sprint 6 transition to detailed design (not yet approved)
 - [ ] Review [object-oriented Sprint 6 diagrams](SPRINT6_OBJECT_ORIENTED_MODEL.md) with the team.
 - [ ] Confirm Sprint 4/5 alignment: FR-01–FR-08, authenticated watchlist, informational AI disclosures and consistent external data-flow actors.
@@ -27,7 +38,7 @@
 ## Engineering MVP — Sprint 6 recommended order
 **Suggested sequence in Sprint 6:** Secure accounts → Stock search → Market data retrieval → AI explanation → Watchlist; then comparisons and advanced charts after validated core capabilities. This is a recommendation, not an implemented feature or override of Sprint 4 priority labels.
 
-- [ ] Responsive shell and navigation.
+- [x] **Prototype** responsive shell/navigation exists (real application acceptance still pending).
 - [ ] Auth with safe storage and private user sessions.
 - [ ] Stock search, quote/history, timestamps and provider errors.
 - [ ] Watchlist persistence.
@@ -45,4 +56,4 @@
 ## Future only if approved
 News/article ingestion and alerts; manual portfolio records; social sentiment; premium billing; mobile-native app.
 
-Items only move to **Done** with a real deliverable or tested implementation. See [KANBAN](KANBAN.md) and GitHub Issues.
+Documentation and the **prototype milestone** can be Done when verified; full FR/US implementation issues remain open until real integration and acceptance. See [KANBAN](KANBAN.md) and GitHub Issues.
