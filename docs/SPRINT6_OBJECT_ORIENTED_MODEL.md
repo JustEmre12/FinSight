@@ -237,3 +237,6 @@ These are **proposed**, not confirmed applied in the original Sprint 4/5 source 
 The team **recommends conditional approval** to proceed to detailed system design; this is *not* proof approval was granted. Proposed priority: secure accounts, stock search, reliable market-data retrieval, AI explanation, and watchlist management. Stock comparison and advanced charts can follow once core functions are validated.
 
 Before implementation, review **data-provider licensing/cost, quote freshness, AI reliability, security, and acceptance criteria**. Link changes to FR/US IDs and the related GitHub Issues. See [traceability](TRACEABILITY.md), [requirements](REQUIREMENTS.md), [test plan](TEST_PLAN.md), and [Kanban](KANBAN.md).
+
+## Post-document development note — November 2, 2026
+The Sprint 6 document itself was a **logical design artifact**, not production code. Subsequently, Jake Pepitone's [frontend demo PR #69](https://github.com/JustEmre12/FinSight/pull/69) was reviewed and merged into `main`. That demo uses fictional stock data, browser-local mock accounts and template explanations. The logical model remains a target for secure backend and external-provider integration; no instructor design approval is implied. See [frontend prototype status](FRONTEND_PROTOTYPE.md).
