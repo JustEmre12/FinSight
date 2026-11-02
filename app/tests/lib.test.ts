@@ -73,6 +73,7 @@ describe("AI explanation (FR-04)", () => {
   it("includes uncertainty notes and never tells the user to buy or sell", async () => {
     const e = await getAiExplanation("NOVA", NOW);
     expect(e.uncertaintyNotes.length).toBeGreaterThan(0);
+    expect(Date.parse(e.dataAsOf)).toBeLessThanOrEqual(NOW.getTime());
     const text = e.paragraphs.join(" ").toLowerCase();
     expect(text).not.toMatch(/\byou should (buy|sell)\b|\bguarantee/);
   });

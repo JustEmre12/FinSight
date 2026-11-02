@@ -181,7 +181,8 @@ export async function getAiExplanation(symbol: string, now: Date = new Date()): 
   return {
     symbol: stock.symbol,
     generatedAt: now.toISOString(),
-    dataAsOf: `${lastDate}T20:00:00Z`,
+    // Daily prices are recorded at market close; never claim data newer than now.
+    dataAsOf: new Date(Math.min(Date.parse(`${lastDate}T20:00:00Z`), now.getTime())).toISOString(),
     generator: "Sample template text — no AI model connected yet",
     paragraphs,
     uncertaintyNotes: [
