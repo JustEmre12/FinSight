@@ -33,7 +33,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         </Notice>
       ) : (
         <section aria-labelledby="results-heading" className="space-y-3">
-          <h2 id="results-heading" className="text-lg font-semibold" role="status">
+          <h2 id="results-heading" className="text-lg font-semibold">
             {results.length} result{results.length === 1 ? "" : "s"} for “{check.query}”
           </h2>
           <ul className="divide-y divide-slate-200 overflow-hidden rounded-lg border border-slate-200 bg-white">
