@@ -120,7 +120,7 @@ export function WatchlistView() {
             placeholder="e.g. NOVA"
             aria-invalid={!!error}
             aria-describedby={error ? "add-error" : undefined}
-            className="min-h-11 w-full rounded-md border border-slate-400 bg-white px-3 font-mono uppercase aria-[invalid=true]:border-red-700"
+            className="min-h-11 w-full rounded-md border border-slate-400 bg-white px-3 font-mono uppercase placeholder:normal-case placeholder:font-sans aria-[invalid=true]:border-red-700"
           />
           <button type="submit" className="min-h-11 rounded-md bg-brand px-5 font-semibold text-white hover:bg-brand-dark">
             Add

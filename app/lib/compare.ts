@@ -2,6 +2,9 @@
 
 import type { CurrencyCode, PriceHistory } from "./types";
 
+/** Most stocks that can be compared at once (keeps the chart readable). */
+export const MAX_COMPARE = 5;
+
 export interface ComparisonSummary {
   symbol: string;
   currency: CurrencyCode;

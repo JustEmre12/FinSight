@@ -65,7 +65,15 @@ export default async function StockPage({ params, searchParams }: { params: Prom
           </p>
           <h1 className="text-3xl font-bold">{summary.companyName}</h1>
         </div>
-        <WatchlistButton symbol={summary.symbol} />
+        <div className="flex flex-wrap items-start gap-2">
+          <Link
+            href={`/compare?symbols=${summary.symbol}&period=${period}`}
+            className="inline-flex min-h-11 items-center rounded-md border border-slate-300 bg-white px-4 text-sm font-medium text-brand hover:bg-slate-50"
+          >
+            Compare with other stocks
+          </Link>
+          <WatchlistButton symbol={summary.symbol} />
+        </div>
       </header>
 
       {outage ? (
