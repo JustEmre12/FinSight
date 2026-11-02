@@ -27,7 +27,7 @@ export interface SampleStock extends StockSummary {
 }
 
 export const SAMPLE_STOCKS: SampleStock[] = [
-  { symbol: "NOVA", companyName: "Nova Robotics Inc.", exchange: "NASDAQ", currency: "USD", scenario: "normal", startPrice: 84, dailyVolatility: 0.021, dailyDrift: 0.0006 },
+  { symbol: "NOVA", companyName: "Nova Robotics Inc.", exchange: "NASDAQ", currency: "USD", scenario: "normal", startPrice: 84, dailyVolatility: 0.021, dailyDrift: 0.0004 },
   { symbol: "NVGU", companyName: "Nova Grid Utilities Corp.", exchange: "NYSE", currency: "USD", scenario: "normal", startPrice: 46, dailyVolatility: 0.009, dailyDrift: 0.0002 },
   { symbol: "GRNL", companyName: "Greenleaf Energy Corp.", exchange: "NYSE", currency: "USD", scenario: "normal", startPrice: 31, dailyVolatility: 0.031, dailyDrift: 0.0003 },
   { symbol: "MAPL", companyName: "Maple Harbor Financial", exchange: "TSX", currency: "CAD", scenario: "normal", startPrice: 52, dailyVolatility: 0.011, dailyDrift: 0.0002 },
