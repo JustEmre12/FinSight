@@ -7,6 +7,7 @@ import { PriceChart } from "@/components/price-chart";
 import { QuoteCard } from "@/components/quote-card";
 import { RiskSection } from "@/components/risk-section";
 import { SearchForm } from "@/components/search-form";
+import { WatchlistButton } from "@/components/watchlist-button";
 import { getPriceHistory, getQuote, getStockSummary } from "@/lib/api";
 import { formatDate } from "@/lib/format";
 import { PERIOD_LABELS, ProviderUnavailableError, type PriceHistory, type Quote } from "@/lib/types";
@@ -64,6 +65,7 @@ export default async function StockPage({ params, searchParams }: { params: Prom
           </p>
           <h1 className="text-3xl font-bold">{summary.companyName}</h1>
         </div>
+        <WatchlistButton symbol={summary.symbol} />
       </header>
 
       {outage ? (
