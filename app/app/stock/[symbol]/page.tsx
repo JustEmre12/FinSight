@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AiExplanationPanel } from "@/components/ai-explanation-panel";
 import { Notice } from "@/components/notice";
 import { PeriodSelector, parsePeriod } from "@/components/period-selector";
 import { PriceChart } from "@/components/price-chart";
@@ -116,6 +117,8 @@ export default async function StockPage({ params, searchParams }: { params: Prom
           </section>
 
           <RiskSection history={history} periodLabel={PERIOD_LABELS[period]} />
+
+          <AiExplanationPanel symbol={summary.symbol} />
         </>
       )}
     </div>
