@@ -4,6 +4,7 @@ import { Notice } from "@/components/notice";
 import { PeriodSelector, parsePeriod } from "@/components/period-selector";
 import { PriceChart } from "@/components/price-chart";
 import { QuoteCard } from "@/components/quote-card";
+import { RiskSection } from "@/components/risk-section";
 import { SearchForm } from "@/components/search-form";
 import { getPriceHistory, getQuote, getStockSummary } from "@/lib/api";
 import { formatDate } from "@/lib/format";
@@ -113,6 +114,8 @@ export default async function StockPage({ params, searchParams }: { params: Prom
               </>
             )}
           </section>
+
+          <RiskSection history={history} periodLabel={PERIOD_LABELS[period]} />
         </>
       )}
     </div>
