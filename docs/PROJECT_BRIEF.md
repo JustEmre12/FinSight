@@ -22,3 +22,6 @@ The October 28 Sprint 6 report introduces six logical objects: **User, Stock, Wa
 
 ## Implementation update — November 2, 2026
 The original planning documents did not include running website code. **After those sources were submitted**, [PR #69](https://github.com/JustEmre12/FinSight/pull/69) contributed a runnable, sample-data Next.js frontend from Jake Pepitone. It demonstrates the user interface, search, charts, comparisons, risk presentation and local demo watchlists; it does **not** add live data, real AI services, secure backend accounts or a production release. See [frontend handoff](FRONTEND_PROTOTYPE.md).
+
+## Documentation synchronization — November 3, 2026
+The original project description combines **source aggregation/financial news** with a later stock-research MVP. The **current actual code** is Jake's fictional-data frontend merged in PR #69. The **backend PowerPoint is a 16-slide logical design**, not a deployed API, and the Fintech Tree/Dictionary are **broader generic fintech references**. See [scope evolution](SCOPE_AND_EVOLUTION.md), [current status](PROJECT_STATUS.md), [AI proposal](FINSIGHT_AI_VISION.md) and [database plan](DATABASE_DESIGN_PLAN.md). **This note updates project status, not original coursework requirements.**

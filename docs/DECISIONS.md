@@ -33,3 +33,17 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 - A GitHub Actions workflow now checks frontend lint/type/tests/build; the [PR run passed](https://github.com/JustEmre12/FinSight/actions/runs/41519999919).
 - **Unresolved:** market provider/license, actual AI service, secure auth, database-backed watchlists, production deployment, full QA and formal design approval.
 - [Frontend handoff](FRONTEND_PROTOTYPE.md) records exactly what is mock versus implemented.
+
+## Current reconciliation from additional project documents — November 3, 2026
+| Additional question | Evidence and status | Suggested decision gate |
+| --- | --- | --- |
+| Generic FinTech data tree and dictionary | Includes checking/savings banks, merchant transactions and financial goals; **not** included in Sprint 4–6 baseline | Keep as a reference; do not automatically include banking or payment functions |
+| Sprint 3 manual holdings/transaction concept | A documented portfolio-focused plan, while combined Sprint 4–5 explicitly excludes portfolio custody, bank transactions and trade execution | Decide separately if **self-entered recordkeeping** belongs in a later phase |
+| Proposed FinSight AI assistant | User concept includes chat, news/claim corroboration, company relationships and optional holding-aware research | Approve separate requirements, privacy/retention, data licenses and transparent claim-verification policy |
+| Specific portfolio-aware buy/sell instructions | Conflicts with Sprint 4/5 and Sprint 6 **no personalized advice** scope | Not part of baseline; assess legal/regulatory implications before any user-specific recommendation feature |
+| Real database connection | MongoDB and PostgreSQL free-tier providers were discussed but **none is verified connected** | Choose data/auth vendor, server API, cost/limits, schema and backups as a team |
+| Frontend ZIP versus GitHub | Uploaded ZIP is a pre-CI snapshot; PR #69 already merged into §main§ | Preserve existing code and use GitHub as the working source |
+
+**Status correction:** The earlier “functional prototype not evidenced” and “no running app” wording refers to the *historical planning documents*. The [merged sample-data prototype](FRONTEND_PROTOTYPE.md) is now real, while a **production-integrated app** is not.
+
+[Scope and project evolution](SCOPE_AND_EVOLUTION.md) · [FinSight AI vision](FINSIGHT_AI_VISION.md) · [Generic FinTech reference](FINTECH_REFERENCE_DATA_MODEL.md) · [Database architecture proposal](DATABASE_DESIGN_PLAN.md).

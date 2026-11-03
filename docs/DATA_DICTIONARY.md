@@ -37,3 +37,8 @@ Passwords stored securely hashed, not in raw form; unique email; authenticated o
 **Alignment cautions:** This is a crosswalk, **not** an assertion that Sprint 5's user_id, quote_time, summary_reference, etc. have been renamed or migrated. The source §12 proposes aligning dictionary *terms* with User, Stock, Watchlist, MarketData and AIAnalysis, while the §2 table also defines StockComparison. Whether StockComparison results require persistence and which classes map to separate database tables remain open physical-design questions.
 
 **State semantics:** AIAnalysis.status ∈ {Requested, Processing, Completed, Failed} in the Sprint 6 model; Watchlist's Empty/Populated states derive from current stock count, not a required stored state field. [Sprint 6 diagrams](SPRINT6_OBJECT_ORIENTED_MODEL.md).
+
+## New reference document reconciliation — November 3, 2026
+Jake also supplied **Fintech Data Dictionary.docx** with six generic SQL tables: Users, Bank Accounts, Transactions, Investment Portfolio, Investment Holdings and Financial Goals. These belong to a **general FinTech/banking/portfolio** exercise and are **not automatically replacements** for D1–D4 above. The source data tree's six major branches likewise include personal spending, banking and goals outside the combined Sprint 4/5 FinSight stock-research boundary. See [the separate generic dictionary reference](FINTECH_REFERENCE_DATA_MODEL.md).
+
+**Physical implementation is still undecided.** A proposed vendor-neutral D1–D4 to physical table/collection mapping, database indexes, privacy and optional future holdings/AI source data appear in [DATABASE_DESIGN_PLAN](DATABASE_DESIGN_PLAN.md). No live DB or schema migration exists in the project evidence.

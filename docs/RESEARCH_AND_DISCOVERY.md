@@ -39,3 +39,8 @@ The preliminary report recommends **advancing to analysis of the focused MVP**, 
 
 ## Evidence and research status
 The Sprint 2 report cites FINRA materials from 2019, 2025 and April 2026 about social-media-informed investing and multiple information sources. These statistics remain **claims in the team report** unless independently verified for public-facing use. Ten potential-user survey questions have been prepared; completed interviews or survey results were not supplied.
+
+## Additional original assignment evidence — November 3, 2026
+Jake's and Henry's **5 Whys / fishbone** submissions each identify an integrated platform for **reliability, relevance and changing information**, not merely a quote chart. The diagram branches remain **People, Process, Machines, Materials and Measurement**, and their conclusions emphasize consolidating sources, reducing repetitive research and summarizing meaningful changes. The **ten potential-user questions** also ask about manually tracked portfolios, financial security, alerts and allocation, but **questions are not answers or surveyed demand**.
+
+This helps justify future evidence/provenance and alert research, while the latest combined Sprint 4/5 requirements still establish the **narrower, approved stock-research baseline**. See [scope evolution](SCOPE_AND_EVOLUTION.md), [proposed FinSight AI](FINSIGHT_AI_VISION.md) and [source provenance](SOURCE_MATERIALS.md).
