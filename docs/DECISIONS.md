@@ -9,8 +9,8 @@
 | Bank links, budgets, merchant expenses, financial goals | Generic Fintech Data Tree | Not MVP without changed requirements |
 | Provider and licensing | No vendor contracts or costs evidenced | Choose API and validate usage/redistribution terms, limits, quote freshness |
 | AI provider | Sprint 5 says external AI analysis service | Choose provider, server-side controls and evaluation |
-| Stack, backend and DB | Logical model only | Approve architecture and developer setup |
-| Feature status | Docs exist; functional prototype not evidenced | Track working code and tested demos separately |
+| Stack, backend and DB | **Next.js frontend code exists; physical DB, auth provider, backend routes and external services remain unselected** | Approve database/auth design and integration plan |
+| Feature status | **Jake's merged sample-data frontend passed CI; not a production service** | Track documentary milestones, demo code and actual production acceptance separately |
 | Repository access | Team charter names roles, but does not establish invitations | Verify each member accepted collaborator invite |
 | Public/private | Repo currently public | Decide whether to restrict access before uploading original class files |
 
@@ -26,7 +26,7 @@ Proposed first engineering slice: market lookup + dated quotes + basic chart; th
 | Authentication / AI explanation | Watchlist needs signed-in investor; AI results informational | Approve requirement acceptance and security/error details |
 | MVP implementation order | Accounts, search, reliable market data, AI explanations, watchlists; compare/charts follow | Confirm plan, taking care not to silently rewrite Sprint 4 priorities |
 
-See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist](SPRINT6_DESIGN_REVIEW.md). No provider, stack, legal/data license, instructor sign-off or running app is evidenced as of the update.
+See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist](SPRINT6_DESIGN_REVIEW.md). No **backend/provider/license**, instructor sign-off or deployed production app is evidenced; the frontend stack and runnable sample-data app **are** verified.
 
 ## New implementation evidence (November 2, 2026)
 - [PR #69](https://github.com/JustEmre12/FinSight/pull/69) merged a **Next.js + TypeScript + Tailwind + Recharts** sample-data frontend prepared by Jake. This is the frontend prototype technology, **not a final endorsement of backend/database/vendor choices**.
