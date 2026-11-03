@@ -7,7 +7,7 @@
 
 ## Short product description
 
-FinSight is a proposed AI-assisted stock research website that brings key market information into one organized place. Users would be able to find stocks, explore historical prices, view charts and comparisons, save watchlists, and read easy-to-understand AI-generated explanations and general risk information.
+FinSight started as a platform for **consolidating fragmented financial information**—news, company announcements, stock data and investor research—with source filtering, trends and understandable AI summaries. Its **current Sprint 4–6 baseline** is a narrower AI-assisted stock research website bringing key market information into one organized place. Users would be able to find stocks, explore historical prices, view charts and comparisons, save watchlists, and read easy-to-understand AI-generated explanations and general risk information.
 
 FinSight is intended to **support research** and does not execute investments, hold money, provide personalized financial advice, or guarantee predictions.
 
@@ -60,6 +60,15 @@ The supplied Sprint 6 document details **UC-01 Search for a Stock** and **UC-02 
 **Earlier ideas requiring a scope decision:** financial news and article aggregation, personalized news/market alerts, industry and topic following, social sentiment, manual portfolio transactions and allocation. Sprint 1–2 featured news and filtering prominently; Sprint 3 emphasized portfolio tracking. Sprint 4–6 narrow the technical model to stock research. The team still needs to decide whether to promote earlier ideas to approved MVP requirements.
 
 **Outside the documented stock-research scope:** linked bank accounts, brokerage trading/execution, custodial accounts, automatic buy/sell instructions, personalized fiduciary advice, a dedicated native mobile application, or guaranteed investment returns.
+
+## Original and proposed capabilities beyond the baseline
+
+- **Original Sprints 1–2:** curated articles/filings, industry/topic following, filtering by source/relevance/recency, alerts and trend monitoring.
+- **Sprint 3 candidate:** manually recorded portfolio holdings and transactions with performance and allocation.
+- **User-proposed FinSight AI:** sourced multi-turn stock/company questions, claim-evidence verification, related-company research and optional consented holdings-aware research scenarios. **Not implemented or approved as additional FRs.**
+- **Generic FinTech dictionary:** banking, merchant transactions, spending and goals belong to a broader unrelated finance reference, not the current stock-research MVP.
+
+See [source-based scope reconciliation](SCOPE_AND_EVOLUTION.md), [AI vision](FINSIGHT_AI_VISION.md), [physical database proposal](DATABASE_DESIGN_PLAN.md) and [FinTech reference](FINTECH_REFERENCE_DATA_MODEL.md).
 
 ## Current project status
 
