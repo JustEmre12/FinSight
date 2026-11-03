@@ -1,6 +1,6 @@
 # System Requirements — Sprint 4/5 baseline, clarified in Sprint 6
 
-These requirements are documented, **not implemented**. Sprint 6 §12 explicitly says to **retain FR-01–FR-08**, require authentication for personalized watchlists and label AI summaries as informational. Sprint 6 does **not** introduce new FR identifiers.
+These requirements are documented, **not implemented**. Sprint 6 `12 explicitly says to **retain FR-01–FR-08**, require authentication for personalized watchlists and label AI summaries as informational. Sprint 6 does **not** introduce new FR identifiers.
 
 ## Functional requirements
 | ID | What the system shall do | Priority in Sprint 4 |
@@ -48,7 +48,7 @@ FR-02 → US-01; FR-03 → US-02; FR-04 → US-03; FR-01 & FR-05 → US-04; FR-0
 | FR-04 | UC-02 retrieves market context before AI call; success displays explanation **and AI disclosure**; missing data/failed request returns error | UC-02, Fig. 6-19 |
 | FR-04 / FR-08 | AIAnalysis status transitions Requested → Processing → Completed or Failed; explanatory content is informational | Fig. 6-20A |
 | FR-06 | Compare Stocks is a named investor use case; no separate detailed UC table supplied | Fig. 6-15 |
-| FR-07 | Historical stock/chart use remains required; Sprint 6 suggests advanced charts after core function validation | Recommendation §14 |
+| FR-07 | Historical stock/chart use remains required; Sprint 6 suggests advanced charts after core function validation | Recommendation `14 |
 
 **Implementation order is not the same as requirement priority:** the Sprint 4 document calls FR-05 Medium, whereas Sprint 6 recommends building watchlist management among the early core functions. Do not silently alter the original Sprint 4 priority table without a team decision.
 
