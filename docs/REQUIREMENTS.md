@@ -53,3 +53,10 @@ FR-02 → US-01; FR-03 → US-02; FR-04 → US-03; FR-01 & FR-05 → US-04; FR-0
 **Implementation order is not the same as requirement priority:** the Sprint 4 document calls FR-05 Medium, whereas Sprint 6 recommends building watchlist management among the early core functions. Do not silently alter the original Sprint 4 priority table without a team decision.
 
 [Full Sprint 6 models](SPRINT6_OBJECT_ORIENTED_MODEL.md) · [Traceability](TRACEABILITY.md) · [Design review gate](SPRINT6_DESIGN_REVIEW.md).
+
+## November 3 scope/evidence appendix (not new approved FR IDs)
+**Source-derived baseline remains FR-01–FR-08 and NFR-01–NFR-07.** Jake's merged [PR #69](https://github.com/JustEmre12/FinSight/pull/69) implements a fictional-data **frontend demo** of many features; actual secure auth, source-licensed market data, persistent watchlists and real AI inference are still **not accepted/implemented**. The original Sprints 1–2 and Sprint 3 propose broader news and portfolio functionality. Jake's generic FinTech data dictionary includes banking/merchant transactions/goals; it is **not a revision of the combined Sprint 4/5 FinSight SRD**.
+
+A recent user-proposed **conversational FinSight AI** with source verification, linked company relationships and optional portfolio-context research is a **future change request**, not a ninth functional requirement or approved personalized buy/sell advisor. Scope decisions must precede numbering additional user stories and changing the source models.
+
+[Scope evolution](SCOPE_AND_EVOLUTION.md) · [AI vision](FINSIGHT_AI_VISION.md) · [Database plan](DATABASE_DESIGN_PLAN.md) · [Prototype evidence](FRONTEND_BACKEND_HANDOFF.md).
