@@ -34,7 +34,7 @@ Passwords stored securely hashed, not in raw form; unique email; authenticated o
 | AIAnalysis | analysisID, stockID, summary, status | D4 Analysis History |
 | StockComparison | comparisonID, stockIDs, results | No distinct Sprint 5 store specified |
 
-**Alignment cautions:** This is a crosswalk, **not** an assertion that Sprint 5's user_id, quote_time, summary_reference, etc. have been renamed or migrated. The source `12 proposes aligning dictionary *terms* with User, Stock, Watchlist, MarketData and AIAnalysis, while the `2 table also defines StockComparison. Whether StockComparison results require persistence and which classes map to separate database tables remain open physical-design questions.
+**Alignment cautions:** This is a crosswalk, **not** an assertion that Sprint 5's user_id, quote_time, summary_reference, etc. have been renamed or migrated. The source §12 proposes aligning dictionary *terms* with User, Stock, Watchlist, MarketData and AIAnalysis, while the §2 table also defines StockComparison. Whether StockComparison results require persistence and which classes map to separate database tables remain open physical-design questions.
 
 **State semantics:** AIAnalysis.status ∈ {Requested, Processing, Completed, Failed} in the Sprint 6 model; Watchlist's Empty/Populated states derive from current stock count, not a required stored state field. [Sprint 6 diagrams](SPRINT6_OBJECT_ORIENTED_MODEL.md).
 
