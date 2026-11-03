@@ -38,3 +38,13 @@
 
 ## Traceability maintenance
 Do not close a user-story implementation issue because a diagram is complete. Link a reviewed PR, passing tests, and actual demo evidence before moving any FR/US issue to Done. Design review tasks should reference this file and the source [Sprint 6 model](SPRINT6_OBJECT_ORIENTED_MODEL.md).
+
+## Newly shared materials and extension crosswalk (November 3)
+| Evidence source | Relevance to existing requirements | Additional proposed work |
+| --- | --- | --- |
+| 16-slide FinSight backend presentation | Confirms **1.0–5.0** processes, D1–D4 stores, backend validation, and Sprint 6 object types; **design-only** | [Frontend/backend handoff](FRONTEND_BACKEND_HANDOFF.md), no functioning API yet |
+| Jake Fintech Data Dictionary and Fintech Data Tree | **General** user/portfolio/transaction/banking/goal schema is **not** the FinSight Sprint 5 D1–D4 model | [Generic reference](FINTECH_REFERENCE_DATA_MODEL.md), optional future manual holdings |
+| Jake's merged Next.js PR #69 | Sample UI for FR-01–FR-08, but **not accepted end-to-end requirements** | Real market API, secure auth, private storage and AI still open |
+| Proposed conversational FinSight AI vision | Builds on FR-04 (informational stock explanation), original news/filtering research | Future chat #71, claim provenance #72, company links #73, optional holdings #74, evaluation #76; requires scope signoff |
+
+**Do not conflate:** Sprint 6 objects, physical database collections and frontend TypeScript response interfaces are different design layers. [Physical database plan](DATABASE_DESIGN_PLAN.md) maps them explicitly.

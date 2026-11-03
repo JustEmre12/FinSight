@@ -38,3 +38,16 @@ These cases follow the supplied Sprint 6 behaviors and [diagrams](SPRINT6_OBJECT
 
 ## Frontend prototype automated verification — November 2, 2026
 On [PR #69](https://github.com/JustEmre12/FinSight/pull/69), GitHub Actions ran **npm ci, npm run lint, npm run typecheck, npm test and npm run build**. [Run 41519999919](https://github.com/JustEmre12/FinSight/actions/runs/41519999919) completed successfully. The existing `app/tests/lib.test.ts` covers selected mock search, freshness, sample data, risk math and comparisons. This is **not evidence** of real API/AI integration, password security, cross-user backend access, comprehensive browser/accessibility testing or the full Sprint 6 production use-case criteria. Those remain open.
+
+## New design-only acceptance scenarios (November 3; NOT executed)
+Proposed FinSight AI and broader research functionality are not approved FR-01–FR-08 additions. If the scope is formally expanded, test:
+- [ ] AI citations resolve to actual retrieved source IDs; reject invented links and mismatched evidence.
+- [ ] Contradictory/outdated financial news displays publication vs event vs quote dates and honest uncertainty.
+- [ ] Adversarial instructions inside retrieved articles **do not** gain authority over the assistant.
+- [ ] Company partnership or supplier claims require sourced legal/issuer evidence; mere topical association is not treated as a contract.
+- [ ] With consent, self-entered holdings remain strictly private to the authorized account, with deletion and retention checks.
+- [ ] AI provider outage, source timeout, licensing restrictions and free-tier rate limits display clear fallback without fabricated facts.
+- [ ] In current MVP, server auth tests verify that changing a browser-supplied user ID cannot read another account's watchlist.
+- [ ] Original backend logic 5.1→5.5 validates request, data context, AI response and metadata persistence; Sprint 6 Requested/Processing/Completed/Failed states are exercised.
+
+These scenarios complement—but do not replace—the existing source-derived S6-T01–T12 tests. [AI design proposal](FINSIGHT_AI_VISION.md) · [Integration plan](FRONTEND_BACKEND_HANDOFF.md) · [Issue #76](https://github.com/JustEmre12/FinSight/issues/76).

@@ -53,6 +53,15 @@
 - [ ] Validate with potential users.
 - [ ] Deploy a demonstration and document limitations.
 
+## Broader vision and new product expansion (separate approval required)
+- [ ] Team decision: whether original **news aggregation, source filters, topics, trends and alerts** belong to the MVP or later research phase.
+- [ ] Team decision: whether earlier Sprint 3 **manual portfolio holdings and investment transactions** should be developed; avoid conflating them with generic bank/spending transactions.
+- [ ] Review Jake's **generic FinTech** dictionary only as a possible portfolio reference, not the current schema.
+- [ ] Define separate user stories and privacy/security acceptance for proposed **FinSight AI chat**, source verification, evidence-backed company relationships and optional user-entered holdings.
+- [ ] Establish legal/compliance and source-licensing review before any individualized company buy/sell instructions are considered.
+
+[Scope evolution](SCOPE_AND_EVOLUTION.md) · [FinSight AI vision](FINSIGHT_AI_VISION.md) · [Database plan](DATABASE_DESIGN_PLAN.md) · [Frontend/backend handoff](FRONTEND_BACKEND_HANDOFF.md).
+
 ## Future only if approved
 News/article ingestion and alerts; manual portfolio records; social sentiment; premium billing; mobile-native app.
 

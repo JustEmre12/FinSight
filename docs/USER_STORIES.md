@@ -58,3 +58,13 @@ The numbered stories were supplied in **FinSight - User Stories.docx**, and repe
 | US-07 | AIAnalysis/MarketData | Risk explanations remain informational, not direct investment advice | [#43](https://github.com/JustEmre12/FinSight/issues/43) |
 
 **FR-01** registration/login/logout is tracked in [#44](https://github.com/JustEmre12/FinSight/issues/44). Sprint 6 includes exactly **two** detailed use-case descriptions (UC-01 and UC-02) and four named primary use cases overall. [Complete modeling document](SPRINT6_OBJECT_ORIENTED_MODEL.md) · [Cross-model matrix](TRACEABILITY.md).
+
+## Potential new user stories — proposals, not US-08/09 approval
+These are **brainstorming candidates** from the initial news aggregation concept, Sprint 3 portfolio direction and newer FinSight AI conversation. They have **no newly approved numbered requirement IDs**:
+- *Research provenance:* As a researcher, I could inspect source dates and primary evidence behind a financial claim, so I can judge uncertainty and conflicting reports ([#72](https://github.com/JustEmre12/FinSight/issues/72)).
+- *Conversational exploration:* As a user, I could ask follow-up questions about companies and see real cited filings/news, not template text or invented source links ([#71](https://github.com/JustEmre12/FinSight/issues/71)).
+- *Related companies:* As a user, I could inspect evidenced subsidiary/supplier/partner relationships and their effective dates ([#73](https://github.com/JustEmre12/FinSight/issues/73)).
+- *Optional holdings context:* As an opted-in user, I could learn about portfolio concentration/overlap and alternative research scenarios without FinSight executing trades or issuing guaranteed personalized advice ([#74](https://github.com/JustEmre12/FinSight/issues/74)).
+- *News/alerts:* As a user, I could choose followed topics and receive appropriately sourced relevant updates, only after consent and licensing ([#49](https://github.com/JustEmre12/FinSight/issues/49), [#50](https://github.com/JustEmre12/FinSight/issues/50)).
+
+Do not mark these as completed or modify the seven submitted US-01–US-07 stories without team/instructor sign-off. [Scope history](SCOPE_AND_EVOLUTION.md) · [FinSight AI design](FINSIGHT_AI_VISION.md).

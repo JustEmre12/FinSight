@@ -9,8 +9,8 @@
 | Bank links, budgets, merchant expenses, financial goals | Generic Fintech Data Tree | Not MVP without changed requirements |
 | Provider and licensing | No vendor contracts or costs evidenced | Choose API and validate usage/redistribution terms, limits, quote freshness |
 | AI provider | Sprint 5 says external AI analysis service | Choose provider, server-side controls and evaluation |
-| Stack, backend and DB | Logical model only | Approve architecture and developer setup |
-| Feature status | Docs exist; functional prototype not evidenced | Track working code and tested demos separately |
+| Stack, backend and DB | **Next.js frontend code exists; physical DB, auth provider, backend routes and external services remain unselected** | Approve database/auth design and integration plan |
+| Feature status | **Jake's merged sample-data frontend passed CI; not a production service** | Track documentary milestones, demo code and actual production acceptance separately |
 | Repository access | Team charter names roles, but does not establish invitations | Verify each member accepted collaborator invite |
 | Public/private | Repo currently public | Decide whether to restrict access before uploading original class files |
 
@@ -26,10 +26,24 @@ Proposed first engineering slice: market lookup + dated quotes + basic chart; th
 | Authentication / AI explanation | Watchlist needs signed-in investor; AI results informational | Approve requirement acceptance and security/error details |
 | MVP implementation order | Accounts, search, reliable market data, AI explanations, watchlists; compare/charts follow | Confirm plan, taking care not to silently rewrite Sprint 4 priorities |
 
-See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist](SPRINT6_DESIGN_REVIEW.md). No provider, stack, legal/data license, instructor sign-off or running app is evidenced as of the update.
+See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist](SPRINT6_DESIGN_REVIEW.md). No **backend/provider/license**, instructor sign-off or deployed production app is evidenced; the frontend stack and runnable sample-data app **are** verified.
 
 ## New implementation evidence (November 2, 2026)
 - [PR #69](https://github.com/JustEmre12/FinSight/pull/69) merged a **Next.js + TypeScript + Tailwind + Recharts** sample-data frontend prepared by Jake. This is the frontend prototype technology, **not a final endorsement of backend/database/vendor choices**.
 - A GitHub Actions workflow now checks frontend lint/type/tests/build; the [PR run passed](https://github.com/JustEmre12/FinSight/actions/runs/41519999919).
 - **Unresolved:** market provider/license, actual AI service, secure auth, database-backed watchlists, production deployment, full QA and formal design approval.
 - [Frontend handoff](FRONTEND_PROTOTYPE.md) records exactly what is mock versus implemented.
+
+## Current reconciliation from additional project documents — November 3, 2026
+| Additional question | Evidence and status | Suggested decision gate |
+| --- | --- | --- |
+| Generic FinTech data tree and dictionary | Includes checking/savings banks, merchant transactions and financial goals; **not** included in Sprint 4–6 baseline | Keep as a reference; do not automatically include banking or payment functions |
+| Sprint 3 manual holdings/transaction concept | A documented portfolio-focused plan, while combined Sprint 4–5 explicitly excludes portfolio custody, bank transactions and trade execution | Decide separately if **self-entered recordkeeping** belongs in a later phase |
+| Proposed FinSight AI assistant | User concept includes chat, news/claim corroboration, company relationships and optional holding-aware research | Approve separate requirements, privacy/retention, data licenses and transparent claim-verification policy |
+| Specific portfolio-aware buy/sell instructions | Conflicts with Sprint 4/5 and Sprint 6 **no personalized advice** scope | Not part of baseline; assess legal/regulatory implications before any user-specific recommendation feature |
+| Real database connection | MongoDB and PostgreSQL free-tier providers were discussed but **none is verified connected** | Choose data/auth vendor, server API, cost/limits, schema and backups as a team |
+| Frontend ZIP versus GitHub | Uploaded ZIP is a pre-CI snapshot; PR #69 already merged into §main§ | Preserve existing code and use GitHub as the working source |
+
+**Status correction:** The earlier “functional prototype not evidenced” and “no running app” wording refers to the *historical planning documents*. The [merged sample-data prototype](FRONTEND_PROTOTYPE.md) is now real, while a **production-integrated app** is not.
+
+[Scope and project evolution](SCOPE_AND_EVOLUTION.md) · [FinSight AI vision](FINSIGHT_AI_VISION.md) · [Generic FinTech reference](FINTECH_REFERENCE_DATA_MODEL.md) · [Database architecture proposal](DATABASE_DESIGN_PLAN.md).

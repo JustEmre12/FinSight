@@ -23,3 +23,14 @@ License/terms for stock and news APIs, pricing/limits, provider freshness, AI in
 - **Conditional design approval:** Sprint 6 recommends further design only after reviewing licensing/cost, freshness, AI reliability, security and acceptance criteria. Management approval has **not** been evidenced.
 
 See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [design gate](SPRINT6_DESIGN_REVIEW.md). Keep the original Sprint 3 risk scores intact unless the team re-evaluates them.
+
+## New optional-feature risks (November 3; unscored proposals)
+The Sprint 3 risk scores remain historical and unchanged. If the team approves the broader FinSight AI/news/portfolio vision, the following risks need **new estimates and owners**:
+- **Financial source misattribution / false corroboration:** AI may invent citations, overstate a rumor, or confuse publisher date with event date. Mitigate through validated source IDs, primary disclosures, contradictory evidence and visible as-of timestamps.
+- **Hostile financial content / prompt injection:** external articles and filings are untrusted text; their embedded instructions must not control an AI system prompt, data access or actions.
+- **Portfolio and chat privacy:** optional holdings/cost basis and conversation content require consent, restricted access, minimal provider transfer and defined deletion/retention.
+- **Licensing and free-tier reliability:** stock/news APIs, models, hosting and databases may restrict commercial redistribution, quota, freshness or availability. “Free tier” never means unlimited usage.
+- **Personalized-advice boundary:** user-specific buy/sell directives exceed the combined Sprint 4/5 and Sprint 6 informational scope; assess compliance before expanding.
+- **Physical database mismatch:** the generic Fintech Data Dictionary's bank and spending tables are not approved FinSight D1–D4 schema; require explicit design and migration review.
+
+[Risk-related scope](SCOPE_AND_EVOLUTION.md) · [AI vision](FINSIGHT_AI_VISION.md) · [Database plan](DATABASE_DESIGN_PLAN.md) · [Evaluation scenarios](TEST_PLAN.md).

@@ -1,7 +1,7 @@
 # FinSight
 **AI-assisted financial market research, explained simply.**
 
-FinSight is a student-built financial research project for beginner and individual investors. A **runnable sample-data frontend prototype** is now available in the repository, while the production platform remains under development. The planned experience brings together market data, historical charts, stock comparisons, personal watchlists, and AI-generated explanations that make financial information easier to understand.
+FinSight is a student-built financial research project for beginner and individual investors. A **runnable sample-data frontend prototype** is now available in the repository, while the production platform remains under development. The current required experience covers stock search, market data, charts, comparisons, watchlists and AI explanations. The **original vision** also features news/source aggregation, filtering, trends and alerts. A newer **FinSight AI** conversational research assistant is proposed, not yet implemented.
 
 **Current phase:** Sprint 6 object-oriented modeling **documented** + first frontend demonstration **merged November 2, 2026** → real integrations and detailed system design **pending**.  
 **Project:** BCS 301W · Systems Analysis & Design · Fall 2026  
@@ -13,17 +13,22 @@ FinSight is a student-built financial research project for beginner and individu
 
 | Start here | Purpose |
 | --- | --- |
+| **[Complete Project Scope and Evolution](docs/SCOPE_AND_EVOLUTION.md)** | Understand Sprints 1–6, early news/portfolio concepts and newly proposed AI research |
+| **[Verified Project Status](docs/PROJECT_STATUS.md)** | Exactly what exists in code and what still needs work |
 | **[Product Overview](docs/PRODUCT_OVERVIEW.md)** | What FinSight aims to do, who it serves, and the intended user experience |
 | **[Frontend Prototype](docs/FRONTEND_PROTOTYPE.md)** | How to run Jake's merged demo and what is still simulated |
 | **[Work Board / Kanban](docs/KANBAN.md)** | Planned, active, review, completed, blocked, and future work |
 | **[All GitHub Issues](https://github.com/JustEmre12/FinSight/issues)** | Track tasks, requirements, reviews, and progress |
 | **[Documentation Hub](docs/README.md)** | Browse every sprint, model, requirement, and project document |
 | **[Sprint 6 Object-Oriented Models](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)** | Objects, relationships, use cases, sequences, state transitions, and activity flows |
+| **[Frontend-to-Backend Handoff](docs/FRONTEND_BACKEND_HANDOFF.md)** | Existing app data contracts, backend steps and integration plan |
+| **[Proposed Database Model](docs/DATABASE_DESIGN_PLAN.md)** | D1–D4 mapping, secure database/auth options and proposed collections |
+| **[FinSight AI Research Vision](docs/FINSIGHT_AI_VISION.md)** | Proposed sourced conversation, verified claims and optional portfolio context |
 | **[Roadmap](docs/ROADMAP.md)** | What the team has documented and what must happen next |
 
 ## Product goal
 
-Individual investors often switch between separate sources for stock prices, historical data, market analysis, and financial news. FinSight aims to reduce that research effort by presenting selected information in a clear, beginner-friendly interface.
+**Reduce fragmented investor research.** The Sprint 1 proposal and Sprint 2 investigation explain the problem of cross-checking separate company disclosures, financial news, market data and online discussion. FinSight's long-term mission is to **gather, filter, attribute and explain** relevant information, while the later Sprint 4–6 baseline intentionally narrows the current deliverable to eight stock-research requirements.
 
 The latest **Sprint 4–6 requirements and models** focus on a stock **research-support** website. Financial-news aggregation, market alerts, and broader portfolio features appear in earlier project ideas but are **not automatically included in the current MVP**.
 
@@ -42,7 +47,7 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 
 **[Full functional/nonfunctional requirements](docs/REQUIREMENTS.md)** · **[Seven user stories](docs/USER_STORIES.md)** · **[Requirements-to-design traceability](docs/TRACEABILITY.md)**
 
-## Project progress — October 30, 2026
+## Project progress — November 3, 2026
 
 | Sprint | Documented work |
 | --- | --- |
@@ -54,15 +59,24 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 | **6 — Object-oriented modeling** | **Six objects; four named use cases; two detailed use-case descriptions; object relationship, derived class, sequence, state and activity diagrams** |
 | **Frontend prototype — Nov 2** | **Jake's feature branch merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69); frontend lint, TypeScript, unit tests and build passed** |
 
-**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. The market-data provider, AI service, technology stack, and working application still require decisions and development.
+**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. A runnable **Next.js/TypeScript/Tailwind/Recharts frontend demo exists**, but backend architecture, chosen database, secure login, a licensed market-data provider, real AI service and production deployment remain unfinished.
 
 ### Task tracking
 
-The project has **69 GitHub Issues** as of November 2, 2026: **22 closed documentation/prototype tasks and 47 open tasks**.
+**November 3 tracking snapshot:** **81 GitHub Issue records**, including four closed duplicate records that are not active Kanban cards; **55 open**, **26 closed**, and **77 stage-tracked cards**. The **22 Done-lane cards** are documented deliverables plus one merged frontend prototype—not 22 completed production features. See the [Kanban](docs/KANBAN.md) for live-label links.
 
 [View seven-stage Kanban](docs/KANBAN.md) · [Browse Issues](https://github.com/JustEmre12/FinSight/issues) · [Read-only interactive board source](board/index.html)
 
 The seven stages are **Product Backlog, Ready, In Progress, In Review, Done, Blocked, Future**. Some In Progress items represent provisional planning focus, not verified engineering activity. The Done lane includes a distinct frontend **prototype** task, while production FR/US issues remain open. The interactive board reads live public Issues when served, but GitHub Pages is **not currently enabled**, and this is **not** a native GitHub Projects drag-and-drop board.
+
+## Original vision and proposed expansion
+
+- **Sprints 1–2:** financial news, source links and filtering, topic/company following, trend detection, summaries and relevance-based alerts — original goals awaiting a scope decision for the current MVP.
+- **Sprint 3:** manually tracked holdings, portfolio values, transactions, gains/losses and allocations — a different portfolio-focused planning document, not automatically part of the later FR-01–FR-08 baseline.
+- **Generic FinTech dictionary:** bank accounts, spending transactions and financial goals — **reference material, not FinSight backend requirements**. [Reference comparison](docs/FINTECH_REFERENCE_DATA_MODEL.md).
+- **Proposed FinSight AI:** conversational sourced company research, evidence/claim checks, verified company relationships and optional user-entered holdings-aware scenarios. This requires approval, security, privacy and investment-advice boundary review. [AI proposal](docs/FINSIGHT_AI_VISION.md).
+
+**AI-generated-text detection is not proof a financial claim is true:** the proposal prioritizes primary documents, source dates, corroboration, contradictions and uncertainty.
 
 ## Run the frontend prototype locally
 
@@ -99,7 +113,7 @@ The charter describes roles other than Project Manager as proposed and adjustabl
 
 | Location | Contents |
 | --- | --- |
-| [docs/](docs/README.md) | Project overview, discovery, Sprints 1–6, requirements, diagrams, risks, planning, testing and status |
+| [docs/](docs/README.md) | Full documented vision, Sprints 1–6, new source references, proposed AI/database, frontend/backend handoff, risks and tracking |
 | [board/](board/README.md) | Read-only GitHub Issues Kanban webpage (not hosted yet) |
 | [app/](app/README.md) | **Runnable Next.js sample-data frontend**, unit tests, screenshots and setup guide |
 | [.github/](.github/) | Feature and bug issue templates, pull-request template |
@@ -119,4 +133,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the group's suggested workflow.
 
 **Important:** FinSight is intended for informational investment research. It does **not** execute trades, hold funds, provide personalized financial advice, or guarantee outcomes. Market information must display its source and freshness, and AI-generated content must be identified as such.
 
-_This public repository contains organized summaries of the team's **15 supplied project documents**, plus Jake's separately contributed frontend prototype. The original Word/PDF submissions are not uploaded here. Nothing in this README claims instructor approval or a completed software application._
+_This public repository contains organized summaries of the team's **18 catalogued project source entries** plus a separate Appliance Warehouse modeling example, plus Jake's separately contributed frontend prototype. The original Word/PDF submissions are not uploaded here. Nothing in this README claims instructor approval or a completed software application._
