@@ -63,7 +63,7 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 
 ### Task tracking
 
-The project has **69 GitHub Issues** as of November 2, 2026: **22 closed documentation/prototype tasks and 47 open tasks**.
+**November 3 tracking snapshot:** **81 GitHub Issue records**, including four closed duplicate records that are not active Kanban cards; **55 open**, **26 closed**, and **77 stage-tracked cards**. The **22 Done-lane cards** are documented deliverables plus one merged frontend prototype—not 22 completed production features. See the [Kanban](docs/KANBAN.md) for live-label links.
 
 [View seven-stage Kanban](docs/KANBAN.md) · [Browse Issues](https://github.com/JustEmre12/FinSight/issues) · [Read-only interactive board source](board/index.html)
 
