@@ -65,7 +65,7 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 
 ### Task tracking
 
-**November 3 tracking snapshot:** **81 GitHub Issue records**, **54 open**, **27 closed**, **77 stage-tracked cards**; 4 closed duplicates are not shown in Kanban. The **23 Done-lane cards** are documented deliverables and merged prototype/documentation work—not finished production features. See the [Kanban](docs/KANBAN.md) for current stage filters.
+**November 3 tracking snapshot:** **82 GitHub Issue records**, **55 open**, **27 closed**, **78 stage-tracked cards**; 4 closed duplicate records are not shown in Kanban. The **23 Done-lane cards** are documented deliverables and verified prototype/documentation milestones—not finished production features. See the [Kanban](docs/KANBAN.md) for current stage filters.
 
 [View seven-stage Kanban](docs/KANBAN.md) · [Browse Issues](https://github.com/JustEmre12/FinSight/issues) · [Read-only interactive board source](board/index.html)
 
