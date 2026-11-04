@@ -1,6 +1,6 @@
 # FinSight frontend-to-backend engineering handoff
 
-**Evidence:** [Merged PR #69](https://github.com/JustEmre12/FinSight/pull/69) by Jake Pepitone (November 2, 2026), current `app/` source, Sprint 5 data flows, Sprint 6 OO model and the 16-slide backend presentation. **The backend presentation is a design deck, not a running API.** No production database, auth, market provider or AI inference is connected.
+**Evidence:** [Merged PR #69](https://github.com/JustEmre12/FinSight/pull/69) by Jake Pepitone (November 2, 2026), current `app/` source, Sprint 5 data flows, Sprint 6 OO model and the 16-slide backend presentation. **The backend presentation is a design deck, not a running API.** **MongoDB Atlas is now selected for persistence, but no Atlas database is provisioned or connected.** Auth, market provider and AI inference are still not connected.
 
 ## Existing runnable frontend
 
@@ -45,7 +45,7 @@ The uploaded `FinSight-feature-frontend.zip` and its `(1)` copy are the **same s
 
 ## Safe incremental integration plan
 
-1. **Design and select** database/provider/auth/AI with team review and actual free-tier/vendor license constraints; never commit credentials.
+1. **Database is selected: MongoDB Atlas.** Review [MONGODB_READINESS](MONGODB_READINESS.md) and [MONGODB_SCHEMA](MONGODB_SCHEMA.md); then choose auth/market/AI providers. Never commit credentials.
 2. Implement authenticated backend sessions and access-controlled user profile/watchlist records. Test user A cannot read user B data.
 3. Build a server-only market provider adapter. Validate symbols, attach **provider+quoteTime+currency+delayMinutes**, handle stale/no-data/timeout/rate limit.
 4. Replace the sample adapter **function by function** with backend fetch; do not hide the banner until live data truly replaces the sample.
@@ -70,4 +70,4 @@ These are fictional demonstration symbols/prices; **do not store as actual trade
 
 The charter suggests Jake (UI), Asad (backend/database/APIs), Henry (AI/data) and Salih (requirements/project management), but the allocation is not proof tasks are underway. Track real changes in [GitHub Issues](https://github.com/JustEmre12/FinSight/issues), PRs and [current status](PROJECT_STATUS.md). No backend code is claimed to exist because of the uploaded PowerPoint.
 
-[Frontend handoff](FRONTEND_PROTOTYPE.md) · [Backend logical diagrams](SYSTEM_DESIGN.md) · [Database proposal](DATABASE_DESIGN_PLAN.md) · [Sprint 6 model](SPRINT6_OBJECT_ORIENTED_MODEL.md).
+[Frontend handoff](FRONTEND_PROTOTYPE.md) · [Backend logical diagrams](SYSTEM_DESIGN.md) · [MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md) · [Database design](DATABASE_DESIGN_PLAN.md) · [Sprint 6 model](SPRINT6_OBJECT_ORIENTED_MODEL.md).

@@ -4,6 +4,12 @@ The FinSight user interface, built with **Next.js (App Router) + TypeScript + Ta
 
 > **Sample data only.** No market-data or AI provider has been chosen yet ([docs/DECISIONS.md](../docs/DECISIONS.md), issues #26 and #27). Every page shows a **"Sample data, not real market prices"** banner. The companies and prices are fictional and generated in code.
 
+## Backend/database status
+
+**MongoDB Atlas is the selected database platform, but it is not created or connected yet.** The current app still runs completely from fictional sample data and browser localStorage. When backend work begins, database access must happen on the server; never import a MongoDB connection string into browser code.
+
+See [MongoDB readiness](../docs/MONGODB_READINESS.md), [schema draft](../docs/MONGODB_SCHEMA.md), and [frontend/backend handoff](../docs/FRONTEND_BACKEND_HANDOFF.md).
+
 ## Setup
 
 You need **Node.js 20.9 or newer** (check with `node -v`).

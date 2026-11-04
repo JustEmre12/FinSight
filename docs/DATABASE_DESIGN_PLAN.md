@@ -1,6 +1,6 @@
 # FinSight database design plan — proposed physical implementation
 
-**State:** Design proposal only. **No MongoDB Atlas/Supabase/Neon project has been provisioned, connected, migrated or approved.** Do not commit connection strings, secret tokens, or real customer/holding data. This document translates *logical requirements* to candidate physical data structures. It does not replace the source dictionary.
+**State:** **MongoDB Atlas is the selected database platform.** The physical design is prepared, but **no Atlas project/cluster/database/collection has been provisioned or connected yet.** Do not commit connection strings, secret tokens, or real customer/holding data. This document translates the logical requirements into the selected MongoDB direction; it does not replace the source dictionary.
 
 ## 1. Official logical baseline — source traceability
 
@@ -14,7 +14,7 @@
 
 A **logical object is not necessarily one table**. StockSummary/Quote/PriceHistory/AiExplanation in the frontend are **API response shapes**, not automatically persistent entities.
 
-## 2. Minimal candidate database for Sprint 4–6 MVP
+## 2. Phase 1 MongoDB database for Sprint 4–6 MVP
 
 | Candidate | Key fields | Index / integrity expectation |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ A **logical object is not necessarily one table**. StockSummary/Quote/PriceHisto
 
 **Required behavior:** unique account emails; verified signed-in owner for watchlists; validated symbols and analysis requests; available source/currency/time for quotes; proper unavailable/stale errors; generated content clearly labeled informational. Do not treat password_hash in the logical dictionary as a requirement to implement password handling from scratch. Use a mature auth provider/framework and secure, server-side sessions.
 
-## 3. Practical MongoDB mapping (if MongoDB is selected)
+## 3. MongoDB implementation mapping
 
 MongoDB can use the candidate names as **collections**, with ObjectId/UUID foreign references and schema validation. For financial quantities, avoid imprecise floating-point storage: use **Decimal128** (or fixed minor units as integers for currency amounts), explicit ISO currencies and consistent dates. Define ownership, role checks and unique compound indexes. Do not expose the database connection to the browser; the Next.js server would handle access.
 
@@ -38,7 +38,7 @@ Example suggested indexes:
 - `analysis_runs`: {user_id:1, requested_at:-1}; {symbol:1, requested_at:-1}.
 - `quotes`: {instrument_id:1, quote_time:-1}; stale/expiry policy after provider licensing review.
 
-PostgreSQL is also valid; use native keys, constraints, NUMERIC, RLS where applicable, and migrations. **The user has discussed free MongoDB, Supabase, Neon, and free-tier AI; no actual vendor selection or integration is evidenced.**
+**Decision update (November 3, 2026): MongoDB Atlas is the chosen database platform for FinSight.** Earlier Supabase/Neon/PostgreSQL discussion is historical comparison only. The database is not yet provisioned or integrated.
 
 ## 4. Planned backend contract → Jake's real frontend
 
@@ -67,14 +67,15 @@ See [frontend-backend integration plan](FRONTEND_BACKEND_HANDOFF.md).
 
 For AI and news, prefer storing **links, necessary excerpts and licensing-compliant metadata** over copying entire copyrighted articles; avoid saving raw sensitive investment holdings in prompts/history without consent and a defined retention purpose.
 
-## 6. Decisions needed before any database work
+## 6. Readiness before database creation
 
-1. Agree on baseline vs optional FinSight AI/portfolio/news scope ([issue #25](https://github.com/JustEmre12/FinSight/issues/25)).
-2. Select managed database, free-tier caveats, auth and backup/recovery plan ([issue #28](https://github.com/JustEmre12/FinSight/issues/28), [#30](https://github.com/JustEmre12/FinSight/issues/30)).
-3. Choose licensed stock/market/news data providers and freshness policy ([#26](https://github.com/JustEmre12/FinSight/issues/26)).
-4. Choose an AI service and evaluate privacy, operating limits and output reliability ([#27](https://github.com/JustEmre12/FinSight/issues/27)).
-5. Document migration/validation rules, owner access, indexes, failure tests and real retention/backups before using personal information.
+1. **MongoDB Atlas is selected.** Review [MONGODB_READINESS](MONGODB_READINESS.md) and [MONGODB_SCHEMA](MONGODB_SCHEMA.md) before provisioning.
+2. Finalize authentication/session ownership and backup/recovery details ([#35](https://github.com/JustEmre12/FinSight/issues/35), [#75](https://github.com/JustEmre12/FinSight/issues/75)).
+3. Keep the database limited to the six Phase 1 collections unless broader AI/portfolio scope is formally approved ([#25](https://github.com/JustEmre12/FinSight/issues/25)).
+4. Choose licensed stock/market/news data providers and freshness policy ([#26](https://github.com/JustEmre12/FinSight/issues/26)).
+5. Choose an AI service and evaluate privacy, operating limits and output reliability ([#27](https://github.com/JustEmre12/FinSight/issues/27)).
+6. When ready, create the Atlas resources and apply validators/indexes without committing secrets.
 
 **No real database or API keys are stored in this repo.** A provider's free plan can have size/request limits; it is not an unconditional promise of unlimited cost-free service.
 
-[Official data dictionary](DATA_DICTIONARY.md) · [Generic fintech reference](FINTECH_REFERENCE_DATA_MODEL.md) · [Roadmap](ROADMAP.md) · [AI design](FINSIGHT_AI_VISION.md).
+[MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md) · [Official data dictionary](DATA_DICTIONARY.md) · [Generic fintech reference](FINTECH_REFERENCE_DATA_MODEL.md) · [Roadmap](ROADMAP.md) · [AI design](FINSIGHT_AI_VISION.md).

@@ -32,13 +32,26 @@
 - [ ] Reconcile news/alerts vs portfolio tracking vs narrower stock research.
 - [ ] Review user discovery questions and carry out interviews.
 - [ ] Select data provider and validate licensing/price/delay/rate limit.
-- [ ] Decide technical stack, AI service and architecture.
+- [x] **Select database platform: MongoDB Atlas.** Schema/readiness documentation prepared; database intentionally not created yet.
+- [ ] Choose authentication/session solution, backend route structure, AI service and deployment architecture.
 - [ ] Produce reviewed responsive wireframes, data design and test fixtures.
+
+## MongoDB readiness milestone — November 3, 2026
+- [x] MongoDB Atlas selected as the database platform.
+- [x] D1–D4 mapped to six Phase 1 collections.
+- [x] MongoDB field/types/index draft documented.
+- [x] Environment placeholders updated without real secrets.
+- [ ] Atlas project/cluster/database **not created yet**.
+- [ ] Authentication/session provider still undecided.
+- [ ] MongoDB connection code not written yet.
+
+[MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md)
 
 ## Engineering MVP — Sprint 6 recommended order
 **Suggested sequence in Sprint 6:** Secure accounts → Stock search → Market data retrieval → AI explanation → Watchlist; then comparisons and advanced charts after validated core capabilities. This is a recommendation, not an implemented feature or override of Sprint 4 priority labels.
 
 - [x] **Prototype** responsive shell/navigation exists (real application acceptance still pending).
+- [ ] **Create/connect MongoDB Atlas when ready** using [MONGODB_READINESS](MONGODB_READINESS.md) and [MONGODB_SCHEMA](MONGODB_SCHEMA.md); do not commit credentials.
 - [ ] Auth with safe storage and private user sessions.
 - [ ] Stock search, quote/history, timestamps and provider errors.
 - [ ] Watchlist persistence.

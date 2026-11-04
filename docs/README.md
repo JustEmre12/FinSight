@@ -34,9 +34,11 @@
 - [Requirements / objects / issue traceability](TRACEABILITY.md)
 - **[Frontend-to-backend integration handoff](FRONTEND_BACKEND_HANDOFF.md)** — exact existing API contracts, backend process mapping and missing services
 
-## Database and expanded FinSight AI (proposals, not deployed)
+## Database and expanded FinSight AI
 
-- **[Proposed physical database design](DATABASE_DESIGN_PLAN.md)** — source D1–D4 mapping, collections/tables, auth/privacy/indexes, future data
+- **[MongoDB readiness](MONGODB_READINESS.md)** — **MongoDB Atlas selected**; Phase 1 collections, indexes, security rules and creation checklist; not provisioned yet
+- **[MongoDB schema draft](MONGODB_SCHEMA.md)** — concrete fields, BSON types and indexes ready to implement
+- **[Physical database design background](DATABASE_DESIGN_PLAN.md)** — source D1–D4 mapping, MongoDB persistence decisions, auth/privacy and future data
 - **[Jake's generic FinTech data dictionary and tree](FINTECH_REFERENCE_DATA_MODEL.md)** — banking, spending, portfolio and goals; **separate from approved FinSight MVP**
 - **[FinSight AI conversational research vision](FINSIGHT_AI_VISION.md)** — news/filings, provenance, company relationships, optional holdings, privacy and grounded research **proposed**
 - [Future concepts vs approved scope](SCOPE_AND_EVOLUTION.md)
