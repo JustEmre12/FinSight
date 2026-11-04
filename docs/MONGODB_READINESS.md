@@ -121,6 +121,6 @@ The real backend should either preserve these contracts or change them deliberat
 - [ ] AI provider selected and evaluated.
 - [ ] Backend connected and integration tests passed.
 
-**The repository is ready for the database-creation step, but that step has intentionally not been performed yet.**
+**The repository is ready for the database-creation step, but that step has intentionally not been performed yet.** Actual creation is tracked in [GitHub Issue #84](https://github.com/JustEmre12/FinSight/issues/84).
 
 [MongoDB schema](MONGODB_SCHEMA.md) · [Database design background](DATABASE_DESIGN_PLAN.md) · [Frontend/backend handoff](FRONTEND_BACKEND_HANDOFF.md) · [Current status](PROJECT_STATUS.md)
