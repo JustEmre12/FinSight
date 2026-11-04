@@ -1,6 +1,6 @@
 # MongoDB readiness — FinSight
 
-**Status:** MongoDB Atlas is the selected database platform for the next FinSight backend milestone. **No Atlas project, cluster, database, collection, database user, IP access list, connection string, or production data has been created by this repository update.**
+**Status:** **MongoDB Atlas is now provisioned for FinSight.** The dedicated Atlas project, free `FinSight-MVP` cluster, `finsight` database, scoped application DB user, six Phase 1 collections and documented query indexes exist. The database is empty of sample/production financial data. The connector does not expose collection validators or `unique` index options, so those final integrity constraints are represented in [`database/mongodb-init.js`](../database/mongodb-init.js) and must be applied before real user/market data is stored.
 
 This document turns the Sprint 4–6 logical design and the merged frontend into a concrete MongoDB implementation handoff so the database can be created later without re-deciding the basic structure.
 
@@ -8,7 +8,7 @@ This document turns the Sprint 4–6 logical design and the merged frontend into
 
 - **Selected database:** MongoDB Atlas.
 - **Database name when created:** `finsight` (recommended).
-- **Current repository state:** database design only; no MongoDB connection.
+- **Current repository state:** live Atlas infrastructure and MVP database created; application/backend connection not yet implemented.
 - **MongoDB ChatGPT plugin:** available for later creation/inspection work.
 - **Authentication:** still a separate decision. MongoDB will store application profile references and private product data, but FinSight should not invent its own plaintext-password system.
 - **Market-data provider:** still unselected.
@@ -113,14 +113,14 @@ The real backend should either preserve these contracts or change them deliberat
 - [x] MongoDB Atlas selected as database platform.
 - [x] Collection names, fields and indexes drafted.
 - [x] Public repo has no MongoDB credentials.
-- [ ] MongoDB Atlas project/cluster created.
-- [ ] Database and collections created.
-- [ ] Validators and indexes applied.
+- [x] MongoDB Atlas project/cluster created.
+- [x] Database and six Phase 1 collections created.
+- [~] Query indexes applied; strict validators and unique-index options remain pending via `database/mongodb-init.js` because the connector cannot express those options.
 - [ ] Authentication provider/session design finalized.
 - [ ] Market-data provider selected/licensed.
 - [ ] AI provider selected and evaluated.
 - [ ] Backend connected and integration tests passed.
 
-**The repository is ready for the database-creation step, but that step has intentionally not been performed yet.** Actual creation is tracked in [GitHub Issue #84](https://github.com/JustEmre12/FinSight/issues/84).
+**The database-creation step has now been performed.** Remaining DB-integrity/backend integration work is tracked in [GitHub Issue #84](https://github.com/JustEmre12/FinSight/issues/84). See [live database notes](../database/README.md).
 
 [MongoDB schema](MONGODB_SCHEMA.md) · [Database design background](DATABASE_DESIGN_PLAN.md) · [Frontend/backend handoff](FRONTEND_BACKEND_HANDOFF.md) · [Current status](PROJECT_STATUS.md)
