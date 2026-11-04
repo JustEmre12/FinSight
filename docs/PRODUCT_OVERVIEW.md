@@ -73,7 +73,7 @@ See [source-based scope reconciliation](SCOPE_AND_EVOLUTION.md), [AI vision](FIN
 ## Current project status
 
 - **Documented:** Sprints 1–6, requirements, user stories, conceptual diagrams, feasibility, planning schedule, team roles, and draft test scenarios.
-- **Pending decision/review:** Team agreement on final MVP boundaries; provider selection, licensing, refresh/freshness policy, AI service and cost, stack, database/physical design, usability validation, and management/instructor approval.
+- **Pending decision/review:** Team agreement on final MVP boundaries; market-data provider/licensing/freshness, AI service/cost, authentication/backend/deployment architecture, usability validation, and management/instructor approval. **MongoDB Atlas is selected and the Phase 1 schema is drafted, but no database is created yet.**
 - **Implemented as demonstration only (November 2):** Jake's Next.js frontend with stock search, charts, comparisons, risk displays, a template explanation panel and local demo watchlists. Automated lint, typechecks, unit tests and production build passed on [PR #69](https://github.com/JustEmre12/FinSight/pull/69).
 - **Still not demonstrated by the repository:** A deployed production website, real licensed market-data or AI integration, secure backend sign-in, server-side watchlists, full production acceptance testing, or verified user research.
 
