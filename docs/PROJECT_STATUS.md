@@ -18,7 +18,7 @@
 | AI explanation | **Template text** | `getAiExplanation()` | External AI provider, response evaluation, provenance, privacy |
 | Conversational verified-source FinSight AI | **Proposed expansion** | Product discussion only; [AI vision](FINSIGHT_AI_VISION.md) | Approval, architecture, source rights, implementation |
 | Investment holdings and portfolios | **Earlier proposal / future** | Sprint 3 plan and Jake Fintech reference | Scope decision, data protection and user consent |
-| Live database and server endpoints | **Not evidenced** | `.env.example` placeholder; backend PowerPoint is design | Vendor selection, migrations, security, integration |
+| MongoDB database and server endpoints | **MongoDB Atlas selected; not provisioned** | [MongoDB readiness](MONGODB_READINESS.md), [schema](MONGODB_SCHEMA.md), `.env.example` placeholders | Create Atlas resources later, apply validators/indexes, add secure server connection and integration |
 | Deployed production site | **Not evidenced** | No live deployment link or production run | Deployment and production acceptance |
 | GitHub Actions frontend checks | **Passed for merged prototype** | [PR run](https://github.com/JustEmre12/FinSight/actions/runs/41519999919) and post-merge run | No assertion of backend/AI tests |
 
@@ -27,7 +27,8 @@
 - [#25](https://github.com/JustEmre12/FinSight/issues/25): scope reconciliation: news/portfolio vs Sprint 4–6 baseline.
 - [#26](https://github.com/JustEmre12/FinSight/issues/26): licensed financial data provider/freshness.
 - [#27](https://github.com/JustEmre12/FinSight/issues/27): real AI provider, handling and budget.
-- [#28](https://github.com/JustEmre12/FinSight/issues/28) and [#30](https://github.com/JustEmre12/FinSight/issues/30): approved stack and database design.
+- [#28](https://github.com/JustEmre12/FinSight/issues/28): backend/auth/deployment stack still needs completion; **database choice is now MongoDB Atlas**.
+- [#30](https://github.com/JustEmre12/FinSight/issues/30) and [#75](https://github.com/JustEmre12/FinSight/issues/75): MongoDB schema/security design is prepared for review before creation.
 - [#35](https://github.com/JustEmre12/FinSight/issues/35) and [#44](https://github.com/JustEmre12/FinSight/issues/44): private session and authentication plan.
 - [#68](https://github.com/JustEmre12/FinSight/issues/68): management/instructor decision on detailed design.
 - [#24](https://github.com/JustEmre12/FinSight/issues/24): collaborator access confirmation.
