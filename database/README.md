@@ -71,3 +71,11 @@ See:
 - [MongoDB schema](../docs/MONGODB_SCHEMA.md)
 - [Frontend/backend handoff](../docs/FRONTEND_BACKEND_HANDOFF.md)
 - [Issue #84](https://github.com/JustEmre12/FinSight/issues/84)
+
+## Sharing with teammates
+
+A safe copyable database package is checked into [`database/share/`](share/README.md). It contains the live collection/index manifest and empty JSON exports, but **no passwords, connection strings, API keys, or private data**.
+
+For teammates who need the same live database, invite their own MongoDB Atlas account to the **FinSight** Atlas project instead of sending the `finsight_app` password.
+
+When real data exists later, create a private `mongodump` backup outside this public repository. Do not commit user/market/private research dumps to GitHub.
