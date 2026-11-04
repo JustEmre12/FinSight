@@ -41,7 +41,7 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 | Sprint 3 manual holdings/transaction concept | A documented portfolio-focused plan, while combined Sprint 4–5 explicitly excludes portfolio custody, bank transactions and trade execution | Decide separately if **self-entered recordkeeping** belongs in a later phase |
 | Proposed FinSight AI assistant | User concept includes chat, news/claim corroboration, company relationships and optional holding-aware research | Approve separate requirements, privacy/retention, data licenses and transparent claim-verification policy |
 | Specific portfolio-aware buy/sell instructions | Conflicts with Sprint 4/5 and Sprint 6 **no personalized advice** scope | Not part of baseline; assess legal/regulatory implications before any user-specific recommendation feature |
-| Real database connection | **MongoDB Atlas selected on November 3, 2026; no project/cluster/database/collections are created yet** | Use the MongoDB readiness/schema documents when the team is ready; keep credentials server-side and out of Git |
+| Real database connection | **MongoDB Atlas project, free cluster and `finsight` database are now created with the six MVP collections and query indexes** | Apply checked-in validators/unique flags, then connect the server-side backend; keep credentials out of Git |
 | Frontend ZIP versus GitHub | Uploaded ZIP is a pre-CI snapshot; PR #69 already merged into `main` | Preserve existing code and use GitHub as the working source |
 
 **Status correction:** The earlier “functional prototype not evidenced” and “no running app” wording refers to the *historical planning documents*. The [merged sample-data prototype](FRONTEND_PROTOTYPE.md) is now real, while a **production-integrated app** is not.
@@ -56,3 +56,15 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 - **Not automatically included:** bank accounts, merchant spending, financial goals, trade execution, and proposed conversational/portfolio collections.
 
 [MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md).
+
+## Live MongoDB implementation — November 3, 2026
+- Dedicated **FinSight** Atlas project created.
+- Free **FinSight-MVP** cluster created in AWS US_EAST_1.
+- Database **`finsight`** created with the six approved MVP collections.
+- Scoped application DB user created; password/URI are **not stored in GitHub**.
+- Query indexes created and verified.
+- All six collections verified empty; sample frontend data was not copied into the live database.
+- Strict validators and database-level unique flags remain to be applied with [`database/mongodb-init.js`](../database/mongodb-init.js), because the connected Atlas tool does not expose those options.
+- Application authentication, market-data provider, AI provider and backend deployment/network access remain separate decisions.
+
+[Live database](../database/README.md) · [Issue #84](https://github.com/JustEmre12/FinSight/issues/84).

@@ -36,6 +36,8 @@
 
 ## Database and expanded FinSight AI
 
+- **[Live MongoDB Atlas database](../database/README.md)** — actual FinSight project/cluster/database, collections, indexes, empty-data verification and remaining constraint step
+
 - **[MongoDB readiness](MONGODB_READINESS.md)** — **MongoDB Atlas selected**; Phase 1 collections, indexes, security rules and creation checklist; not provisioned yet
 - **[MongoDB schema draft](MONGODB_SCHEMA.md)** — concrete fields, BSON types and indexes ready to implement
 - **[Physical database design background](DATABASE_DESIGN_PLAN.md)** — source D1–D4 mapping, MongoDB persistence decisions, auth/privacy and future data

@@ -1,6 +1,6 @@
 # FinSight MongoDB schema — implementation draft
 
-**Status:** Ready-to-implement schema draft for MongoDB Atlas. **No collection below exists yet.** Field names are designed to preserve the Sprint 5 logical model and Jake's frontend contracts while keeping provider/source data explicit.
+**Status:** **Implemented as the live Phase 1 Atlas collection layout.** All six collections below exist in the `finsight` database and their query indexes are present. The Atlas connector used for provisioning cannot set JSON Schema validators or `unique` index flags; [`database/mongodb-init.js`](../database/mongodb-init.js) contains the exact remaining integrity commands to apply before real data.
 
 ## 1. user_profiles
 
