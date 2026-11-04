@@ -3,11 +3,11 @@
 
 FinSight is a student-built financial research project for beginner and individual investors. A **runnable sample-data frontend prototype** is now available in the repository, while the production platform remains under development. The current required experience covers stock search, market data, charts, comparisons, watchlists and AI explanations. The **original vision** also features news/source aggregation, filtering, trends and alerts. A newer **FinSight AI** conversational research assistant is proposed, not yet implemented.
 
-**Current phase:** Sprint 6 modeling **documented** + frontend demonstration **merged** + **MongoDB Atlas selected and schema prepared** → database provisioning and real backend integration **next**.  
+**Current phase:** Sprint 6 modeling **documented** + frontend demo **merged** + **MongoDB Atlas project/cluster/database created** → enforce final DB constraints, connect secure backend/auth, then integrate real market/AI providers.  
 **Project:** BCS 301W · Systems Analysis & Design · Fall 2026  
 **Team:** Salih, Jake, Asad, and Henry
 
-> **Project status:** The repo includes a **runnable Next.js demo frontend** with fictional stock data, charts, comparisons, template-generated explanations and mock browser-only accounts/watchlists. **MongoDB Atlas is now the selected database platform, but no Atlas database/cluster/collections are created or connected yet.** There is still no licensed live market provider, real AI service, secure backend authentication or deployed production site.
+> **Project status:** The repo includes a **runnable Next.js demo frontend** and a real **MongoDB Atlas FinSight-MVP database** with the six approved Sprint 4–6 collections and query indexes. The database is intentionally empty of fake production data. **JSON Schema validators/unique-index flags still require the checked-in initializer, and the app is not yet connected.** There is still no licensed live market provider, real AI service, secure backend authentication or deployed production site.
 
 ## Explore FinSight
 
@@ -22,6 +22,7 @@ FinSight is a student-built financial research project for beginner and individu
 | **[Documentation Hub](docs/README.md)** | Browse every sprint, model, requirement, and project document |
 | **[Sprint 6 Object-Oriented Models](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)** | Objects, relationships, use cases, sequences, state transitions, and activity flows |
 | **[Frontend-to-Backend Handoff](docs/FRONTEND_BACKEND_HANDOFF.md)** | Existing app data contracts, backend steps and integration plan |
+| **[Live MongoDB Database](database/README.md)** | Actual Atlas project/cluster/database/collections/indexes and remaining integrity step |
 | **[MongoDB Readiness](docs/MONGODB_READINESS.md)** | Selected database, six Phase 1 collections, indexes, safety rules and exact next steps |
 | **[MongoDB Schema Draft](docs/MONGODB_SCHEMA.md)** | Collection fields/types/indexes ready to implement later |
 | **[Database Design Background](docs/DATABASE_DESIGN_PLAN.md)** | D1–D4 mapping, MongoDB decisions, security and future expansion |
