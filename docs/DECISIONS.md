@@ -9,7 +9,7 @@
 | Bank links, budgets, merchant expenses, financial goals | Generic Fintech Data Tree | Not MVP without changed requirements |
 | Provider and licensing | No vendor contracts or costs evidenced | Choose API and validate usage/redistribution terms, limits, quote freshness |
 | AI provider | Sprint 5 says external AI analysis service | Choose provider, server-side controls and evaluation |
-| Stack, backend and DB | **Next.js frontend code exists; physical DB, auth provider, backend routes and external services remain unselected** | Approve database/auth design and integration plan |
+| Stack, backend and DB | **Next.js frontend is verified and MongoDB Atlas is now selected for the database.** Backend routes, auth provider and external services remain unselected/unbuilt | Review MongoDB schema/readiness; choose auth/backend integration approach |
 | Feature status | **Jake's merged sample-data frontend passed CI; not a production service** | Track documentary milestones, demo code and actual production acceptance separately |
 | Repository access | Team charter names roles, but does not establish invitations | Verify each member accepted collaborator invite |
 | Public/private | Repo currently public | Decide whether to restrict access before uploading original class files |
@@ -41,9 +41,18 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 | Sprint 3 manual holdings/transaction concept | A documented portfolio-focused plan, while combined Sprint 4–5 explicitly excludes portfolio custody, bank transactions and trade execution | Decide separately if **self-entered recordkeeping** belongs in a later phase |
 | Proposed FinSight AI assistant | User concept includes chat, news/claim corroboration, company relationships and optional holding-aware research | Approve separate requirements, privacy/retention, data licenses and transparent claim-verification policy |
 | Specific portfolio-aware buy/sell instructions | Conflicts with Sprint 4/5 and Sprint 6 **no personalized advice** scope | Not part of baseline; assess legal/regulatory implications before any user-specific recommendation feature |
-| Real database connection | MongoDB and PostgreSQL free-tier providers were discussed but **none is verified connected** | Choose data/auth vendor, server API, cost/limits, schema and backups as a team |
+| Real database connection | **MongoDB Atlas selected on November 3, 2026; no project/cluster/database/collections are created yet** | Use the MongoDB readiness/schema documents when the team is ready; keep credentials server-side and out of Git |
 | Frontend ZIP versus GitHub | Uploaded ZIP is a pre-CI snapshot; PR #69 already merged into `main` | Preserve existing code and use GitHub as the working source |
 
 **Status correction:** The earlier “functional prototype not evidenced” and “no running app” wording refers to the *historical planning documents*. The [merged sample-data prototype](FRONTEND_PROTOTYPE.md) is now real, while a **production-integrated app** is not.
 
 [Scope and project evolution](SCOPE_AND_EVOLUTION.md) · [FinSight AI vision](FINSIGHT_AI_VISION.md) · [Generic FinTech reference](FINTECH_REFERENCE_DATA_MODEL.md) · [Database architecture proposal](DATABASE_DESIGN_PLAN.md).
+
+## MongoDB database decision — November 3, 2026
+- **Selected platform:** MongoDB Atlas.
+- **Reason for this repository update:** prepare the project for database creation without creating the database yet.
+- **Phase 1 persistence:** `user_profiles`, `instruments`, `quotes`, `daily_prices`, `watchlist_items`, `analysis_runs`.
+- **Not selected yet:** authentication/session provider, market-data provider, AI provider, hosting/deployment path.
+- **Not automatically included:** bank accounts, merchant spending, financial goals, trade execution, and proposed conversational/portfolio collections.
+
+[MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md).
