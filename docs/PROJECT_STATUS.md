@@ -18,7 +18,7 @@
 | AI explanation | **Template text** | `getAiExplanation()` | External AI provider, response evaluation, provenance, privacy |
 | Conversational verified-source FinSight AI | **Proposed expansion** | Product discussion only; [AI vision](FINSIGHT_AI_VISION.md) | Approval, architecture, source rights, implementation |
 | Investment holdings and portfolios | **Earlier proposal / future** | Sprint 3 plan and Jake Fintech reference | Scope decision, data protection and user consent |
-| MongoDB database and server endpoints | **MongoDB Atlas selected; not provisioned** | [MongoDB readiness](MONGODB_READINESS.md), [schema](MONGODB_SCHEMA.md), `.env.example` placeholders | Create Atlas resources later, apply validators/indexes, add secure server connection and integration |
+| MongoDB database and server endpoints | **Atlas database provisioned; app not connected** | Dedicated FinSight Atlas project + free `FinSight-MVP` cluster; `finsight` DB with six collections and query indexes; [live DB notes](../database/README.md) | Apply strict validators/unique flags via initializer; add secure server connection, auth ownership and integration tests |
 | Deployed production site | **Not evidenced** | No live deployment link or production run | Deployment and production acceptance |
 | GitHub Actions frontend checks | **Passed for merged prototype** | [PR run](https://github.com/JustEmre12/FinSight/actions/runs/41519999919) and post-merge run | No assertion of backend/AI tests |
 
