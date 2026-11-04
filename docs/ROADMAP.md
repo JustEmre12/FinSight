@@ -40,10 +40,13 @@
 - [x] MongoDB Atlas selected as the database platform.
 - [x] D1–D4 mapped to six Phase 1 collections.
 - [x] MongoDB field/types/index draft documented.
+- [x] Six Phase 1 collections created in Atlas.
+- [x] Query indexes created on all six collections.
+- [ ] Apply strict JSON Schema validators and database-level unique flags using `database/mongodb-init.js` before real data.
 - [x] Environment placeholders updated without real secrets.
-- [ ] Atlas project/cluster/database **not created yet**.
+- [x] Atlas project, free `FinSight-MVP` cluster and `finsight` database created.
 - [ ] Authentication/session provider still undecided.
-- [ ] MongoDB connection code not written yet.
+- [ ] MongoDB application connection code not written yet; database exists and is reachable through the Atlas connector.
 
 [MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md)
 
