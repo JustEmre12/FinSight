@@ -3,11 +3,11 @@
 
 FinSight is a student-built financial research project for beginner and individual investors. A **runnable sample-data frontend prototype** is now available in the repository, while the production platform remains under development. The current required experience covers stock search, market data, charts, comparisons, watchlists and AI explanations. The **original vision** also features news/source aggregation, filtering, trends and alerts. A newer **FinSight AI** conversational research assistant is proposed, not yet implemented.
 
-**Current phase:** Sprint 6 object-oriented modeling **documented** + first frontend demonstration **merged November 2, 2026** → real integrations and detailed system design **pending**.  
+**Current phase:** Sprint 6 modeling **documented** + frontend demonstration **merged** + **MongoDB Atlas selected and schema prepared** → database provisioning and real backend integration **next**.  
 **Project:** BCS 301W · Systems Analysis & Design · Fall 2026  
 **Team:** Salih, Jake, Asad, and Henry
 
-> **Project status:** The repo now includes a **runnable Next.js demo frontend** with fictional stock data, charts, comparisons, template-generated explanations and mock browser-only accounts/watchlists. **There is no deployed production site, licensed live market provider, real AI service, or secure backend authentication.**
+> **Project status:** The repo includes a **runnable Next.js demo frontend** with fictional stock data, charts, comparisons, template-generated explanations and mock browser-only accounts/watchlists. **MongoDB Atlas is now the selected database platform, but no Atlas database/cluster/collections are created or connected yet.** There is still no licensed live market provider, real AI service, secure backend authentication or deployed production site.
 
 ## Explore FinSight
 
@@ -22,7 +22,9 @@ FinSight is a student-built financial research project for beginner and individu
 | **[Documentation Hub](docs/README.md)** | Browse every sprint, model, requirement, and project document |
 | **[Sprint 6 Object-Oriented Models](docs/SPRINT6_OBJECT_ORIENTED_MODEL.md)** | Objects, relationships, use cases, sequences, state transitions, and activity flows |
 | **[Frontend-to-Backend Handoff](docs/FRONTEND_BACKEND_HANDOFF.md)** | Existing app data contracts, backend steps and integration plan |
-| **[Proposed Database Model](docs/DATABASE_DESIGN_PLAN.md)** | D1–D4 mapping, secure database/auth options and proposed collections |
+| **[MongoDB Readiness](docs/MONGODB_READINESS.md)** | Selected database, six Phase 1 collections, indexes, safety rules and exact next steps |
+| **[MongoDB Schema Draft](docs/MONGODB_SCHEMA.md)** | Collection fields/types/indexes ready to implement later |
+| **[Database Design Background](docs/DATABASE_DESIGN_PLAN.md)** | D1–D4 mapping, MongoDB decisions, security and future expansion |
 | **[FinSight AI Research Vision](docs/FINSIGHT_AI_VISION.md)** | Proposed sourced conversation, verified claims and optional portfolio context |
 | **[Roadmap](docs/ROADMAP.md)** | What the team has documented and what must happen next |
 
@@ -59,7 +61,7 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 | **6 — Object-oriented modeling** | **Six objects; four named use cases; two detailed use-case descriptions; object relationship, derived class, sequence, state and activity diagrams** |
 | **Frontend prototype — Nov 2** | **Jake's feature branch merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69); frontend lint, TypeScript, unit tests and build passed** |
 
-**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. A runnable **Next.js/TypeScript/Tailwind/Recharts frontend demo exists**, but backend architecture, chosen database, secure login, a licensed market-data provider, real AI service and production deployment remain unfinished.
+**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. A runnable **Next.js/TypeScript/Tailwind/Recharts frontend demo exists**. **MongoDB Atlas has been selected and the physical schema is drafted**, but the Atlas project/database is intentionally not created yet. Secure login, backend routes, a licensed market-data provider, real AI service and production deployment remain unfinished.
 
 ### Task tracking
 
@@ -124,7 +126,7 @@ The charter describes roles other than Project Manager as proposed and adjustabl
 
 1. Review the [Sprint 6 design gate](docs/SPRINT6_DESIGN_REVIEW.md) and [scope decisions](docs/DECISIONS.md).
 2. Resolve access and provider dependencies in [GitHub Issues](https://github.com/JustEmre12/FinSight/issues).
-3. Agree on the implementation stack and convert designs to small feature branches and reviewed pull requests.
+3. Use the reviewed [MongoDB readiness plan](docs/MONGODB_READINESS.md) when the team is ready to provision the database; keep credentials server-side and out of Git.
 4. Demonstrate and test each story before moving an **implementation** issue to Done. The [frontend prototype PR #69](https://github.com/JustEmre12/FinSight/pull/69) is merged, but the full FR/US issues remain open.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the group's suggested workflow.
