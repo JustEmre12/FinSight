@@ -1,0 +1,154 @@
+{
+  "package_name": "FinSight MongoDB Share Package",
+  "generated_date": "2026-11-03",
+  "source": "Live MongoDB Atlas FinSight-MVP database + GitHub schema",
+  "database": {
+    "name": "finsight",
+    "atlas_project": "FinSight",
+    "cluster": "FinSight-MVP",
+    "tier": "FREE",
+    "provider": "AWS",
+    "region": "US_EAST_1",
+    "mongoDB_version": "8.0.36",
+    "live_connection_included": false,
+    "credentials_included": false
+  },
+  "collections": [
+    {
+      "name": "user_profiles",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_user_profiles_auth_user_id",
+          "key": {
+            "auth_user_id": 1
+          }
+        },
+        {
+          "name": "idx_user_profiles_email",
+          "key": {
+            "email": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "instruments",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_instruments_exchange_symbol",
+          "key": {
+            "exchange": 1,
+            "symbol": 1
+          }
+        },
+        {
+          "name": "idx_instruments_symbol",
+          "key": {
+            "symbol": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "quotes",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_quotes_instrument_quote_time",
+          "key": {
+            "instrument_id": 1,
+            "quote_time": -1
+          }
+        }
+      ]
+    },
+    {
+      "name": "daily_prices",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_daily_prices_instrument_date_provider",
+          "key": {
+            "instrument_id": 1,
+            "date": 1,
+            "provider": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "watchlist_items",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_watchlist_user_instrument",
+          "key": {
+            "user_id": 1,
+            "instrument_id": 1
+          }
+        },
+        {
+          "name": "idx_watchlist_user_added_at",
+          "key": {
+            "user_id": 1,
+            "added_at": -1
+          }
+        }
+      ]
+    },
+    {
+      "name": "analysis_runs",
+      "documents": 0,
+      "indexes": [
+        {
+          "_id": 1
+        },
+        {
+          "name": "idx_analysis_user_requested_at",
+          "key": {
+            "user_id": 1,
+            "requested_at": -1
+          }
+        },
+        {
+          "name": "idx_analysis_symbol_requested_at",
+          "key": {
+            "symbol": 1,
+            "requested_at": -1
+          }
+        }
+      ]
+    }
+  ],
+  "included_files": [
+    "README.md",
+    "finsight-database-manifest.json",
+    "collections/*.json",
+    "../mongodb-init.js",
+    "../../docs/MONGODB_SCHEMA.md",
+    "../../docs/MONGODB_READINESS.md"
+  ],
+  "notes": [
+    "The live Atlas database is hosted separately from GitHub.",
+    "This package contains no database passwords, connection strings, API keys, or user data.",
+    "All six live collections were empty when this package was generated.",
+    "Use the repository's database/mongodb-init.js to reproduce validators and unique-index rules."
+  ]
+}
