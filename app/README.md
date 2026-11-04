@@ -6,7 +6,7 @@ The FinSight user interface, built with **Next.js (App Router) + TypeScript + Ta
 
 ## Backend/database status
 
-**MongoDB Atlas is the selected database platform, but it is not created or connected yet.** The current app still runs completely from fictional sample data and browser localStorage. When backend work begins, database access must happen on the server; never import a MongoDB connection string into browser code.
+**MongoDB Atlas is now provisioned with the real `finsight` MVP database, but this frontend is not connected to it yet.** The current app still runs completely from fictional sample data and browser localStorage. Database access must happen on the server; never import a MongoDB connection string into browser code.
 
 See [MongoDB readiness](../docs/MONGODB_READINESS.md), [schema draft](../docs/MONGODB_SCHEMA.md), and [frontend/backend handoff](../docs/FRONTEND_BACKEND_HANDOFF.md).
 
