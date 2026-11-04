@@ -20,3 +20,11 @@ Thumbs.db
 .idea/
 .vscode/
 *.log
+
+# MongoDB backups / exports that may contain real data
+*.archive
+*.bson
+*.metadata.json
+*.dump
+mongodump/
+database/backups/
