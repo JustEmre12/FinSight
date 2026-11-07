@@ -1,0 +1,620 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "evaluationNow": "2026-11-07T08:00:47.008Z",
+  "codeHashes": {
+    "groq.ts": "8087f257c9979f3b8c9f0ec7dc5475380b0bf2b3c54f67afc745571d637ccded",
+    "grounding.ts": "175042b07541fc40aa2f902f2f6b9be902871f3690423c10736256b3586120dc",
+    "prompt.ts": "6dc7bf128aa5afaf0859a5b411b0f80c71a528a433f9befe10859dd9ff2545d6"
+  },
+  "mode": "synthetic-website-adapter",
+  "runs": [
+    {
+      "symbol": "NOVA",
+      "repetition": 1,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        }
+      },
+      "result": {
+        "symbol": "NOVA",
+        "generatedAt": "2026-11-07T08:00:48.716Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The ticker NOVA has synthetic price data from 2025‑11‑06 to 2026‑11‑06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "Annualized volatility was 32.8%. Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure.",
+          "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak‑to‑trough decline, not a prediction of future losses."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "These are fictional FinSight sample prices, not live market data.",
+          "Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.177549158,
+        "prompt_tokens": 1270,
+        "prompt_time": 0.064670261,
+        "completion_tokens": 990,
+        "completion_time": 1.085506759,
+        "total_tokens": 2260,
+        "total_time": 1.15017702,
+        "completion_tokens_details": {
+          "reasoning_tokens": 818
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "NOVA",
+      "repetition": 2,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        }
+      },
+      "result": {
+        "symbol": "NOVA",
+        "generatedAt": "2026-11-07T08:01:24.799Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The ticker NOVA has synthetic price data that spans from 2025‑11‑06 to 2026‑11‑06. During this period, the closing price fell 1.0 % from the first to the last observation. This is historical performance, not a forecast.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. It was 32.8 %. Maximum drawdown was 35.5 % below a preceding peak within this window.",
+          "These figures come from a fictional FinSight sample. Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "The data is synthetic and not live market information; it should not be used for investment decisions."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.083662866,
+        "prompt_tokens": 1270,
+        "prompt_time": 0.075115244,
+        "completion_tokens": 578,
+        "completion_time": 0.653071434,
+        "total_tokens": 1848,
+        "total_time": 0.728186678,
+        "completion_tokens_details": {
+          "reasoning_tokens": 400
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "NOVA",
+      "repetition": 3,
+      "status": "REJECTED_OR_UNAVAILABLE",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        }
+      },
+      "usage": {
+        "queue_time": 0.355721488,
+        "prompt_tokens": 1270,
+        "prompt_time": 0.065735149,
+        "completion_tokens": 1275,
+        "completion_time": 1.449546655,
+        "total_tokens": 2545,
+        "total_time": 1.515281804,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1081
+        }
+      },
+      "candidate": "{\"paragraphs\":[\"The ticker NOVA has synthetic prices recorded from 2025-11-06 to 2026-11-06. Over that year, the closing price fell 1.0%. This figure reflects historical performance, not a forecast of future movement.\",\"Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. For NOVA, that value is 32.8%.\",\"Maximum drawdown was 35.5% below a preceding peak within this window. The data are fictional FinSight sample prices; price history alone does not explain why the price moved, and no live market data or news were provided.\"],\"uncertaintyNotes\":[\"Data is synthetic and not live market data, so it cannot be used for investment decisions.\",\"The supplied price movement does not explain why the price changed, as no causal evidence is supplied.\"]}",
+      "reason": "Invalid AI response",
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "BRKW",
+      "repetition": 1,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "BRKW",
+          "companyName": "Brookwater Foods Co.",
+          "exchange": "NYSE",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker BRKW, the available synthetic prices cover 2025-11-06 through 2026-10-29. Price increased 19.1% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 18.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 22.7% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "stale": "This sample quote is marked stale. It must not be treated as current market information."
+        }
+      },
+      "result": {
+        "symbol": "BRKW",
+        "generatedAt": "2026-11-07T08:04:17.316Z",
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The ticker BRKW has synthetic price data from 2025‑11‑06 to 2026‑10‑29. During this window the price rose 19.1% from the first to the last observation. This increase represents historical performance only.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. For BRKW the annualized volatility is 18.6%. It does not reflect average daily movement or guarantee future risk.",
+          "Maximum drawdown was 22.7% below a preceding peak within the window. This indicates the largest observed decline from a peak to a trough. The data are synthetic and marked stale, so it should not be considered current market information."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "This sample quote is marked stale. It must not be treated as current market information.",
+          "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved.",
+          "This sample quote is marked stale and must not be treated as current market information."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.177322684,
+        "prompt_tokens": 1307,
+        "prompt_time": 0.070811665,
+        "completion_tokens": 616,
+        "completion_time": 0.640904357,
+        "total_tokens": 1923,
+        "total_time": 0.711716022,
+        "completion_tokens_details": {
+          "reasoning_tokens": 406
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "BRKW",
+      "repetition": 2,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "BRKW",
+          "companyName": "Brookwater Foods Co.",
+          "exchange": "NYSE",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker BRKW, the available synthetic prices cover 2025-11-06 through 2026-10-29. Price increased 19.1% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 18.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 22.7% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "stale": "This sample quote is marked stale. It must not be treated as current market information."
+        }
+      },
+      "result": {
+        "symbol": "BRKW",
+        "generatedAt": "2026-11-07T08:04:54.300Z",
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "Stock ticker BRKW has price data from 2025‑11‑06 to 2026‑10‑29. The price rose 19.1% over this period. This change reflects past performance only, and it does not predict future movements.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. It was 18.6%. Maximum drawdown was 22.7% below a preceding peak within this window. This shows the largest observed decline.",
+          "These figures come from fictional FinSight sample data, not from a live exchange. The quote is marked stale and should not be used as current market information. No news or causal evidence is attached to the price movements."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "This sample quote is marked stale. It must not be treated as current market information.",
+          "The data is synthetic and not sourced from a real market exchange, so it should not be treated as accurate current information.",
+          "The sample quote is marked stale as of the dataAsOf timestamp and may not reflect recent market changes."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.083744217,
+        "prompt_tokens": 1307,
+        "prompt_time": 0.076095616,
+        "completion_tokens": 1534,
+        "completion_time": 1.604475732,
+        "total_tokens": 2841,
+        "total_time": 1.680571348,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1318
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "BRKW",
+      "repetition": 3,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "BRKW",
+          "companyName": "Brookwater Foods Co.",
+          "exchange": "NYSE",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker BRKW, the available synthetic prices cover 2025-11-06 through 2026-10-29. Price increased 19.1% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 18.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 22.7% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "stale": "This sample quote is marked stale. It must not be treated as current market information."
+        }
+      },
+      "result": {
+        "symbol": "BRKW",
+        "generatedAt": "2026-11-07T08:05:30.711Z",
+        "dataAsOf": "2026-10-29T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "For ticker BRKW, the available synthetic prices cover 2025‑11‑06 through 2026‑10‑29. Price increased 19.1% between the first and last observations. This is historical performance, not a forecast.",
+          "Annualized volatility was 18.6%. Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. Maximum drawdown was 22.7% below a preceding peak within this window.",
+          "These are fictional FinSight sample prices, not live market data. The sample quote is marked stale and must not be treated as current market information. Price history alone does not establish why a price moved, and no news or causal evidence was supplied."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "This sample quote is marked stale. It must not be treated as current market information.",
+          "The data is synthetic and stale; it should not be used as live market information.",
+          "No causal evidence is provided for price movements.",
+          "These prices are fictional and do not represent actual market activity."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.177719619,
+        "prompt_tokens": 1307,
+        "prompt_time": 0.06512827,
+        "completion_tokens": 959,
+        "completion_time": 0.995008457,
+        "total_tokens": 2266,
+        "total_time": 1.060136727,
+        "completion_tokens_details": {
+          "reasoning_tokens": 751
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "QTRX",
+      "repetition": 1,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "QTRX",
+          "companyName": "Quantrix Health Ltd.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker QTRX, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price increased 5.7% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 45.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "missing": "A current quote is unavailable. The explanation uses historical sample prices only."
+        }
+      },
+      "result": {
+        "symbol": "QTRX",
+        "generatedAt": "2026-11-07T08:06:07.467Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The available synthetic prices cover 2025-11-06 through 2026-11-06. Price increased 5.7% between the first and last observations.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. It was 45.6% for QTRX during this period.",
+          "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "A current quote is unavailable. The explanation uses historical sample prices only.",
+          "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.145526339,
+        "prompt_tokens": 1302,
+        "prompt_time": 0.076285452,
+        "completion_tokens": 1271,
+        "completion_time": 1.298087375,
+        "total_tokens": 2573,
+        "total_time": 1.374372827,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1094
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "QTRX",
+      "repetition": 2,
+      "status": "REJECTED_OR_UNAVAILABLE",
+      "context": {
+        "stock": {
+          "symbol": "QTRX",
+          "companyName": "Quantrix Health Ltd.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker QTRX, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price increased 5.7% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 45.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "missing": "A current quote is unavailable. The explanation uses historical sample prices only."
+        }
+      },
+      "usage": {
+        "queue_time": 0.083501345,
+        "prompt_tokens": 1302,
+        "prompt_time": 0.084657756,
+        "completion_tokens": 1447,
+        "completion_time": 1.476826092,
+        "total_tokens": 2749,
+        "total_time": 1.561483848,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1254
+        }
+      },
+      "candidate": "{\"paragraphs\":[\"The ticker QTRX has synthetic price data for the period from 2025‑11‑06 to 2026‑11‑06. During that 12‑month window, the price rose 5.7%. This figure represents historical performance only.\",\"Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. For QTRX, the annualized volatility was 45.6%.\",\"Maximum drawdown describes the largest drop from a prior peak during the window. QTRX’s maximum drawdown was 41.9% below a preceding peak.\"],\"uncertaintyNotes\":[\"These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.\",\"A current quote is unavailable. The explanation uses historical sample prices only.\"]}",
+      "reason": "Invalid AI response",
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "QTRX",
+      "repetition": 3,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "QTRX",
+          "companyName": "Quantrix Health Ltd.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker QTRX, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price increased 5.7% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 45.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "missing": "A current quote is unavailable. The explanation uses historical sample prices only."
+        }
+      },
+      "result": {
+        "symbol": "QTRX",
+        "generatedAt": "2026-11-07T08:07:52.745Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The synthetic data for ticker QTRX covers 2025-11-06 to 2026-11-06. Price rose 5.7% from the first to the last observation. This is historical performance, not a forecast.",
+          "Annualized historical volatility was 45.6%. Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses. These are fictional FinSight sample prices, not live market data."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "A current quote is unavailable. The explanation uses historical sample prices only.",
+          "The data is synthetic and not live market data.",
+          "Price history alone does not establish why the price moved.",
+          "A current quote is unavailable."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.202170554,
+        "prompt_tokens": 1302,
+        "prompt_time": 0.092160721,
+        "completion_tokens": 581,
+        "completion_time": 0.68388369,
+        "total_tokens": 1883,
+        "total_time": 0.776044411,
+        "completion_tokens_details": {
+          "reasoning_tokens": 388
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "LUMA",
+      "repetition": 1,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "LUMA",
+          "companyName": "Lumawave Media Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker LUMA, the available synthetic prices cover 2026-08-24 through 2026-11-06. Price decreased 31.4% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 66.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.0% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "short": "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative."
+        }
+      },
+      "result": {
+        "symbol": "LUMA",
+        "generatedAt": "2026-11-07T08:08:29.877Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "For ticker LUMA, the available synthetic prices cover 2026-08-24 through 2026-11-06. Price decreased 31.4% between the first and last observations.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. Annualized historical volatility was 66.8%. Maximum drawdown was 41.0% below a preceding peak within this window.",
+          "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied. Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative.",
+          "Data are synthetic and not live market data.",
+          "Only 55 daily observations limit the representativeness of risk estimates.",
+          "Historical performance does not explain causation."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.257068996,
+        "prompt_tokens": 1324,
+        "prompt_time": 0.260005749,
+        "completion_tokens": 1257,
+        "completion_time": 1.410320442,
+        "total_tokens": 2581,
+        "total_time": 1.670326191,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1055
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "LUMA",
+      "repetition": 2,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "LUMA",
+          "companyName": "Lumawave Media Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker LUMA, the available synthetic prices cover 2026-08-24 through 2026-11-06. Price decreased 31.4% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 66.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.0% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "short": "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative."
+        }
+      },
+      "result": {
+        "symbol": "LUMA",
+        "generatedAt": "2026-11-07T08:09:06.239Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "For ticker LUMA, synthetic prices span 2026-08-24 to 2026-11-06. Price fell 31.4% from the first to the last observation. This reflects historical performance, not a forecast.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. Annualized historical volatility was 66.8%.",
+          "Maximum drawdown was 41.0% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative.",
+          "These are fictional FinSight sample prices, not live market data.",
+          "Only 55 daily observations are available, so the limited history does not cover the full requested year and makes historical risk estimates less representative."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.030265118,
+        "prompt_tokens": 1324,
+        "prompt_time": 0.091682706,
+        "completion_tokens": 952,
+        "completion_time": 1.069766985,
+        "total_tokens": 2276,
+        "total_time": 1.161449691,
+        "completion_tokens_details": {
+          "reasoning_tokens": 772
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "LUMA",
+      "repetition": 3,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "LUMA",
+          "companyName": "Lumawave Media Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker LUMA, the available synthetic prices cover 2026-08-24 through 2026-11-06. Price decreased 31.4% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 66.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.0% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "short": "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative."
+        }
+      },
+      "result": {
+        "symbol": "LUMA",
+        "generatedAt": "2026-11-07T08:09:42.797Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The ticker LUMA’s synthetic price data run from 2026‑08‑24 to 2026‑11‑06, covering 55 trading days. Over this period the price decreased 31.4%, showing historical performance but not a future forecast.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. Annualized volatility was 66.8%. Maximum drawdown was 41.0% below a preceding peak within this window.",
+          "These figures come from fictional FinSight sample prices, not live market data. The limited 55‑day history means risk estimates may not be representative, and no news or causal evidence explains the price moves."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "Only 55 daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative.",
+          "The data are synthetic and limited to 55 days, so volatility and drawdown may not reflect longer‑term risk.",
+          "The performance figure is historical, not a prediction of future returns."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.0335333,
+        "prompt_tokens": 1324,
+        "prompt_time": 0.068356685,
+        "completion_tokens": 970,
+        "completion_time": 1.236637045,
+        "total_tokens": 2294,
+        "total_time": 1.30499373,
+        "completion_tokens_details": {
+          "reasoning_tokens": 768
+        }
+      },
+      "humanReview": "PENDING"
+    }
+  ]
+}

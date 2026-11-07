@@ -1,0 +1,76 @@
+{
+  "mode": "offline-replay-no-new-model-calls",
+  "sourceEvaluationNow": "2026-11-07T08:00:47.008Z",
+  "codeHashes": {
+    "groq.ts": "9adcc938a6a5accab31d182c21496fb62c01b398834300641bfd9577c4c8cea9",
+    "grounding.ts": "d251151cd83cbe349f2404c1f9c8b3cedeeed3329caaa5b241520c59dccfb41a",
+    "prompt.ts": "6dc7bf128aa5afaf0859a5b411b0f80c71a528a433f9befe10859dd9ff2545d6"
+  },
+  "runs": [
+    {
+      "symbol": "NOVA",
+      "repetition": 3,
+      "status": "REPLAY_VALIDATED",
+      "correctedContext": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "window": "The available observation window spans exactly 12 calendar months."
+        }
+      },
+      "answer": {
+        "paragraphs": [
+          "The ticker NOVA has synthetic prices recorded from 2025-11-06 to 2026-11-06. Over that year, the closing price fell 1.0%. This figure reflects historical performance, not a forecast of future movement.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. For NOVA, that value is 32.8%.",
+          "Maximum drawdown was 35.5% below a preceding peak within this window. The data are fictional FinSight sample prices; price history alone does not explain why the price moved, and no live market data or news were provided."
+        ],
+        "uncertaintyNotes": [
+          "Data is synthetic and not live market data, so it cannot be used for investment decisions.",
+          "The supplied price movement does not explain why the price changed, as no causal evidence is supplied."
+        ]
+      }
+    },
+    {
+      "symbol": "QTRX",
+      "repetition": 2,
+      "status": "REPLAY_VALIDATED",
+      "correctedContext": {
+        "stock": {
+          "symbol": "QTRX",
+          "companyName": "Quantrix Health Ltd.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker QTRX, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price increased 5.7% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 45.6%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 41.9% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "window": "The available observation window spans exactly 12 calendar months.",
+          "missing": "A current quote is unavailable. The explanation uses historical sample prices only."
+        }
+      },
+      "answer": {
+        "paragraphs": [
+          "The ticker QTRX has synthetic price data for the period from 2025‑11‑06 to 2026‑11‑06. During that 12‑month window, the price rose 5.7%. This figure represents historical performance only.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. For QTRX, the annualized volatility was 45.6%.",
+          "Maximum drawdown describes the largest drop from a prior peak during the window. QTRX’s maximum drawdown was 41.9% below a preceding peak."
+        ],
+        "uncertaintyNotes": [
+          "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "A current quote is unavailable. The explanation uses historical sample prices only."
+        ]
+      }
+    }
+  ]
+}
