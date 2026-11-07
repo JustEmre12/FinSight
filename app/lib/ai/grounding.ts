@@ -30,16 +30,27 @@ export function assertGroundedText(text: string, facts: Record<string, string>):
   };
   const expectedDirection = /increased|rose|gained/i.test(facts.performance ?? "") ? "up" :
     /decreased|fell|declined/i.test(facts.performance ?? "") ? "down" : "flat";
+  let previousSentence = "";
   for (const sentence of normal.split(/(?<=[.!?])\s+/)) {
+    const preceding = previousSentence;
+    previousSentence = sentence;
     const percentages = sentence.match(/[+-]?\d+(?:\.\d+)?%/g) ?? [];
     if (!percentages.length) continue;
     // Single metric and one percentage per sentence removes cross-association ambiguity.
     if (percentages.length !== 1) throw new Error("Ambiguous numerical sentence");
-    const categories = [
+    let categories = [
       /\bvolatility\b/i.test(sentence) ? "volatility" : null,
       /drawdown|peak.to.trough|below (?:a |its |the )?(?:preceding |previous |prior )?(?:peak|high)/i.test(sentence) ? "drawdown" : null,
       /\b(?:prices?|shares?|stocks?)\b/i.test(sentence) && /\b(?:rose|fell|increase\w*|decrease\w*|gain\w*|declin\w*|unchanged)\b/i.test(sentence) ? "performance" : null,
     ].filter(Boolean) as (keyof typeof expected)[];
+    // Resolve a narrow, explicit reference to the immediately preceding definition.
+    // Do not infer a metric across paragraphs or across a prior numerical claim.
+    if (!categories.length && /\b(?:it|this (?:figure|value))\b/i.test(sentence) && !/%/.test(preceding)) {
+      const priorVolatility = /annualized volatility|annualised volatility/i.test(preceding);
+      const priorDrawdown = /maximum drawdown/i.test(preceding);
+      if (priorVolatility && !priorDrawdown) categories = ["volatility"];
+      if (priorDrawdown && !priorVolatility) categories = ["drawdown"];
+    }
     if (categories.length !== 1) throw new Error("Unidentified numerical claim");
     const category = categories[0];
     if (expected[category] === undefined || percentage(sentence) !== expected[category]) throw new Error("Metric mismatch");
@@ -52,6 +63,6 @@ export function assertGroundedText(text: string, facts: Record<string, string>):
           /\bnot\s+(?:rise|rose|fall|fell|increase|decrease|gain|decline)/i.test(sentence)) throw new Error("Price direction mismatch");
     }
     if (category === "drawdown" && /\b(?:rose|increased|gained|above)\b/i.test(sentence)) throw new Error("Drawdown direction mismatch");
-    if (category === "volatility" && /annualized|annualised|year|annual/i.test(sentence) === false) throw new Error("Volatility time basis missing");
+    if (category === "volatility" && /annualized|annualised|year|annual/i.test(preceding + " " + sentence) === false) throw new Error("Volatility time basis missing");
   }
 }
