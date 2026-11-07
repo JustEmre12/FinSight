@@ -46,3 +46,10 @@ it("resolves Its value only after an unambiguous immediate metric definition", (
     expect(() => assertGroundedText(text, facts)).toThrow();
   }
 });
+
+it.each(["a 55-day window", "a 55‑day window", "a 55 day period", "the window spans 55 days", "the period of 55 calendar days"])("rejects observation counts recast as duration: %s", text => {
+  expect(() => assertGroundedText(text, { short: "Only 55 daily observations are available." })).toThrow();
+});
+it("retains sourced observation counts without converting them into durations", () => {
+  expect(() => assertGroundedText("Only 55 daily observations are available.", { short: "Only 55 daily observations are available." })).not.toThrow();
+});
