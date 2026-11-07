@@ -36,6 +36,11 @@ describe("AI numerical meaning checks (#39)", () => {
   ])("rejects unsupported meaning: %s", text => {
     expect(() => assertGroundedText(text, facts)).toThrow();
   });
+  it("resolves only an immediately preceding unambiguous definition", () => {
+    expect(() => assertGroundedText("Annualized volatility measures daily-return variability. For TEST, this figure was 25.0%.", facts)).not.toThrow();
+    expect(() => assertGroundedText("Annualized volatility measures daily-return variability. For TEST, it was 15.0%.", facts)).toThrow();
+    expect(() => assertGroundedText("Annualized volatility and maximum drawdown describe history. It was 25.0%.", facts)).toThrow();
+  });
   it("does not accept a volatility number when that metric was withheld", () => {
     expect(() => assertGroundedText("Annualized volatility was 10.0%.", { performance: facts.performance })).toThrow();
   });

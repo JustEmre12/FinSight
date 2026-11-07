@@ -1,6 +1,7 @@
 // Explicit opt-in evaluation of the website adapter. Normal CI makes no API calls.
 import { it, expect } from "vitest";
-import { writeFile } from "node:fs/promises";
+import { writeFile, readFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { generateAnalysis, MODEL } from "@/lib/ai/groq";
 
 const enabled = process.env.RUN_GROQ_QUALITY === "true";
@@ -12,6 +13,10 @@ it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history case
   const repetitions = Number(process.env.GROQ_QUALITY_REPETITIONS ?? 3);
   const symbols = (process.env.GROQ_QUALITY_SYMBOLS ?? "NOVA,BRKW,QTRX,LUMA").split(",");
   if (![1,2,3].includes(repetitions) || symbols.some(s => !["NOVA","BRKW","QTRX","LUMA"].includes(s)) || new Set(symbols).size !== symbols.length) throw new Error("Invalid bounded evaluation configuration");
+  const codeHashes: Record<string,string> = {};
+  for (const file of ["groq.ts", "grounding.ts", "prompt.ts"]) {
+    codeHashes[file] = createHash("sha256").update(await readFile(new URL(`../lib/ai/${file}`, import.meta.url))).digest("hex");
+  }
   let calls = 0;
   for (const symbol of symbols) {
     for (let repetition = 1; repetition <= repetitions; repetition++) {
@@ -35,7 +40,7 @@ it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history case
         runs.push({ symbol, repetition, status: "REJECTED_OR_UNAVAILABLE", usage, candidate, providerError,
           reason: error instanceof Error ? error.message : "Unknown failure", humanReview: "PENDING" });
       }
-      await writeFile(output, JSON.stringify({ model: MODEL, mode: "synthetic-website-adapter", runs }, null, 2) + "\n");
+      await writeFile(output, JSON.stringify({ model: MODEL, codeHashes, mode: "synthetic-website-adapter", runs }, null, 2) + "\n");
       console.log(symbol, repetition, runs[runs.length - 1].status);
     }
   }
