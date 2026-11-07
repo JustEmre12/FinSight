@@ -1,4 +1,5 @@
 import { expect, it, vi } from "vitest";
+import { assertGroundedText } from "@/lib/ai/grounding";
 import { generateAnalysis } from "@/lib/ai/groq";
 
 it.each([
@@ -33,4 +34,15 @@ it("bounds response body reads by the same request deadline", async () => {
     await vi.advanceTimersByTimeAsync(25_001);
     await assertion;
   } finally { timeout.mockRestore(); vi.useRealTimers(); }
+});
+it("keeps malformed successful provider JSON distinct from transport failures", async () => {
+  await expect(generateAnalysis("NOVA", "fake", new Date(), vi.fn().mockResolvedValue(new Response("not json", { status: 200 })))).rejects.toMatchObject({ code: "invalid_response" });
+});
+
+it("resolves Its value only after an unambiguous immediate metric definition", () => {
+  const facts = { volatility: "Annualized volatility was 32.8%.", drawdown: "Maximum drawdown was 35.5%." };
+  expect(() => assertGroundedText("Annualized volatility measures daily-return variability. Its value for NOVA is 32.8%.", facts)).not.toThrow();
+  for (const text of ["Its value is 32.8%.", "Annualized volatility and maximum drawdown describe history. Its value is 32.8%.", "Annualized volatility measures daily-return variability. Its value is 35.5%.", "Annualized volatility was 32.8%. Its value is 32.8%."]) {
+    expect(() => assertGroundedText(text, facts)).toThrow();
+  }
 });
