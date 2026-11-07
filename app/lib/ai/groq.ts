@@ -1,4 +1,5 @@
 // Server module: imported only by the route handler, never by the client panel.
+import { assertGroundedText } from "./grounding";
 import { ANALYSIS_PROMPT } from "./prompt";
 import { getPriceHistory, getQuote, getStockSummary } from "../api";
 import { computeRiskMetrics } from "../risk";
@@ -27,7 +28,7 @@ export async function buildContext(symbol: string, now: Date) {
   // Synthetic daily observations have date-only semantics, not actual exchange close times.
   const dataAsOf = `${last}T00:00:00.000Z`;
   const facts: Record<string, string> = {
-    performance: `For ${stock.companyName} (${stock.symbol}), the available synthetic prices cover ${first} through ${last}. Price ${metrics.priceChangePercent >= 0 ? "increased" : "decreased"} ${Math.abs(metrics.priceChangePercent).toFixed(1)}% between the first and last observations. This is historical performance, not a forecast.`,
+    performance: `For ${stock.companyName} (${stock.symbol}), the available synthetic prices cover ${first} through ${last}. Price ${metrics.priceChangePercent === 0 ? "was unchanged at" : metrics.priceChangePercent > 0 ? "increased" : "decreased"} ${Math.abs(metrics.priceChangePercent).toFixed(1)}% between the first and last observations. This is historical performance, not a forecast.`,
     volatility: `Annualized historical volatility was ${metrics.annualizedVolatilityPercent.toFixed(1)}%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.`,
     drawdown: `Maximum drawdown was ${Math.abs(metrics.maxDrawdownPercent).toFixed(1)}% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.`,
     limitations: "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
@@ -37,6 +38,7 @@ export async function buildContext(symbol: string, now: Date) {
     facts.stale = "This sample quote is marked stale. It must not be treated as current market information.";
   }
   if (history.points.length < 100) facts.short = `Only ${history.points.length} daily observations are available. The limited history does not cover the full requested year and makes historical risk estimates less representative.`;
+  if (history.points.length < 21) facts.smallSample = "Fewer than twenty daily returns are available. Risk estimates are unstable and should not be treated as reliable long-term estimates.";
   return { stock, dataAsOf, facts };
 }
 
@@ -51,8 +53,7 @@ export function validateExplanation(value: unknown, facts: Record<string, string
   const paragraphs = record.paragraphs as string[];
   const uncertaintyNotes = record.uncertaintyNotes as string[];
   const text = [...paragraphs,...uncertaintyNotes].join(" ");
-  const allowed = new Set(Object.values(facts).join(" ").match(/\d+(?:\.\d+)?/g));
-  if ((text.match(/\d+(?:\.\d+)?/g) ?? []).some(n => !allowed.has(n))) throw new AnalysisUnavailable("Unsupported number");
+  try { assertGroundedText(text, facts); } catch { throw new AnalysisUnavailable("Unsupported financial claim"); }
   if (!/synthetic|fictional|sample/i.test(text) || /buy now|you should (buy|sell|hold)|guaranteed|earnings beat|safer than most|averaged about|is a[n]? .*company|listed (?:on|in)/i.test(text)) throw new AnalysisUnavailable("Unsupported claim");
   return { paragraphs, uncertaintyNotes };
 }
@@ -66,8 +67,8 @@ export async function generateAnalysis(symbol: string, key: string, now = new Da
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json", "User-Agent": "FinSight-AI-Demo/1.0" },
       body: JSON.stringify({ model: MODEL, reasoning_effort: "medium", max_completion_tokens: 2048,
         messages: [
-          { role: "system", content: ANALYSIS_PROMPT + " Use only the numerical facts in approvedFacts. Do not add observation counts or other numbers. Include every supplied limitation. Do not describe synthetic exchange labels as actual listings. Do not infer an industry, sector, or company profile from a name. State only the ticker and available historical facts." },
-          { role: "user", content: JSON.stringify({ stock: context.stock, dataMode: "synthetic-test", source: { provider: "FinSight fictional sample data", dataAsOf: context.dataAsOf }, approvedFacts: context.facts, limitations: [context.facts.limitations, ...["short", "stale", "missing"].filter(id => context.facts[id]).map(id => context.facts[id])] }) },
+          { role: "system", content: ANALYSIS_PROMPT + " Use only the numerical facts in approvedFacts. Do not add observation counts or other numbers. Include every supplied limitation. Do not describe synthetic exchange labels as actual listings. Do not infer an industry, sector, or company profile from a name. State only the ticker and available historical facts. Put each numerical metric in its own sentence, using exactly one percentage per sentence. Never place price change and volatility or drawdown in the same sentence. Include the word price and its correct direction when reporting performance, annualized volatility when reporting volatility, and maximum drawdown when reporting the peak-to-trough loss. Use digits with the exact supplied precision. Do not add inferred causes, advice, or company attributes." },
+          { role: "user", content: JSON.stringify({ stock: context.stock, dataMode: "synthetic-test", source: { provider: "FinSight fictional sample data", dataAsOf: context.dataAsOf }, approvedFacts: context.facts, limitations: [context.facts.limitations, ...["short", "stale", "missing", "smallSample"].filter(id => context.facts[id]).map(id => context.facts[id])] }) },
         ],
         response_format: { type: "json_schema", json_schema: { name: "finsight_explanation", strict: true,
           schema: { type: "object", properties: {
@@ -89,7 +90,7 @@ export async function generateAnalysis(symbol: string, key: string, now = new Da
         "Fictional sample data only. Historical measures do not predict future performance.",
         "General research information, not a recommendation to buy, sell, or hold.",
         "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
-        ...["short", "stale", "missing"].filter(id => context.facts[id]).map(id => context.facts[id]), ...result.uncertaintyNotes])],
+        ...["short", "stale", "missing", "smallSample"].filter(id => context.facts[id]).map(id => context.facts[id]), ...result.uncertaintyNotes])],
     };
   } catch { throw new AnalysisUnavailable("Invalid AI response"); }
 }
