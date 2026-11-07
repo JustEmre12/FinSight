@@ -1,0 +1,75 @@
+{
+  "mode": "offline",
+  "live_calls": 0,
+  "checks": [
+    {
+      "check": "Valid synthetic context",
+      "passed": true
+    },
+    {
+      "check": "AI-14 valid response structure",
+      "passed": true
+    },
+    {
+      "check": "AI-14 reject extra metadata",
+      "passed": true
+    },
+    {
+      "check": "AI-14 reject empty paragraph",
+      "passed": true
+    },
+    {
+      "check": "AI-14 reject overlong paragraph",
+      "passed": true
+    },
+    {
+      "check": "AI-14 reject HTML",
+      "passed": true
+    },
+    {
+      "check": "AI-14 reject wrong type",
+      "passed": true
+    },
+    {
+      "check": "AI-07 no history",
+      "passed": true
+    },
+    {
+      "check": "AI-08 one return",
+      "passed": true
+    },
+    {
+      "check": "AI-16 future time",
+      "passed": true
+    },
+    {
+      "check": "AI-16 missing time",
+      "passed": true
+    },
+    {
+      "check": "AI-19 no source",
+      "passed": true
+    },
+    {
+      "check": "Public contract and server metadata",
+      "passed": true
+    },
+    {
+      "check": "Smoke flag: buy now",
+      "passed": true
+    },
+    {
+      "check": "Smoke flag: earnings beat expectations",
+      "passed": true
+    },
+    {
+      "check": "Smoke flag: safer than most",
+      "passed": true
+    },
+    {
+      "check": "Documented volatility fixture arithmetic",
+      "passed": true
+    }
+  ],
+  "limitations": "Harness tests only. Semantic validation, website integration and live provider behavior remain unverified."
+}
