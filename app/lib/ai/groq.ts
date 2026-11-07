@@ -33,6 +33,12 @@ export async function buildContext(symbol: string, now: Date) {
     drawdown: `Maximum drawdown was ${Math.abs(metrics.maxDrawdownPercent).toFixed(1)}% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.`,
     limitations: "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
   };
+  const firstDate = new Date(`${first}T00:00:00Z`);
+  const lastDate = new Date(`${last}T00:00:00Z`);
+  const calendarMonths = (lastDate.getUTCFullYear() - firstDate.getUTCFullYear()) * 12 + lastDate.getUTCMonth() - firstDate.getUTCMonth();
+  if (calendarMonths > 0 && firstDate.getUTCDate() === lastDate.getUTCDate()) {
+    facts.window = `The available observation window spans exactly ${calendarMonths} calendar months.`;
+  }
   if (quote.price === null) facts.missing = "A current quote is unavailable. The explanation uses historical sample prices only.";
   if (quote.quoteTime && now.getTime() - Date.parse(quote.quoteTime) > 3 * 86400_000) {
     facts.stale = "This sample quote is marked stale. It must not be treated as current market information.";
