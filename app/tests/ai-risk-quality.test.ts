@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { buildContext } from "@/lib/ai/groq";
 import { assertGroundedText } from "@/lib/ai/grounding";
 import { computeRiskMetrics } from "@/lib/risk";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -14,6 +15,10 @@ const facts = {
 const series = (values: number[]) => values.map((close, i) => ({ date: `2026-01-${String(i + 1).padStart(2, "0")}`, close }));
 
 describe("AI numerical meaning checks (#39)", () => {
+  it("computes an exact calendar-duration fact instead of asking the model to infer it", async () => {
+    const context = await buildContext("QTRX", new Date("2026-11-07T02:32:00Z"));
+    expect(context.facts.window).toBe("The available observation window spans exactly 12 calendar months.");
+  });
   it("accepts separate, correctly attributed percentages and unicode spacing", () => {
     expect(() => assertGroundedText("Sample price increased 10.0 %. Annualized volatility was 25.0%. Maximum drawdown was 15.0% below a preceding peak.", facts)).not.toThrow();
   });
@@ -36,8 +41,17 @@ describe("AI numerical meaning checks (#39)", () => {
   ])("rejects unsupported meaning: %s", text => {
     expect(() => assertGroundedText(text, facts)).toThrow();
   });
+  it("compares written-out calendar dates with the exact source dates", () => {
+    expect(() => assertGroundedText("Sample prices cover January 1, 2026 to January 3, 2026.", facts)).not.toThrow();
+    expect(() => assertGroundedText("Sample prices cover January 2, 2026 to January 3, 2026.", facts)).toThrow();
+    expect(() => assertGroundedText("Sample prices cover January 3, 2026 to January 1, 2026.", facts)).toThrow();
+  });
+  it("accepts an explicit warning that volatility is not average movement", () => {
+    expect(() => assertGroundedText("Annualized volatility was 25.0%. Annualized volatility describes daily returns; it is not average daily movement or a complete measure of risk.", facts)).not.toThrow();
+  });
   it("resolves only an immediately preceding unambiguous definition", () => {
     expect(() => assertGroundedText("Annualized volatility measures daily-return variability. For TEST, this figure was 25.0%.", facts)).not.toThrow();
+    expect(() => assertGroundedText("Annualized volatility measures daily-return variability. For TEST, that value was 25.0%.", facts)).not.toThrow();
     expect(() => assertGroundedText("Annualized volatility measures daily-return variability. For TEST, it was 15.0%.", facts)).toThrow();
     expect(() => assertGroundedText("Annualized volatility and maximum drawdown describe history. It was 25.0%.", facts)).toThrow();
   });

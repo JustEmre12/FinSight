@@ -2,7 +2,7 @@
 import { it, expect } from "vitest";
 import { writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { generateAnalysis, MODEL } from "@/lib/ai/groq";
+import { generateAnalysis, buildContext, MODEL } from "@/lib/ai/groq";
 
 const enabled = process.env.RUN_GROQ_QUALITY === "true";
 it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history cases three times", async () => {
@@ -17,10 +17,12 @@ it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history case
   for (const file of ["groq.ts", "grounding.ts", "prompt.ts"]) {
     codeHashes[file] = createHash("sha256").update(await readFile(new URL(`../lib/ai/${file}`, import.meta.url))).digest("hex");
   }
+  const evaluationNow = new Date();
   let calls = 0;
   for (const symbol of symbols) {
     for (let repetition = 1; repetition <= repetitions; repetition++) {
       if (calls++) await new Promise(resolve => setTimeout(resolve, 35_000));
+      const context = await buildContext(symbol, evaluationNow);
       let usage: unknown;
       let candidate: unknown;
       let providerError: unknown;
@@ -34,13 +36,13 @@ it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history case
         return response;
       };
       try {
-        const result = await generateAnalysis(symbol, key, new Date(), fetcher);
-        runs.push({ symbol, repetition, status: "VALIDATED", result, usage, humanReview: "PENDING" });
+        const result = await generateAnalysis(symbol, key, evaluationNow, fetcher);
+        runs.push({ symbol, repetition, status: "VALIDATED", context, result, usage, humanReview: "PENDING" });
       } catch (error) {
-        runs.push({ symbol, repetition, status: "REJECTED_OR_UNAVAILABLE", usage, candidate, providerError,
+        runs.push({ symbol, repetition, status: "REJECTED_OR_UNAVAILABLE", context, usage, candidate, providerError,
           reason: error instanceof Error ? error.message : "Unknown failure", humanReview: "PENDING" });
       }
-      await writeFile(output, JSON.stringify({ model: MODEL, codeHashes, mode: "synthetic-website-adapter", runs }, null, 2) + "\n");
+      await writeFile(output, JSON.stringify({ model: MODEL, evaluationNow: evaluationNow.toISOString(), codeHashes, mode: "synthetic-website-adapter", runs }, null, 2) + "\n");
       console.log(symbol, repetition, runs[runs.length - 1].status);
     }
   }
