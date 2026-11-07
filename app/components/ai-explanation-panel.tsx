@@ -4,7 +4,7 @@
 // uncertainty notes and no buy/sell advice.
 
 import { useState } from "react";
-import { getAiExplanation } from "@/lib/api";
+import { getAiExplanation } from "@/lib/ai/client";
 import { formatDateTime } from "@/lib/format";
 import type { AiExplanation } from "@/lib/types";
 import { Notice } from "./notice";
