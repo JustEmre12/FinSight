@@ -7,9 +7,9 @@ import { computeRiskMetrics, type VolatilityLevel } from "@/lib/risk";
 import type { PriceHistory } from "@/lib/types";
 
 const LEVEL_TEXT: Record<VolatilityLevel, string> = {
-  lower: "Lower than many stocks",
+  lower: "Lower historical variability",
   moderate: "Moderate",
-  higher: "Higher than many stocks",
+  higher: "Higher historical variability",
 };
 
 function Stat({ label, value, explain }: { label: string; value: string; explain: string }) {
@@ -46,8 +46,8 @@ export function RiskSection({ history, periodLabel }: { history: PriceHistory; p
           Last {periodLabel}
         </h3>
         {!m ? (
-          <Notice tone="info" title="Not enough history to measure risk">
-            <p>We need at least two days of prices. Try a longer period.</p>
+          <Notice tone="info" title="Risk measures unavailable">
+            <p>We need at least three valid, ordered daily prices. Missing or invalid data cannot be treated as zero risk. Try a longer period.</p>
           </Notice>
         ) : (
           <>
@@ -65,7 +65,7 @@ export function RiskSection({ history, periodLabel }: { history: PriceHistory; p
               <Stat
                 label="Volatility (yearly, %)"
                 value={formatPercent(m.annualizedVolatilityPercent)}
-                explain={`${LEVEL_TEXT[m.volatilityLevel]}. How much the price usually swings up and down in a year, based on daily moves.`}
+                explain={`${LEVEL_TEXT[m.volatilityLevel]}. The spread of past daily percentage returns, scaled by the square root of 252 trading days. This is not an average yearly price move.`}
               />
               <Stat
                 label="Biggest drop from a high (%)"
@@ -75,17 +75,18 @@ export function RiskSection({ history, periodLabel }: { history: PriceHistory; p
               <Stat
                 label="Largest one-day rise (%)"
                 value={formatSignedPercent(m.largestDailyGainPercent, 1)}
-                explain="The biggest gain from one trading day to the next."
+                explain={m.largestDailyGainPercent === 0 ? "No positive daily return was observed in this window." : "The biggest gain between consecutive daily observations."}
               />
               <Stat
                 label="Largest one-day fall (%)"
                 value={formatSignedPercent(m.largestDailyLossPercent, 1)}
-                explain="The biggest loss from one trading day to the next."
+                explain={m.largestDailyLossPercent === 0 ? "No negative daily return was observed in this window." : "The biggest loss between consecutive daily observations."}
               />
             </dl>
             <p className="text-sm text-muted">
               Based on {m.tradingDays} daily closing prices from {formatDate(m.startDate)} to {formatDate(m.endDate)}.
-              Source: {history.provider}. Volatility bands (under 20%, 20–40%, over 40%) are rough guides, not ratings.
+              {m.tradingDays < 21 && "Limited history: fewer than 20 daily returns; estimates may be unstable. "}
+              Source: {history.provider}. Volatility bands (under 20%, 20–40%, over 40%) are rough guides, not ratings or comparisons with other stocks.
             </p>
           </>
         )}

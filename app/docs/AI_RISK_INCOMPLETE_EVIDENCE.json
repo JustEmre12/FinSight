@@ -1,0 +1,115 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "evaluationNow": "2026-11-07T08:11:24.430Z",
+  "codeHashes": {
+    "groq.ts": "9adcc938a6a5accab31d182c21496fb62c01b398834300641bfd9577c4c8cea9",
+    "grounding.ts": "d251151cd83cbe349f2404c1f9c8b3cedeeed3329caaa5b241520c59dccfb41a",
+    "prompt.ts": "6dc7bf128aa5afaf0859a5b411b0f80c71a528a433f9befe10859dd9ff2545d6"
+  },
+  "mode": "synthetic-website-adapter",
+  "runs": [
+    {
+      "symbol": "NOVA",
+      "repetition": 1,
+      "status": "REJECTED_OR_UNAVAILABLE",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "window": "The available observation window spans exactly 12 calendar months."
+        }
+      },
+      "providerError": {
+        "code": "json_validate_failed",
+        "message": "Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details."
+      },
+      "reason": "AI provider unavailable",
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "NOVA",
+      "repetition": 2,
+      "status": "VALIDATED",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "window": "The available observation window spans exactly 12 calendar months."
+        }
+      },
+      "result": {
+        "symbol": "NOVA",
+        "generatedAt": "2026-11-07T08:12:03.714Z",
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "generator": "Groq / openai/gpt-oss-20b — AI explanation of FICTIONAL SAMPLE DATA",
+        "paragraphs": [
+          "The available observation window for ticker NOVA spans exactly 12 calendar months, covering 2025-11-06 through 2026-11-06.",
+          "Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "Annualized volatility measures the spread of past daily percentage returns, scaled to a yearly measure. It was 32.8%. Maximum drawdown was 35.5% below a preceding peak within this window."
+        ],
+        "uncertaintyNotes": [
+          "AI-generated text may contain errors or omissions.",
+          "Fictional sample data only. Historical measures do not predict future performance.",
+          "General research information, not a recommendation to buy, sell, or hold.",
+          "The data-as-of timestamp represents the synthetic observation date at UTC midnight, not an exchange close.",
+          "These are fictional FinSight sample prices, not live market data.",
+          "Price history alone does not establish why a price moved. No news or causal evidence was supplied."
+        ]
+      },
+      "usage": {
+        "queue_time": 0.094832752,
+        "prompt_tokens": 1283,
+        "prompt_time": 0.074954727,
+        "completion_tokens": 898,
+        "completion_time": 1.127769791,
+        "total_tokens": 2181,
+        "total_time": 1.202724518,
+        "completion_tokens_details": {
+          "reasoning_tokens": 741
+        }
+      },
+      "humanReview": "PENDING"
+    },
+    {
+      "symbol": "NOVA",
+      "repetition": 3,
+      "status": "REJECTED_OR_UNAVAILABLE",
+      "context": {
+        "stock": {
+          "symbol": "NOVA",
+          "companyName": "Nova Robotics Inc.",
+          "exchange": "NASDAQ",
+          "currency": "USD"
+        },
+        "dataAsOf": "2026-11-06T00:00:00.000Z",
+        "facts": {
+          "performance": "For ticker NOVA, the available synthetic prices cover 2025-11-06 through 2026-11-06. Price decreased 1.0% between the first and last observations. This is historical performance, not a forecast.",
+          "volatility": "Annualized historical volatility was 32.8%. It measures the spread of past daily percentage returns, scaled to a yearly measure; it is not average daily movement or a complete measure of risk.",
+          "drawdown": "Maximum drawdown was 35.5% below a preceding peak within this window. This describes the largest observed peak-to-trough decline, not a prediction of future losses.",
+          "limitations": "These are fictional FinSight sample prices, not live market data. Price history alone does not establish why a price moved. No news or causal evidence was supplied.",
+          "window": "The available observation window spans exactly 12 calendar months."
+        }
+      },
+      "reason": "AI provider unavailable",
+      "humanReview": "PENDING"
+    }
+  ]
+}
