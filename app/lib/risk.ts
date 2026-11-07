@@ -33,9 +33,17 @@ export function classifyVolatility(annualizedPercent: number): VolatilityLevel {
   return "higher";
 }
 
-/** Returns null when there are fewer than 2 prices (not enough to measure change). */
+/** Require two returns for sample variance. Invalid histories are rejected, never repaired silently. */
 export function computeRiskMetrics(points: PricePoint[]): RiskMetrics | null {
-  if (points.length < 2) return null;
+  if (points.length < 3) return null;
+  for (let i = 0; i < points.length; i++) {
+    const p = points[i];
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(p.date) ||
+        !Number.isFinite(Date.parse(`${p.date}T00:00:00Z`)) ||
+        new Date(`${p.date}T00:00:00Z`).toISOString().slice(0, 10) !== p.date ||
+        !Number.isFinite(p.close) || p.close <= 0 ||
+        (i > 0 && p.date <= points[i - 1].date)) return null;
+  }
 
   const returns: number[] = [];
   for (let i = 1; i < points.length; i++) {
@@ -45,6 +53,7 @@ export function computeRiskMetrics(points: PricePoint[]): RiskMetrics | null {
   const variance =
     returns.length > 1 ? returns.reduce((sum, r) => sum + (r - mean) ** 2, 0) / (returns.length - 1) : 0;
   const annualizedVolatilityPercent = Math.sqrt(variance) * Math.sqrt(TRADING_DAYS_PER_YEAR) * 100;
+  if (!Number.isFinite(annualizedVolatilityPercent)) return null;
 
   let peak = points[0].close;
   let maxDrawdown = 0;
@@ -65,8 +74,8 @@ export function computeRiskMetrics(points: PricePoint[]): RiskMetrics | null {
     annualizedVolatilityPercent,
     volatilityLevel: classifyVolatility(annualizedVolatilityPercent),
     maxDrawdownPercent: maxDrawdown * 100,
-    largestDailyGainPercent: Math.max(...returns) * 100,
-    largestDailyLossPercent: Math.min(...returns) * 100,
+    largestDailyGainPercent: Math.max(0, ...returns) * 100,
+    largestDailyLossPercent: Math.min(0, ...returns) * 100,
     tradingDays: points.length,
   };
 }
