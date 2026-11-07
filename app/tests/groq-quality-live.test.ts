@@ -2,7 +2,7 @@
 import { it, expect } from "vitest";
 import { writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { generateAnalysis, buildContext, MODEL } from "@/lib/ai/groq";
+import { generateAnalysis, buildContext, MODEL, AnalysisUnavailable, type AnalysisTelemetry } from "@/lib/ai/groq";
 
 const enabled = process.env.RUN_GROQ_QUALITY === "true";
 it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history cases three times", async () => {
@@ -23,28 +23,22 @@ it.skipIf(!enabled)("repeats normal, stale, missing-quote and short-history case
     for (let repetition = 1; repetition <= repetitions; repetition++) {
       if (calls++) await new Promise(resolve => setTimeout(resolve, 35_000));
       const context = await buildContext(symbol, evaluationNow);
-      let usage: unknown;
-      let candidate: unknown;
-      let providerError: unknown;
-      const fetcher: typeof fetch = async (input, init) => {
-        const response = await fetch(input, init);
-        try {
-          const body = await response.clone().json(); usage = body.usage;
-          candidate = body.choices?.[0]?.message?.content;
-          providerError = body.error ? { code: body.error.code, message: body.error.message } : undefined;
-        } catch { /* unavailable */ }
-        return response;
-      };
+      let telemetry: AnalysisTelemetry | undefined;
+      const startedAt = new Date().toISOString();
+      await writeFile(output, JSON.stringify({ model: MODEL, evaluationNow: evaluationNow.toISOString(), codeHashes,
+        status: "RUNNING", active: { symbol, repetition, startedAt }, runs }, null, 2) + "\n");
       try {
-        const result = await generateAnalysis(symbol, key, evaluationNow, fetcher);
-        runs.push({ symbol, repetition, status: "VALIDATED", context, result, usage, humanReview: "PENDING" });
+        const result = await generateAnalysis(symbol, key, evaluationNow, fetch, event => { telemetry = event; });
+        runs.push({ symbol, repetition, status: "VALIDATED", context, result, telemetry, startedAt, humanReview: "PENDING" });
       } catch (error) {
-        runs.push({ symbol, repetition, status: "REJECTED_OR_UNAVAILABLE", context, usage, candidate, providerError,
+        runs.push({ symbol, repetition, status: "REJECTED_OR_UNAVAILABLE", context, telemetry, startedAt, failureCode: error instanceof AnalysisUnavailable ? error.code : "unknown",
           reason: error instanceof Error ? error.message : "Unknown failure", humanReview: "PENDING" });
       }
-      await writeFile(output, JSON.stringify({ model: MODEL, evaluationNow: evaluationNow.toISOString(), codeHashes, mode: "synthetic-website-adapter", runs }, null, 2) + "\n");
+      await writeFile(output, JSON.stringify({ model: MODEL, evaluationNow: evaluationNow.toISOString(), codeHashes, mode: "synthetic-website-adapter", status: runs.length === symbols.length * repetitions ? "COMPLETE" : "RUNNING", runs }, null, 2) + "\n");
       console.log(symbol, repetition, runs[runs.length - 1].status);
     }
   }
   expect(runs.filter(run => run.status !== "VALIDATED")).toEqual([]);
-}, 600_000);
+// 12 calls at 25 seconds plus 11 pauses at 35 seconds require up to 685 seconds.
+// Explicit finite allowance includes context preparation and evidence writes.
+}, 750_000);
