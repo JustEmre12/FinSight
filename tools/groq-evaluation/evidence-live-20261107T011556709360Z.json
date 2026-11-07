@@ -1,0 +1,56 @@
+{
+  "mode": "live",
+  "model": "openai/gpt-oss-20b",
+  "prompt_sha256": "6ba778b82f1616a7c116d4f1342d91058140ba5e512174a9b86e25968626c813",
+  "runs": [
+    {
+      "case": "AI-01",
+      "human_review": "PENDING",
+      "context": {
+        "schemaVersion": "finsight.analysis-context.v1",
+        "analysisType": "historical-price-and-risk",
+        "stock": {
+          "symbol": "TEST",
+          "companyName": "Synthetic Test Company",
+          "exchange": "TEST",
+          "currency": "USD"
+        },
+        "dataMode": "synthetic-test",
+        "source": {
+          "provider": "Synthetic QA fixture",
+          "retrievedAt": "2026-11-06T15:00:00Z",
+          "dataAsOf": "2026-11-05T21:00:00Z",
+          "freshnessStatus": "acceptable",
+          "freshnessReason": "Fixture only; no claim of live market coverage"
+        },
+        "window": {
+          "requestedPeriod": "1Y",
+          "startDate": "2025-11-06",
+          "endDate": "2026-11-05",
+          "observationCount": 252,
+          "returnCount": 251
+        },
+        "approvedFacts": [
+          {
+            "id": "price_change",
+            "displayText": "Price increased 10.0% over the available period."
+          },
+          {
+            "id": "volatility",
+            "displayText": "Annualized historical volatility was 25.0%."
+          },
+          {
+            "id": "drawdown",
+            "displayText": "Maximum drawdown was 15.0% below a preceding peak."
+          }
+        ],
+        "limitations": [
+          "Synthetic fixture, not real market data.",
+          "No news or causal evidence was supplied."
+        ]
+      },
+      "status": "NETWORK_ERROR",
+      "elapsed_seconds": 0.04
+    }
+  ]
+}
