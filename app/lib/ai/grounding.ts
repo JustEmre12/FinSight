@@ -49,7 +49,7 @@ export function assertGroundedText(text: string, facts: Record<string, string>):
     ].filter(Boolean) as (keyof typeof expected)[];
     // Resolve a narrow, explicit reference to the immediately preceding definition.
     // Do not infer a metric across paragraphs or across a prior numerical claim.
-    if (!categories.length && /\b(?:it|(?:this|that) (?:figure|value))\b/i.test(sentence) && !/%/.test(preceding)) {
+    if (!categories.length && /\b(?:it|(?:this|that|its) (?:figure|value))\b/i.test(sentence) && !/%/.test(preceding)) {
       const priorVolatility = /annualized volatility|annualised volatility/i.test(preceding);
       const priorDrawdown = /maximum drawdown/i.test(preceding);
       if (priorVolatility && !priorDrawdown) categories = ["volatility"];

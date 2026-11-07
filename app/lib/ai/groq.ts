@@ -98,9 +98,17 @@ export async function generateAnalysis(symbol: string, key: string, now = new Da
     });
     // Read the body under the same deadline, once; evaluation does not clone it.
     try { body = await response.json(); }
-    catch (error) { if (response.ok || signal.aborted) throw error; body = {}; }
-  } catch {
+    catch (error) {
+      if (signal.aborted) throw error;
+      if (response.ok) {
+        if (error instanceof SyntaxError) throw new AnalysisUnavailable("Invalid AI response");
+        throw error;
+      }
+      body = {};
+    }
+  } catch (error) {
     observe?.({ elapsedMs: performance.now() - started });
+    if (error instanceof AnalysisUnavailable) throw error;
     throw new AnalysisUnavailable("AI provider unavailable", signal.aborted ? "timeout" : "network");
   }
   observe?.({ elapsedMs: performance.now() - started, httpStatus: response.status,
