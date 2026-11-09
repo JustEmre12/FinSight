@@ -1,50 +1,83 @@
-# FinSight — verified project status and evidence
+# FinSight — Verified Project Status
 
-**Snapshot as of November 3, 2026.** Distinguish **documented**, **working demo**, **proposed**, **blocked/undecided**, and **production-verified**. Issue labels are the live status source, not this dated snapshot.
+**Snapshot: November 8, 2026.** This page separates what is actually merged/provisioned from what is still a demo, in review, blocked, or future.
 
-## Verified from repository
+## Current milestone
 
-| Deliverable / capability | Current status | Evidence | What still remains |
+**Reliability + backend foundation.** The frontend baseline, MongoDB Atlas database and local/demo Groq integration now exist. The project is moving toward secure backend/auth, live market data, persistent data and end-to-end integration.
+
+## Verified implementation evidence
+
+| Area | Current state | Evidence | Remaining |
 | --- | --- | --- | --- |
-| Sprint 1/2 discovery and proposal | **Documented** | Uploaded proposal, investigation, root-cause reports, journals; [research](RESEARCH_AND_DISCOVERY.md) | User interviews/independent data-source validation |
-| Sprint 3 management plan | **Documented estimate** | 9-task WBS, Gantt, 31-workday critical path, risk response | Actual dates/progress unknown; plan describes broader portfolio scope |
-| Sprint 4 FR/NFR and 7 user stories | **Documented baseline** | [requirements](REQUIREMENTS.md), [user stories](USER_STORIES.md) | Real integrated acceptance testing |
-| Sprint 5 functional/logical modeling | **Documented** | 5 processes and D1–D4 [system design](SYSTEM_DESIGN.md), [logical dictionary](DATA_DICTIONARY.md) | Physical database and service implementations |
-| Sprint 6 OO modeling | **Documented** | 6 objects, use cases, sequences, states, activity [Sprint 6](SPRINT6_OBJECT_ORIENTED_MODEL.md) | Team/instructor approval not evidenced |
-| Responsive user interface | **Working sample-data demo** | [PR #69](https://github.com/JustEmre12/FinSight/pull/69), [frontend app](../app/README.md), 16 screenshots | Real providers, secure auth, manual browser/accessibility QA |
-| Search and stock details | **Demo only** | `app/lib/api.ts` / `sample-data.ts` | Licensed live data, accurate timestamps/caching |
-| Charts, comparisons and risk | **Demo calculations/UI** | `app/lib/risk.ts`, `compare.ts` and screenshots | Live data and production QA |
-| Log in / watchlists | **Mock browser state** | `app/components/auth-context.tsx` and `app/lib/api.ts` | Auth provider/session and owner-protected persistence |
-| AI explanation | **Template text** | `getAiExplanation()` | External AI provider, response evaluation, provenance, privacy |
-| Conversational verified-source FinSight AI | **Proposed expansion** | Product discussion only; [AI vision](FINSIGHT_AI_VISION.md) | Approval, architecture, source rights, implementation |
-| Investment holdings and portfolios | **Earlier proposal / future** | Sprint 3 plan and Jake Fintech reference | Scope decision, data protection and user consent |
-| MongoDB database and server endpoints | **Atlas database provisioned; app not connected** | Dedicated FinSight Atlas project + free `FinSight-MVP` cluster; `finsight` DB with six collections and query indexes; [live DB notes](../database/README.md) | Apply strict validators/unique flags via initializer; add secure server connection, auth ownership and integration tests |
-| Deployed production site | **Not evidenced** | No live deployment link or production run | Deployment and production acceptance |
-| GitHub Actions frontend checks | **Passed for merged prototype** | [PR run](https://github.com/JustEmre12/FinSight/actions/runs/41519999919) and post-merge run | No assertion of backend/AI tests |
+| **Frontend** | **Working responsive sample-data prototype** | Jake's merged [PR #69](https://github.com/JustEmre12/FinSight/pull/69) | Replace fictional/local data with live backend services; finish acceptance/accessibility/security review |
+| **Stock search / compare / charts** | **Implemented in sample-data UI; In Review** | #37, #41, #42 + PR #69 | Real market provider, live histories and integrated acceptance |
+| **MongoDB database** | **Live Atlas infrastructure exists** | Salih's PRs #85–#87; project **FinSight**, cluster **FinSight-MVP**, DB `finsight`, six collections | Apply final validator/unique-index integrity workflow; connect backend/auth and add integration tests |
+| **AI explanation** | **Groq connected to existing explanation panel for local/demo use** | Henry's PR #90 | Production remains disabled; real licensed market context, durable controls and group acceptance remain |
+| **AI/risk quality** | **Actively improving** | PR #91 merged; [PR #92](https://github.com/JustEmre12/FinSight/pull/92) open | Finish reliability evaluation and real-data QA |
+| **Backend/API** | **Designed/Ready, not implemented end-to-end** | Sprint 5/6 models, backend deck, #22/#31/#35/#44/#46 | Server architecture, auth, market provider, MongoDB application connection |
+| **Authentication/watchlists** | **Mock/local only** | Existing frontend | Secure sessions, owner authorization and persistent MongoDB-backed watchlists |
+| **Market data** | **Fictional/sample only** | Existing frontend | Choose licensed provider (#26), then implement #38 |
+| **Deployment** | **Not deployed as integrated MVP** | #48 backlog | Complete live integration, QA and controlled demonstration |
 
-## High-priority open decisions
+## AI status — important correction
 
-- [#25](https://github.com/JustEmre12/FinSight/issues/25): scope reconciliation: news/portfolio vs Sprint 4–6 baseline.
-- [#26](https://github.com/JustEmre12/FinSight/issues/26): licensed financial data provider/freshness.
-- [#27](https://github.com/JustEmre12/FinSight/issues/27): real AI provider, handling and budget.
-- [#28](https://github.com/JustEmre12/FinSight/issues/28): backend/auth/deployment stack still needs completion; **database choice is now MongoDB Atlas**.
-- [#30](https://github.com/JustEmre12/FinSight/issues/30) and [#75](https://github.com/JustEmre12/FinSight/issues/75): MongoDB schema/security design is prepared for review before creation.
-- [#35](https://github.com/JustEmre12/FinSight/issues/35) and [#44](https://github.com/JustEmre12/FinSight/issues/44): private session and authentication plan.
-- [#68](https://github.com/JustEmre12/FinSight/issues/68): management/instructor decision on detailed design.
-- [#24](https://github.com/JustEmre12/FinSight/issues/24): collaborator access confirmation.
+Earlier repository text described AI as template-only. That is no longer fully current.
 
-**No production issue is complete just because a prototype feature has a screen.** Real tests, secure integration and review are required.
+- PR #88 added the AI grounding/specification.
+- PR #89 added synthetic Groq evaluation tooling.
+- PR #90 connected **Groq** to Jake's existing explanation panel.
+- PR #91 strengthened grounded explanations and historical-risk calculations.
+- PR #92 is open to finish fresh-call reliability diagnostics/evaluation.
 
-## Two distinct release levels
+This is still a **local/demo integration using fictional sample market context**, not a production financial research service.
 
-**A. Course-appropriate demo milestone:** Clearly labeled sample data with responsive front end and visible failure cases, plus documented logical backend/OO models. This milestone is genuinely advanced by PR #69 but **not yet a fully integrated course acceptance test**.
+## Team ownership
 
-**B. Integrated research MVP:** Actual secure user accounts, real licensed data, reliable history/quotes with freshness warnings, persistent private watchlists, a real AI explanation service, comparisons/charts, risk notes, source timestamps and tested failures. This remains **in development**.
+- **Salih Emre / @JustEmre12:** GitHub, Scrum/project management, MongoDB/database.
+- **Asad:** backend owner; exact GitHub handle still unverified.
+- **Jake / @JakePepitone:** frontend, project management, information/research gathering, developer.
+- **Henry / @HenryContrerasTan:** frontend, AI features, developer.
 
-**C. Broader product vision (not approved):** News aggregation, verified claims/company relationships, AI chat, optional holdings-aware scenario research, portfolio tracking, alerts. Requires scope and safety/legal/licensing decisions.
+[Current ownership matrix](TEAM_OWNERSHIP.md)
 
-## Team and evidence
+## Current Kanban state
 
-Charter proposes Salih (PM/analysis), Jake (frontend), Asad (backend/database), Henry (AI/data). Jake is the verified author of merged PR #69. No tool-connected evidence proves other engineering work complete. Keep any work owner labels, stage “In Progress,” or sign-off as *provisional* unless a teammate has confirmed it.
+**82 issue records · 48 open · 34 closed**
 
-[Full GitHub Issues](https://github.com/JustEmre12/FinSight/issues) · [Kanban snapshot](KANBAN.md) · [Roadmap](ROADMAP.md) · [Source catalog](SOURCE_MATERIALS.md).
+- **In Progress:** 6
+- **In Review:** 13
+- **Ready:** 9
+- **Blocked:** 7
+- **Product Backlog:** 1
+- **Future:** 12
+- **Done:** 30
+- **Unstaged retired/duplicate closed records:** 4
+
+The active board is intentionally smaller than the old snapshot: completed frontend planning/workflow cards were closed, sample frontend feature stories moved to In Review, live-data-dependent stories moved to Blocked, and unimplemented backend tasks moved to Ready.
+
+## Immediate priorities
+
+1. **Henry:** finish PR #92 / AI reliability review (#39, #43).
+2. **Asad:** backend architecture, API contracts and authentication (#22, #31, #35, #44).
+3. **Salih:** close database integrity/application handoff (#30, #75, #84) and maintain Scrum/GitHub.
+4. **Jake:** review frontend feature stories, support live adapter integration, and run user/research work (#32, #37, #41, #42).
+5. **Team:** choose licensed market-data provider (#26) and then unblock real quote/history integration (#38).
+6. Expand QA/security/accessibility coverage (#33, #47, #64, #67).
+7. Deploy only after live integration and acceptance (#48).
+
+## Blocked gates
+
+- **#24:** Asad's exact GitHub account/access remains unverified; Salih/Jake/Henry are verified.
+- **#25:** current MVP vs news/portfolio scope decision.
+- **#26:** licensed market-data provider.
+- **#38:** real data depends on #26.
+- **#40:** persistent watchlists depend on backend/auth.
+- **#68:** instructor/management design decision.
+- **#78:** expanded conversational AI/holdings-aware scope approval.
+
+## Scope boundary
+
+The current Sprint 4–6 MVP remains a **stock-research support system**. Bank accounts, trade execution, guaranteed predictions and individualized investment instructions are not current MVP features. News, alerts, portfolio tracking, company graph and conversational sourced AI remain Future/Proposed until approved.
+
+[Kanban](KANBAN.md) · [Roadmap](ROADMAP.md) · [Team Ownership](TEAM_OWNERSHIP.md) · [Issues](https://github.com/JustEmre12/FinSight/issues)

@@ -22,3 +22,22 @@
 
 ## Boundaries
 The charter explicitly excludes brokerage execution, personalized advice, guaranteed predictions, dedicated mobile app, and linked brokerage accounts. It includes browser-based market analysis and user-friendly charts.
+
+
+## Current working allocation — November 8, 2026
+
+The team has refined the working roles for the current implementation phase:
+
+| Member | Current working role |
+| --- | --- |
+| **Salih Emre / @JustEmre12** | GitHub/repository management, project management, **Scrum**, MongoDB/database |
+| **Asad** | **Backend** — API/server architecture, auth, market-data and database integration |
+| **Jake / @JakePepitone** | **Frontend**, project management, information/research gathering, developer |
+| **Henry / @HenryContrerasTan** | **Frontend**, AI features, developer |
+
+**Verified GitHub access:** Salih = admin, Jake = write, Henry = write. Asad's exact GitHub username is not yet verified, so backend issues document him as owner but do not assign an unknown account.
+
+**Verified contribution evidence:** Jake authored frontend PR #69; Salih authored the repository/database PRs #83 and #85–#87; Henry authored AI PRs #88–#91 and currently owns open reliability PR #92.
+
+See [Current Team Ownership](TEAM_OWNERSHIP.md) for the detailed issue/workstream matrix.
+
