@@ -1,58 +1,119 @@
-# FinSight — Seven-stage Kanban (November 3, 2026)
+# FinSight — Scrum / Kanban Board
 
-**Live issue-based tracking.** At this verification: **82 Issue records**, **55 open**, **27 closed**, and **78 stage-tracked cards**. 4 closed duplicate issue records are intentionally unstaged and excluded from the board.
+**Updated: November 8, 2026** · **82 issue records** · **48 open** · **34 closed** · **78 stage-tracked cards**  
+GitHub Issues and their `stage:` labels are the source of truth. Four old duplicate/retired closed issue records remain intentionally unstaged.
 
-**Database milestone:** the real MongoDB Atlas **FinSight-MVP** free cluster and `finsight` database now exist with six approved collections and query indexes. [Issue #84](https://github.com/JustEmre12/FinSight/issues/84) is **In Review**, not Done, because strict JSON Schema validators/unique flags and application/backend connection remain pending.
+> **Current milestone:** finish AI reliability, close the MongoDB integrity handoff, define the backend/auth/data-provider path, and prepare the sample frontend for live service integration.
 
-## Seven-stage process board
+## Current sprint focus
 
-| Product Backlog (12) | Ready (11) | In Progress (4) | In Review (10) | Done (23) | Blocked (6) | Future (12) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| [#37 US-01FR-02 Implement stock search by name or ticker](https://github.com/JustEmre12/FinSight/issues/37) | [#28 FOUNDATION Select frontend, backend, database and deployment stack](https://github.com/JustEmre12/FinSight/issues/28) | [#20 PLANNING Coordinate the next sprint breakdown and owner confirmations](https://github.com/JustEmre12/FinSight/issues/20) | [#16 REVIEW Team sign-off on the stock-research MVP scope](https://github.com/JustEmre12/FinSight/issues/16) | [#1 DONE Document Sprint 1 project proposal and problem statement](https://github.com/JustEmre12/FinSight/issues/1) | [#24 ACCESS Verify Jake, Asad and Henry can contribute to FinSight](https://github.com/JustEmre12/FinSight/issues/24) | [#49 FUTURE Curated financial news and article aggregation](https://github.com/JustEmre12/FinSight/issues/49) |
-| [#38 US-02FR-03 Display timestamped current and historical stock data](https://github.com/JustEmre12/FinSight/issues/38) | [#29 DESIGN Create mobile/desktop wireframes and primary user flow](https://github.com/JustEmre12/FinSight/issues/29) | [#21 PLANNING Draft initial frontend navigation and UX flow](https://github.com/JustEmre12/FinSight/issues/21) | [#17 REVIEW Verify the Sprint 5 logical diagrams with teammates](https://github.com/JustEmre12/FinSight/issues/17) | [#2 DOCS Complete Sprint 2 Five Whys and fishbone analyses](https://github.com/JustEmre12/FinSight/issues/2) | [#25 SCOPE Resolve whether news and portfolio tracking are in MVP](https://github.com/JustEmre12/FinSight/issues/25) | [#50 FUTURE Personalized news/market alerts and subscriptions](https://github.com/JustEmre12/FinSight/issues/50) |
-| [#39 US-03FR-04 Implement AI-powered stock and trend explanations](https://github.com/JustEmre12/FinSight/issues/39) | [#31 DATA Define stock quote, search and historical-series API contracts](https://github.com/JustEmre12/FinSight/issues/31) | [#22 PLANNING Research backend/data service architecture](https://github.com/JustEmre12/FinSight/issues/22) | [#18 REVIEW Confirm acceptance criteria and prioritization with team](https://github.com/JustEmre12/FinSight/issues/18) | [#3 DOCS Produce Sprint 2 preliminary investigation and feasibility report](https://github.com/JustEmre12/FinSight/issues/3) | [#26 DATA Choose a licensed market provider before integration](https://github.com/JustEmre12/FinSight/issues/26) | [#51 FUTURE Manual portfolio holdings, transactions and allocation tracking](https://github.com/JustEmre12/FinSight/issues/51) |
-| [#40 US-04FR-05 Build persistent personal stock watchlists](https://github.com/JustEmre12/FinSight/issues/40) | [#32 UX Run interviews using ten prepared questions](https://github.com/JustEmre12/FinSight/issues/32) | [#23 PLANNING Outline AI response review and grounding policy](https://github.com/JustEmre12/FinSight/issues/23) | [#19 REVIEW Review original source citations and project publication rules](https://github.com/JustEmre12/FinSight/issues/19) | [#4 DOCS Create Sprint 3 Work Breakdown Structure](https://github.com/JustEmre12/FinSight/issues/4) | [#27 AI Choose service, data handling and operating budget](https://github.com/JustEmre12/FinSight/issues/27) | [#52 FUTURE Industry/topic following and social sentiment research](https://github.com/JustEmre12/FinSight/issues/52) |
-| [#41 US-05FR-06 Compare multiple stocks on common timescales](https://github.com/JustEmre12/FinSight/issues/41) | [#33 QA Turn eight functional requirements into testable cases](https://github.com/JustEmre12/FinSight/issues/33) |  | [#30 DATABASE Define physical schema for users, watchlists, cache and analysis history](https://github.com/JustEmre12/FinSight/issues/30) | [#5 DOCS Create Sprint 3 Gantt schedule and PERT/CPM model](https://github.com/JustEmre12/FinSight/issues/5) | [#68 SPRINT 6GATE Obtain management/instructor decision on detailed system design](https://github.com/JustEmre12/FinSight/issues/68) | [#53 FUTURE Mobile-native application beyond responsive website](https://github.com/JustEmre12/FinSight/issues/53) |
-| [#42 US-06FR-07 Build historical stock charts and visualizations](https://github.com/JustEmre12/FinSight/issues/42) | [#34 AI Define safe analysis prompt and output response format](https://github.com/JustEmre12/FinSight/issues/34) |  | [#62 SPRINT 6REVIEW Check alignment with Sprint 4 requirements and Sprint 5 DFDs](https://github.com/JustEmre12/FinSight/issues/62) | [#6 DOCS Complete Sprint 3 risk register and response plan](https://github.com/JustEmre12/FinSight/issues/6) | [#78 SCOPEPROPOSAL Approve or defer conversational FinSight AI and holdings-aware research](https://github.com/JustEmre12/FinSight/issues/78) | [#54 FUTURE Premium subscription model and revenue analysis](https://github.com/JustEmre12/FinSight/issues/54) |
-| [#43 US-07FR-08 Show historical volatility and investment risk explanations](https://github.com/JustEmre12/FinSight/issues/43) | [#35 SECURITY Plan authentication and authorization flows](https://github.com/JustEmre12/FinSight/issues/35) |  | [#63 SPRINT 6REVIEW Validate six classes, associations and ownership rules](https://github.com/JustEmre12/FinSight/issues/63) | [#7 DOCS Write FinSight Team Charter and role proposal](https://github.com/JustEmre12/FinSight/issues/7) |  | [#55 FUTURE Financial goals, banking or budgeting features](https://github.com/JustEmre12/FinSight/issues/55) |
-| [#44 FR-01 Implement secure registration, login and logout](https://github.com/JustEmre12/FinSight/issues/44) | [#36 WORKFLOW Establish feature-branch PR and review routine](https://github.com/JustEmre12/FinSight/issues/36) |  | [#64 SPRINT 6REVIEW Validate use cases, sequences, states and activity/error paths](https://github.com/JustEmre12/FinSight/issues/64) | [#8 DOCS Prepare ten interview questions for potential investors](https://github.com/JustEmre12/FinSight/issues/8) |  | [#71 AI VISIONPROPOSED Build conversational FinSight AI research chat with citations](https://github.com/JustEmre12/FinSight/issues/71) |
-| [#45 APP Create responsive application shell and navigation](https://github.com/JustEmre12/FinSight/issues/45) | [#65 SPRINT 6DESIGN Expand Manage Watchlist and Compare Stocks use cases](https://github.com/JustEmre12/FinSight/issues/65) |  | [#75 DATABASEDESIGN Define owner authorization, indexes, retention and recovery](https://github.com/JustEmre12/FinSight/issues/75) | [#9 DOCS Draft seven investor user stories US-01 through US-07](https://github.com/JustEmre12/FinSight/issues/9) |  | [#72 SOURCE VERIFICATIONPROPOSED Cross-check financial claims and retain cited provenance](https://github.com/JustEmre12/FinSight/issues/72) |
-| [#46 INTEGRATION Connect market APIs, server and UI incrementally](https://github.com/JustEmre12/FinSight/issues/46) | [#66 SPRINT 6DESIGN Map OO attributes/methods to physical data and service interfaces](https://github.com/JustEmre12/FinSight/issues/66) |  | [#84 DATABASENEXT Create the FinSight MongoDB Atlas database from the approved schema draft](https://github.com/JustEmre12/FinSight/issues/84) | [#10 DOCS Write Sprint 4 System Requirements Document](https://github.com/JustEmre12/FinSight/issues/10) |  | [#73 COMPANY GRAPHPROPOSED Research documented subsidiaries, suppliers and partnerships](https://github.com/JustEmre12/FinSight/issues/73) |
-| [#47 QUALITY Add automated tests, security and accessibility checks](https://github.com/JustEmre12/FinSight/issues/47) | [#67 SPRINT 6QA Prepare tests for sequences, states and user-activity decisions](https://github.com/JustEmre12/FinSight/issues/67) |  |  | [#11 DOCS Produce Sprint 5 functional decomposition and context diagram](https://github.com/JustEmre12/FinSight/issues/11) |  | [#74 PORTFOLIO AIPROPOSED Optional holdings-aware research with consent and privacy](https://github.com/JustEmre12/FinSight/issues/74) |
-| [#48 DELIVERY Deploy and demonstrate tested FinSight MVP](https://github.com/JustEmre12/FinSight/issues/48) |  |  |  | [#12 DOCS Produce Sprint 5 Level 0 and Level 1 data-flow diagrams](https://github.com/JustEmre12/FinSight/issues/12) |  | [#76 AI QUALITYPROPOSED Evaluate citation integrity and adversarial research inputs](https://github.com/JustEmre12/FinSight/issues/76) |
-|  |  |  |  | [#13 DOCS Define Sprint 5 data dictionary and validation primitive](https://github.com/JustEmre12/FinSight/issues/13) |  |  |
-|  |  |  |  | [#14 DOCS Record project journals 1 and 2 in sprint history](https://github.com/JustEmre12/FinSight/issues/14) |  |  |
-|  |  |  |  | [#15 DOCS Initialize repository documentation and source index](https://github.com/JustEmre12/FinSight/issues/15) |  |  |
-|  |  |  |  | [#56 SPRINT 6DOCS Define six OO objects and their logical associations](https://github.com/JustEmre12/FinSight/issues/56) |  |  |
-|  |  |  |  | [#57 SPRINT 6DOCS Record actors, four use cases and detailed UC-01/UC-02](https://github.com/JustEmre12/FinSight/issues/57) |  |  |
-|  |  |  |  | [#58 SPRINT 6DOCS Document stock search and AI interaction sequences](https://github.com/JustEmre12/FinSight/issues/58) |  |  |
-|  |  |  |  | [#59 SPRINT 6DOCS Document AIAnalysis and Watchlist state models](https://github.com/JustEmre12/FinSight/issues/59) |  |  |
-|  |  |  |  | [#60 SPRINT 6DOCS Document search and AI-analysis activity paths](https://github.com/JustEmre12/FinSight/issues/60) |  |  |
-|  |  |  |  | [#61 SPRINT 6DOCS Record prior-sprint corrections and management recommendation](https://github.com/JustEmre12/FinSight/issues/61) |  |  |
-|  |  |  |  | [#70 PROTOTYPE Merge and document Jake's sample-data frontend baseline](https://github.com/JustEmre12/FinSight/issues/70) |  |  |
-|  |  |  |  | [#77 DOCS Reconcile complete FinSight source set, frontend prototype and project roadmap](https://github.com/JustEmre12/FinSight/issues/77) |  |  |
+| Workstream | What is happening now | Lead / contributors | Evidence / next move |
+| --- | --- | --- | --- |
+| **AI reliability** | Groq integration works in the local/demo flow; reliability and fresh-call evaluation are still being tightened | **Henry** · Jake | #39, #43 · open PR #92 |
+| **Database closeout** | Atlas project/cluster/database and six collections exist; final integrity/application connection remains | **Salih** · Asad | #30, #75, #84 |
+| **Backend foundation** | API/auth/market-data architecture is defined enough to pick up, but implementation evidence is still missing | **Asad** · Jake/Henry | #22, #31, #35, #44, #46 |
+| **Frontend review** | Search, compare and chart flows exist in the merged sample-data frontend and now need live integration review | **Jake** · Henry | #37, #41, #42 · PR #69 |
+| **QA** | Frontend CI and extensive AI tests exist; integrated security/accessibility/end-to-end coverage is still incomplete | **Jake + Henry** · Asad | #33, #47, #64, #67 |
+| **Scrum / scope / access** | Team ownership, priorities, scope gates and collaborator access are being maintained | **Salih + Jake** | #20, #24, #25, #68, #78 |
 
-## Current GitHub Issue filters
+## Board at a glance
 
-- [**Product Backlog: 12**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Abacklog%22)
-- [**Ready: 11**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Aready%22)
-- [**In Progress: 4**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Ain-progress%22)
-- [**In Review: 10**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Ain-review%22)
-- [**Done: 23**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Adone%22)
-- [**Blocked: 6**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Ablocked%22)
-- [**Future: 12**](https://github.com/JustEmre12/FinSight/issues?q=label%3A%22stage%3Afuture%22)
+| Stage | Cards | Meaning right now |
+| --- | ---: | --- |
+| **In Progress** | **6** | Active implementation, evaluation or Scrum work with evidence |
+| **In Review** | **13** | Work exists and needs team/acceptance/integration review |
+| **Ready** | **9** | Defined enough to start; no verified implementation yet |
+| **Blocked** | **7** | Waiting on provider, access, auth/dependency or scope approval |
+| **Product Backlog** | **1** | Delivery item intentionally held until integration is ready |
+| **Future** | **12** | Outside the current Sprint 4–6 MVP |
+| **Done** | **30** | Completed documentation, prototype, workflow or verified milestone |
 
-## Database status
+## In Progress — active now
 
-- **Live:** Atlas project **FinSight**, cluster **FinSight-MVP**, database **`finsight`**.
-- **Collections:** `user_profiles`, `instruments`, `quotes`, `daily_prices`, `watchlist_items`, `analysis_runs`.
-- **Verified empty:** no fictional frontend market data was copied into Atlas.
-- **Query indexes:** created and verified.
-- **Still pending:** run [`database/mongodb-init.js`](../database/mongodb-init.js) to apply strict validators and unique-index options; then connect secure backend/auth/provider services.
-- [Live database notes](../database/README.md)
+| Issue | Work | Owner(s) |
+| --- | --- | --- |
+| [#20](https://github.com/JustEmre12/FinSight/issues/20) | Sprint breakdown and owner confirmations | Salih + Jake |
+| [#28](https://github.com/JustEmre12/FinSight/issues/28) | Finish backend/auth/deployment stack decisions | Salih + Asad + Jake + Henry |
+| [#33](https://github.com/JustEmre12/FinSight/issues/33) | Turn requirements into testable/integrated cases | Jake + Henry |
+| [#39](https://github.com/JustEmre12/FinSight/issues/39) | AI-powered stock/trend explanations | Henry + Jake; Asad backend |
+| [#43](https://github.com/JustEmre12/FinSight/issues/43) | Historical risk explanations | Henry + Jake; Asad backend |
+| [#47](https://github.com/JustEmre12/FinSight/issues/47) | Automated/security/accessibility QA | Jake + Henry |
 
-## Scope rule
+## In Review — built or documented, needs acceptance / integration review
 
-Done means a finished documented/modeling deliverable or a verified prototype/documentation milestone—not an unimplemented production feature. Broader FinSight AI/news/portfolio collections remain Future/Proposed until the team formally changes scope.
+| Issue | Review target | Owner(s) |
+| --- | --- | --- |
+| #16, #18 | MVP scope, acceptance criteria and prioritization | Salih + Jake |
+| #17, #62, #63 | Sprint 5/6 model alignment and object ownership | Salih + Jake; Asad backend |
+| #19 | Source/publication review | Jake + Salih |
+| [#30](https://github.com/JustEmre12/FinSight/issues/30) | Physical MongoDB schema | Salih; Asad backend |
+| [#37](https://github.com/JustEmre12/FinSight/issues/37) | Stock-search frontend flow | Jake + Henry |
+| [#41](https://github.com/JustEmre12/FinSight/issues/41) | Stock comparison frontend flow | Jake + Henry |
+| [#42](https://github.com/JustEmre12/FinSight/issues/42) | Historical-chart frontend flow | Jake + Henry |
+| #64 | Sprint 6 use-case/state/error-path QA | Jake + Henry |
+| [#75](https://github.com/JustEmre12/FinSight/issues/75) | Database authorization/index/retention design | Salih; Asad backend |
+| [#84](https://github.com/JustEmre12/FinSight/issues/84) | Live Atlas database creation handoff | Salih; Asad backend |
 
-[Project status](PROJECT_STATUS.md) · [Roadmap](ROADMAP.md) · [GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
+## Ready — next implementation queue
+
+| Issue | Next work | Owner |
+| --- | --- | --- |
+| [#22](https://github.com/JustEmre12/FinSight/issues/22) | Backend/data service architecture | **Asad** |
+| [#31](https://github.com/JustEmre12/FinSight/issues/31) | Quote/search/history API contracts | **Asad** |
+| [#32](https://github.com/JustEmre12/FinSight/issues/32) | Potential-user interviews | **Jake + Salih** |
+| [#35](https://github.com/JustEmre12/FinSight/issues/35) | Authentication/authorization design | **Asad** |
+| [#44](https://github.com/JustEmre12/FinSight/issues/44) | Secure registration/login/logout | **Asad** |
+| [#46](https://github.com/JustEmre12/FinSight/issues/46) | Server/API/UI integration | **Asad** · Jake + Henry |
+| #65 | Expand watchlist/comparison use cases | Asad · Jake + Salih |
+| #66 | Map OO objects to physical services | **Asad** |
+| #67 | Sprint 6 QA scenarios | Jake + Henry |
+
+## Blocked — dependencies must be resolved first
+
+| Issue | Blocker | Owner |
+| --- | --- | --- |
+| [#24](https://github.com/JustEmre12/FinSight/issues/24) | Asad's exact GitHub account/access is still unverified | Salih |
+| [#25](https://github.com/JustEmre12/FinSight/issues/25) | Team decision on news/portfolio scope | Salih + Jake |
+| [#26](https://github.com/JustEmre12/FinSight/issues/26) | Licensed market-data provider not selected | Asad + Salih |
+| [#38](https://github.com/JustEmre12/FinSight/issues/38) | Real stock data depends on #26 | Asad |
+| [#40](https://github.com/JustEmre12/FinSight/issues/40) | Persistent watchlists depend on auth/backend ownership | Asad · Jake |
+| [#68](https://github.com/JustEmre12/FinSight/issues/68) | Instructor/management design decision | Salih + Jake |
+| [#78](https://github.com/JustEmre12/FinSight/issues/78) | Expanded FinSight AI/portfolio scope not approved | Salih + Jake + Henry |
+
+## Product Backlog
+
+- [#48 — Deploy and demonstrate tested FinSight MVP](https://github.com/JustEmre12/FinSight/issues/48) — **All team members**, coordinated by Salih. Deployment starts after the live-service integration and acceptance gates are ready.
+
+## Future — intentionally outside the current MVP
+
+**Research/news:** #49, #50, #52, #72, #73  
+**Portfolio / broader finance:** #51, #55, #74  
+**Product/business:** #53, #54  
+**Expanded conversational AI:** #71, #76
+
+These stay in **Future** until the team changes scope. They should not crowd the active sprint.
+
+## Done — archived milestones
+
+The 30 Done cards are kept out of the active queues so the board stays readable. Major completed milestones include:
+
+- Sprints 1–6 documentation and modeling (#1–#15, #56–#61)
+- Initial frontend navigation/design planning (#21, #29)
+- AI grounding/prompt planning (#23, #34)
+- AI provider selection (#27)
+- GitHub feature-branch / PR routine (#36)
+- Responsive application shell/navigation (#45)
+- Jake's merged frontend baseline (#70 / PR #69)
+- Full source/documentation reconciliation (#77)
+- MongoDB/GitHub database work is tracked separately in #30/#75/#84 because app integration is not finished.
+
+## Ownership legend
+
+- **Salih Emre / @JustEmre12:** GitHub, database, Scrum, project management
+- **Asad:** backend owner — GitHub handle still pending verification
+- **Jake / @JakePepitone:** frontend, project management, information/research, developer
+- **Henry / @HenryContrerasTan:** frontend, AI features, developer
+
+See [Current Team Ownership](TEAM_OWNERSHIP.md) for the full assignment matrix.
+
+[Roadmap](ROADMAP.md) · [Project status](PROJECT_STATUS.md) · [Live Issues](https://github.com/JustEmre12/FinSight/issues)
