@@ -1,6 +1,6 @@
 # FinSight — Documentation and Project Hub
 
-**Last reconciled: November 3, 2026.** FinSight is a student **AI-assisted stock research** concept with a **working fictional-data frontend prototype**. The official requirements through Sprint 6, broader original concept, and newer AI/portfolio proposals are documented **separately**. Production backend, real AI, secure auth and market APIs are **not connected**.
+**Last reconciled: November 8, 2026.** FinSight is a student **AI-assisted stock research** project with a working sample-data frontend, a live MongoDB Atlas database, and a Groq-powered local/demo AI explanation flow. The production backend/auth and licensed market-data integration are still incomplete.
 
 [Main README](../README.md) · [Current project status](PROJECT_STATUS.md) · [Work board](KANBAN.md) · [GitHub Issues](https://github.com/JustEmre12/FinSight/issues)
 
@@ -23,6 +23,7 @@
 - [Seven original user stories US-01–US-07](USER_STORIES.md)
 - [Prepared potential-investor questions (not completed interviews)](STAKEHOLDER_QUESTIONS.md)
 - [October 6 team charter and roles](TEAM_CHARTER.md)
+- **[Current team ownership and GitHub contribution matrix](TEAM_OWNERSHIP.md)**
 - [Sprint 1–6 history](SPRINT_HISTORY.md)
 
 ## Logical backend and object modeling
@@ -38,12 +39,19 @@
 
 - **[Live MongoDB Atlas database](../database/README.md)** — actual FinSight project/cluster/database, collections, indexes, empty-data verification and remaining constraint step
 
-- **[MongoDB readiness](MONGODB_READINESS.md)** — **MongoDB Atlas selected**; Phase 1 collections, indexes, security rules and creation checklist; not provisioned yet
+- **[MongoDB readiness](MONGODB_READINESS.md)** — live Atlas resources, Phase 1 collections, indexes, security rules and remaining integration checklist
 - **[MongoDB schema draft](MONGODB_SCHEMA.md)** — concrete fields, BSON types and indexes ready to implement
 - **[Physical database design background](DATABASE_DESIGN_PLAN.md)** — source D1–D4 mapping, MongoDB persistence decisions, auth/privacy and future data
 - **[Jake's generic FinTech data dictionary and tree](FINTECH_REFERENCE_DATA_MODEL.md)** — banking, spending, portfolio and goals; **separate from approved FinSight MVP**
 - **[FinSight AI conversational research vision](FINSIGHT_AI_VISION.md)** — news/filings, provenance, company relationships, optional holdings, privacy and grounded research **proposed**
 - [Future concepts vs approved scope](SCOPE_AND_EVOLUTION.md)
+
+## AI implementation and quality
+
+- **[AI analysis specification](AI_ANALYSIS_SPECIFICATION.md)** — grounding, response contract, failure rules and evaluation scenarios
+- **[Groq integration guide](../app/docs/GROQ_INTEGRATION.md)** — local/demo server integration
+- **[AI/risk quality](../app/docs/AI_RISK_QUALITY.md)** — grounding/risk improvements from PR #91
+- **[Groq reliability](../app/docs/AI_GROQ_RELIABILITY.md)** — active PR #92 reliability work
 
 ## Executable frontend and delivery
 
