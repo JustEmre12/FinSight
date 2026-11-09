@@ -8,10 +8,10 @@
 | News and alerts | Central to Sprint 1–2; not separate FR in Sprint 4/5 | Explicitly approve for MVP or move to later phase |
 | Bank links, budgets, merchant expenses, financial goals | Generic Fintech Data Tree | Not MVP without changed requirements |
 | Provider and licensing | No vendor contracts or costs evidenced | Choose API and validate usage/redistribution terms, limits, quote freshness |
-| AI provider | Sprint 5 says external AI analysis service | Choose provider, server-side controls and evaluation |
-| Stack, backend and DB | **Next.js frontend is verified and MongoDB Atlas is now selected for the database.** Backend routes, auth provider and external services remain unselected/unbuilt | Review MongoDB schema/readiness; choose auth/backend integration approach |
+| AI provider | **Groq is selected for the current local/demo AI integration.** PR #90 connects it to the explanation panel; PRs #91–#92 cover quality/reliability | Keep production disabled until real market data, durable controls, auth and team acceptance are ready |
+| Stack, backend and DB | **Next.js frontend + MongoDB Atlas + Groq local/demo AI are verified choices.** Backend/server architecture, auth provider, licensed market data and deployment remain incomplete | Finalize backend/auth/deployment path and integrate the chosen services safely |
 | Feature status | **Jake's merged sample-data frontend passed CI; not a production service** | Track documentary milestones, demo code and actual production acceptance separately |
-| Repository access | Team charter names roles, but does not establish invitations | Verify each member accepted collaborator invite |
+| Repository access | Salih=admin, Jake=write, Henry=write are verified; **Asad's exact GitHub account remains unverified** | Verify Asad's handle/permission, then assign backend issues to that account |
 | Public/private | Repo currently public | Decide whether to restrict access before uploading original class files |
 
 Proposed first engineering slice: market lookup + dated quotes + basic chart; then private accounts/watchlist, AI explanation, risk and comparisons. This is a proposal, not a final team vote.
@@ -31,7 +31,7 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 ## New implementation evidence (November 2, 2026)
 - [PR #69](https://github.com/JustEmre12/FinSight/pull/69) merged a **Next.js + TypeScript + Tailwind + Recharts** sample-data frontend prepared by Jake. This is the frontend prototype technology, **not a final endorsement of backend/database/vendor choices**.
 - A GitHub Actions workflow now checks frontend lint/type/tests/build; the [PR run passed](https://github.com/JustEmre12/FinSight/actions/runs/41519999919).
-- **Unresolved:** market provider/license, actual AI service, secure auth, database-backed watchlists, production deployment, full QA and formal design approval.
+- **Unresolved:** licensed market provider, secure auth/backend, MongoDB application connection, production AI controls, deployment, full QA and formal design approval. Groq now exists as a local/demo AI integration.
 - [Frontend handoff](FRONTEND_PROTOTYPE.md) records exactly what is mock versus implemented.
 
 ## Current reconciliation from additional project documents — November 3, 2026
@@ -68,3 +68,15 @@ See [Sprint 6 modeling](SPRINT6_OBJECT_ORIENTED_MODEL.md) and [review checklist]
 - Application authentication, market-data provider, AI provider and backend deployment/network access remain separate decisions.
 
 [Live database](../database/README.md) · [Issue #84](https://github.com/JustEmre12/FinSight/issues/84).
+
+## Current implementation decisions — November 8, 2026
+
+- **Frontend:** Next.js + TypeScript + Tailwind + Recharts remains the current UI stack (PR #69).
+- **Database:** MongoDB Atlas is live with project **FinSight**, cluster **FinSight-MVP**, database **`finsight`**, and six MVP collections.
+- **AI:** Groq is the current local/demo AI service. PR #90 integrated it; PR #91 improved grounding/risk quality; PR #92 is the active reliability follow-up.
+- **Backend:** not yet fully implemented; Asad is the working owner for server/API/auth/market-data integration.
+- **Authentication:** provider/session solution still open.
+- **Market data:** licensed provider still open and blocks real quote/history acceptance.
+- **Deployment:** still open; no production-ready integrated deployment is claimed.
+
+See [Project Status](PROJECT_STATUS.md), [Roadmap](ROADMAP.md) and [Current Team Ownership](TEAM_OWNERSHIP.md).
