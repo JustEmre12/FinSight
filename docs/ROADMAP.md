@@ -1,84 +1,205 @@
-# Proposed Roadmap
+# FinSight — Project Roadmap
 
-## Completed *documentation* (not software)
-- [x] Sprint 1 proposal, initial project journal.
-- [x] Sprint 2 investigation, two root-cause variants, feasibility.
-- [x] Sprint 3 WBS, Gantt, critical-path network and risk plan.
-- [x] Sprint 4 requirements and seven user stories.
-- [x] Sprint 5 context, functional decomposition, data flows, dictionary.
-- [x] Sprint 6 object tables, relationships, actors/use cases, sequences, state/activity diagrams and consistency recommendations **documented**.
-- [x] Repository documentation and Issue tracking baseline.
+**Updated: November 8, 2026**  
+This roadmap separates **finished project foundations**, **the current integration milestone**, **next engineering work**, and **future ideas**. It is intentionally more readable than the historical Sprint 3 Gantt, which described an earlier portfolio-focused scope.
 
-## Frontend prototype milestone (November 2, 2026)
-- [x] Jake's Next.js frontend branch reviewed and merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69).
-- [x] Automated frontend lint, typecheck, unit tests and build passed in GitHub Actions.
-- [x] A sample-data application skeleton, pages, charts, comparisons and demo watchlists exist.
-- [ ] Replace fictional quotes with approved market APIs and documented freshness/rights.
-- [ ] Replace template explanations with controlled AI service integrations.
-- [ ] Replace mock browser-only login/watchlists with secure backend auth/data storage.
-- [ ] Complete hands-on UX, accessibility and security verification, then staging/deployment.
+## Roadmap overview
 
-[Frontend prototype details](FRONTEND_PROTOTYPE.md).
+| Phase | Status | Main outcome | Primary owners |
+| --- | --- | --- | --- |
+| **1. Discovery & course design** | ✅ Complete | Sprints 1–6 requirements, models, risks, use cases and project documentation | Salih + team |
+| **2. Working prototype & infrastructure** | ✅ Major milestones complete | Responsive frontend, MongoDB Atlas database, Groq AI demo/evaluation, GitHub workflow | Jake · Salih · Henry |
+| **3. Reliability & backend foundation** | 🚧 **Current** | Finish AI reliability, auth/API design, DB integrity closeout, provider decision, QA | Henry · Asad · Salih · Jake |
+| **4. Live-service integration** | ⏭ Next | Replace mock/local flows with server-side MongoDB, real market data, auth and persistent watchlists | Asad · Jake · Henry |
+| **5. Validation, deployment & class demo** | ⏭ After integration | End-to-end tests, accessibility/security review, user/team acceptance, deploy demonstration | All team |
+| **6. Expanded product vision** | 🔮 Future / approval required | News, alerts, portfolios, sourced chat/company graph, mobile/premium ideas | Team decision first |
 
-## Sprint 6 transition to detailed design (not yet approved)
-- [ ] Review [object-oriented Sprint 6 diagrams](SPRINT6_OBJECT_ORIENTED_MODEL.md) with the team.
-- [ ] Confirm Sprint 4/5 alignment: FR-01–FR-08, authenticated watchlist, informational AI disclosures and consistent external data-flow actors.
-- [ ] Validate stock-search and AI-analysis sequence error paths and state transitions.
-- [ ] Seek instructor/management **conditional-approval decision**; document outcome rather than treating recommendation as approval.
-- [ ] Identify unresolved physical schema, types and UML multiplicities as design decisions.
+---
 
-## Next: scope and foundations
-- [ ] Verify GitHub access for all teammates.
-- [ ] Reconcile news/alerts vs portfolio tracking vs narrower stock research.
-- [ ] Review user discovery questions and carry out interviews.
-- [ ] Select data provider and validate licensing/price/delay/rate limit.
-- [x] **Select database platform: MongoDB Atlas.** Schema/readiness documentation prepared; database intentionally not created yet.
-- [ ] Choose authentication/session solution, backend route structure, AI service and deployment architecture.
-- [ ] Produce reviewed responsive wireframes, data design and test fixtures.
+## Phase 1 — Discovery & course design ✅
 
-## MongoDB readiness milestone — November 3, 2026
-- [x] MongoDB Atlas selected as the database platform.
-- [x] D1–D4 mapped to six Phase 1 collections.
-- [x] MongoDB field/types/index draft documented.
-- [x] Six Phase 1 collections created in Atlas.
-- [x] Query indexes created on all six collections.
-- [ ] Apply strict JSON Schema validators and database-level unique flags using `database/mongodb-init.js` before real data.
-- [x] Environment placeholders updated without real secrets.
-- [x] Atlas project, free `FinSight-MVP` cluster and `finsight` database created.
-- [ ] Authentication/session provider still undecided.
-- [ ] MongoDB application connection code not written yet; database exists and is reachable through the Atlas connector.
+Completed foundations:
 
-[MongoDB readiness](MONGODB_READINESS.md) · [MongoDB schema](MONGODB_SCHEMA.md)
+- Sprint 1 problem statement and business concept.
+- Sprint 2 investigation, Five Whys/fishbone, feasibility and risks.
+- Sprint 3 WBS, schedule, PERT/CPM and risk response.
+- Sprint 4 FR-01–FR-08, NFRs and seven user stories.
+- Sprint 5 functional decomposition, DFDs and D1–D4 logical stores.
+- Sprint 6 objects, use cases, sequences, states and activity/error flows.
+- Repository documentation, issue taxonomy and source traceability.
 
-## Engineering MVP — Sprint 6 recommended order
-**Suggested sequence in Sprint 6:** Secure accounts → Stock search → Market data retrieval → AI explanation → Watchlist; then comparisons and advanced charts after validated core capabilities. This is a recommendation, not an implemented feature or override of Sprint 4 priority labels.
+**Exit condition:** project requirements and logical design are documented.  
+**Status:** complete as coursework/design evidence; formal instructor design-gate decision is still tracked in #68.
 
-- [x] **Prototype** responsive shell/navigation exists (real application acceptance still pending).
-- [ ] **Create/connect MongoDB Atlas when ready** using [MONGODB_READINESS](MONGODB_READINESS.md) and [MONGODB_SCHEMA](MONGODB_SCHEMA.md); do not commit credentials.
-- [ ] Auth with safe storage and private user sessions.
-- [ ] Stock search, quote/history, timestamps and provider errors.
-- [ ] Watchlist persistence.
-- [ ] Historical graphs and at-least-two-stock comparison.
-- [ ] Source-grounded AI explanation and historical risk context.
-- [ ] Error handling, security, accessible UX and tests.
+---
 
-## Verify and deliver
-- [ ] Review PRs and demonstrated acceptance criteria.
-- [ ] Test provider failure, bad tickers, cache freshness and cross-user access.
-- [ ] Evaluate AI outputs and disclaimers.
-- [ ] Validate with potential users.
-- [ ] Deploy a demonstration and document limitations.
+## Phase 2 — Working prototype & infrastructure ✅ / review
 
-## Broader vision and new product expansion (separate approval required)
-- [ ] Team decision: whether original **news aggregation, source filters, topics, trends and alerts** belong to the MVP or later research phase.
-- [ ] Team decision: whether earlier Sprint 3 **manual portfolio holdings and investment transactions** should be developed; avoid conflating them with generic bank/spending transactions.
-- [ ] Review Jake's **generic FinTech** dictionary only as a possible portfolio reference, not the current schema.
-- [ ] Define separate user stories and privacy/security acceptance for proposed **FinSight AI chat**, source verification, evidence-backed company relationships and optional user-entered holdings.
-- [ ] Establish legal/compliance and source-licensing review before any individualized company buy/sell instructions are considered.
+### Frontend — Jake
+- [x] Next.js + TypeScript + Tailwind + Recharts frontend baseline merged in [PR #69](https://github.com/JustEmre12/FinSight/pull/69).
+- [x] Search, stock detail, charts, comparisons, risk states, login/signup screens and local watchlists demonstrated with sample data.
+- [x] Responsive app shell/navigation completed.
+- [ ] Review search/comparison/chart stories against live-service requirements (#37, #41, #42).
 
-[Scope evolution](SCOPE_AND_EVOLUTION.md) · [FinSight AI vision](FINSIGHT_AI_VISION.md) · [Database plan](DATABASE_DESIGN_PLAN.md) · [Frontend/backend handoff](FRONTEND_BACKEND_HANDOFF.md).
+### Database — Salih
+- [x] MongoDB Atlas selected.
+- [x] Dedicated **FinSight** Atlas project and free **FinSight-MVP** cluster created.
+- [x] `finsight` database and six MVP collections created.
+- [x] Query indexes and sharing package documented through PRs #85–#87.
+- [ ] Apply final validator/unique-index integrity setup and connect the application (#30, #75, #84).
 
-## Future only if approved
-News/article ingestion and alerts; manual portfolio records; social sentiment; premium billing; mobile-native app.
+### AI — Henry
+- [x] AI analysis specification / grounding policy added in PR #88.
+- [x] Synthetic Groq evaluation tooling added in PR #89.
+- [x] Groq connected to the existing explanation panel in PR #90.
+- [x] Grounding and historical-risk quality strengthened in PR #91.
+- [ ] Finish fresh-call reliability work and team acceptance in open [PR #92](https://github.com/JustEmre12/FinSight/pull/92).
 
-Documentation and the **prototype milestone** can be Done when verified; full FR/US implementation issues remain open until real integration and acceptance. See [KANBAN](KANBAN.md) and GitHub Issues.
+### GitHub / Scrum — Salih + Jake
+- [x] Feature-branch / PR routine established.
+- [x] Issue-based seven-stage Kanban reorganized.
+- [x] Current ownership and contributor assignments documented.
+- [ ] Verify Asad's exact GitHub handle and repository access (#24).
+
+---
+
+# Phase 3 — Reliability & backend foundation 🚧 CURRENT
+
+This is the team's **current working milestone**.
+
+## 3A. Finish AI reliability
+**Lead: Henry · Contributor: Jake · Backend: Asad**
+
+- [ ] Finish PR #92 fresh-call evaluation and team review.
+- [ ] Keep AI disclosures and conservative validation behavior.
+- [ ] Keep production disabled until real data/auth/usage controls are ready.
+- [ ] Complete real-data financial QA when a licensed provider exists.
+
+**Issues:** #39, #43, #47
+
+## 3B. Establish backend and auth path
+**Lead: Asad · Scrum: Salih · Frontend contracts: Jake · AI contracts: Henry**
+
+- [ ] Finalize backend/server architecture (#22).
+- [ ] Finalize quote/search/history API contracts (#31).
+- [ ] Select authentication/session design (#35).
+- [ ] Implement secure registration/login/logout (#44).
+- [ ] Map Sprint 6 objects to physical service interfaces (#66).
+
+## 3C. Resolve market-data dependency
+**Lead: Asad · Decision coordination: Salih**
+
+- [ ] Choose licensed data provider and verify quotas, attribution, history and freshness (#26).
+- [ ] Then unblock timestamped real quotes/history (#38).
+- [ ] Keep fictional sample data clearly labeled until this is resolved.
+
+## 3D. Close database handoff
+**Lead: Salih · Backend: Asad**
+
+- [ ] Apply final MongoDB integrity constraints/validator workflow.
+- [ ] Define secure server-only connection and authorization boundary.
+- [ ] Prepare DB integration tests and ownership checks.
+
+**Issues:** #30, #75, #84
+
+## 3E. Continue QA
+**Leads: Jake + Henry · Backend support: Asad**
+
+- [ ] Expand requirement test cases (#33).
+- [ ] Continue automated/security/accessibility QA (#47).
+- [ ] Validate Sprint 6 states, sequences and errors (#64, #67).
+
+### Phase 3 exit criteria
+Move to live integration when:
+1. backend/auth approach is agreed,
+2. market-data provider is chosen,
+3. AI reliability increment is reviewed,
+4. DB integrity/connection plan is ready,
+5. test cases exist for each integrated flow.
+
+---
+
+# Phase 4 — Live-service integration ⏭ NEXT
+
+**Main owner: Asad · Frontend: Jake · AI/frontend: Henry · Scrum/database: Salih**
+
+### Integration order
+
+1. **Secure server + authentication**
+   - Server session identifies the user.
+   - No browser-supplied user ID is trusted for private data.
+
+2. **MongoDB connection**
+   - Connect server-side to the live `finsight` database.
+   - Persist user profiles and watchlists.
+
+3. **Licensed market data**
+   - Replace sample quote/history values.
+   - Preserve provider, currency, quote time and stale/error states.
+
+4. **Frontend adapters**
+   - Replace mock/local functions in `app/lib/api.ts` incrementally.
+   - Keep Jake's existing TypeScript response contracts where practical.
+
+5. **AI with live context**
+   - Feed the AI dated provider context rather than fictional sample data.
+   - Store appropriate analysis metadata in `analysis_runs`.
+
+6. **Comparison/chart/risk validation**
+   - Re-test comparisons, charts and volatility using live provider histories.
+
+**Core issues:** #38, #40, #44, #46 plus #37/#41/#42 review follow-through.
+
+---
+
+# Phase 5 — Validation, deployment & class demonstration ⏭
+
+**All team members**
+
+- [ ] Cross-user authorization tests.
+- [ ] Provider failure/stale-data tests.
+- [ ] AI failure/reliability and disclosure review.
+- [ ] Mobile/responsive/manual UX checks.
+- [ ] Accessibility and security checks.
+- [ ] Team acceptance of FR-01–FR-08.
+- [ ] Record instructor/management design decision.
+- [ ] Deploy a controlled demonstration and document limitations (#48).
+
+**Definition of Done for the integrated MVP:** real backend behavior + reviewed PR + relevant tests + secure ownership + documented limitations. A UI screen alone is not enough.
+
+---
+
+# Phase 6 — Future product vision 🔮
+
+These remain **Future** until scope is formally changed:
+
+### Research / news
+- #49 curated financial news
+- #50 alerts/subscriptions
+- #52 sentiment/topic research
+- #72 source verification
+- #73 company relationships
+
+### Portfolio / broader finance
+- #51 manual holdings/transactions
+- #55 banking/budgeting/financial goals — currently out of MVP
+- #74 holdings-aware AI
+
+### Product expansion
+- #53 mobile-native app
+- #54 premium/revenue model
+- #71 conversational FinSight AI
+- #76 adversarial/citation AI quality
+
+---
+
+## Team workstream map
+
+| Member | Current focus | Next |
+| --- | --- | --- |
+| **Salih Emre** | GitHub, Scrum, roadmap/Kanban, MongoDB closeout | Coordinate integration/release and database handoff |
+| **Asad** | Backend owner | Auth, API/server architecture, market-data and MongoDB integration |
+| **Jake** | Frontend, PM, research/info gathering | Review prototype stories, live adapter integration, UX/interviews |
+| **Henry** | AI + frontend/developer | Finish PR #92, AI quality, live-context AI integration |
+
+[Current Team Ownership](TEAM_OWNERSHIP.md) · [Kanban](KANBAN.md) · [Project Status](PROJECT_STATUS.md) · [Issues](https://github.com/JustEmre12/FinSight/issues)
