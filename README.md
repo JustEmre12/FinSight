@@ -3,11 +3,11 @@
 
 FinSight is a student-built financial research project for beginner and individual investors. A **runnable sample-data frontend prototype** is now available in the repository, while the production platform remains under development. The current required experience covers stock search, market data, charts, comparisons, watchlists and AI explanations. The **original vision** also features news/source aggregation, filtering, trends and alerts. A newer **FinSight AI** conversational research assistant is proposed, not yet implemented.
 
-**Current phase:** Sprint 6 modeling **documented** + frontend demo **merged** + **MongoDB Atlas project/cluster/database created** → enforce final DB constraints, connect secure backend/auth, then integrate real market/AI providers.  
+**Current phase:** Sprint 6 design **documented** + frontend demo **merged** + MongoDB Atlas **live** + Groq AI **integrated for local/demo use** → current milestone is reliability, backend/auth, live market data and full service integration.  
 **Project:** BCS 301W · Systems Analysis & Design · Fall 2026  
 **Team:** Salih, Jake, Asad, and Henry
 
-> **Project status:** The repo includes a **runnable Next.js demo frontend** and a real **MongoDB Atlas FinSight-MVP database** with the six approved Sprint 4–6 collections and query indexes. The database is intentionally empty of fake production data. **JSON Schema validators/unique-index flags still require the checked-in initializer, and the app is not yet connected.** There is still no licensed live market provider, real AI service, secure backend authentication or deployed production site.
+> **Project status:** The repo includes a **runnable Next.js demo frontend**, a real **MongoDB Atlas FinSight-MVP database**, and a **Groq-powered local/demo AI integration** in the explanation panel. The frontend still uses fictional/sample market data; secure backend authentication, licensed live market data, persistent MongoDB application access, production AI controls and deployment remain unfinished.
 
 ## Explore FinSight
 
@@ -42,15 +42,15 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 | FR-01 | Secure user registration and login | **Mock demo only; no security** |
 | FR-02 | Search stocks by company name or ticker | Sample UI only |
 | FR-03 | View available quotes, historical prices, and timestamps | Sample UI only |
-| FR-04 | Request plain-language AI market explanations | **Template text only; no AI service** |
+| FR-04 | Request plain-language AI market explanations | **Groq local/demo integration exists; reliability PR #92 is still open** |
 | FR-05 | Add and remove stocks from a personal watchlist | **Local browser demo only** |
 | FR-06 | Compare two or more stocks | Sample UI only |
 | FR-07 | View historical price charts | Sample UI only |
-| FR-08 | Understand general investment risk and volatility | Sample UI only |
+| FR-08 | Understand general investment risk and volatility | **Sample-data calculations + improved AI/risk quality; real-data QA pending** |
 
 **[Full functional/nonfunctional requirements](docs/REQUIREMENTS.md)** · **[Seven user stories](docs/USER_STORIES.md)** · **[Requirements-to-design traceability](docs/TRACEABILITY.md)**
 
-## Project progress — November 3, 2026
+## Project progress — November 8, 2026
 
 | Sprint | Documented work |
 | --- | --- |
@@ -62,11 +62,11 @@ The latest **Sprint 4–6 requirements and models** focus on a stock **research-
 | **6 — Object-oriented modeling** | **Six objects; four named use cases; two detailed use-case descriptions; object relationship, derived class, sequence, state and activity diagrams** |
 | **Frontend prototype — Nov 2** | **Jake's feature branch merged via [PR #69](https://github.com/JustEmre12/FinSight/pull/69); frontend lint, TypeScript, unit tests and build passed** |
 
-**Status:** The submitted Sprint 6 material **recommends conditional approval** to enter detailed system design. It does not establish that management/instructor approval was granted. A runnable **Next.js/TypeScript/Tailwind/Recharts frontend demo exists**. **MongoDB Atlas has been selected and the physical schema is drafted**, but the Atlas project/database is intentionally not created yet. Secure login, backend routes, a licensed market-data provider, real AI service and production deployment remain unfinished.
+**Status:** The submitted Sprint 6 material still recommends conditional approval rather than proving instructor sign-off. The **Next.js frontend**, **MongoDB Atlas database**, and **Groq local/demo AI integration** now exist. Secure backend/auth, licensed live market data, persistent integration, production AI controls and deployment remain unfinished.
 
 ### Task tracking
 
-**November 3 tracking snapshot:** **82 GitHub Issue records**, **55 open**, **27 closed**, **78 stage-tracked cards**; 4 closed duplicate records are not shown in Kanban. The **23 Done-lane cards** are documented deliverables and verified prototype/documentation milestones—not finished production features. See the [Kanban](docs/KANBAN.md) for current stage filters.
+**November 8 tracking snapshot:** **82 issue records**, **48 open**, **34 closed**, and **78 stage-tracked cards**. The active lanes are now 6 In Progress, 13 In Review, 9 Ready, 7 Blocked, 1 Product Backlog, 12 Future and 30 Done. See the [Kanban](docs/KANBAN.md) for current owners and dependencies.
 
 [View seven-stage Kanban](docs/KANBAN.md) · [Browse Issues](https://github.com/JustEmre12/FinSight/issues) · [Read-only interactive board source](board/index.html)
 
@@ -105,10 +105,10 @@ Sprint 6 identifies six main logical objects: **User, Stock, Watchlist, MarketDa
 
 | Team member | Role in the October 6 team charter |
 | --- | --- |
-| **Salih** | Project Manager / Business Analyst |
-| **Jake** | Frontend Developer / UI Designer |
-| **Asad** | Backend Developer / Database Manager |
-| **Henry** | AI / Data Analyst |
+| **Salih Emre / @JustEmre12** | GitHub, project management, Scrum, MongoDB/database |
+| **Asad** | Backend owner — API/server/auth/market-data integration |
+| **Jake / @JakePepitone** | Frontend, project management, information/research, developer |
+| **Henry / @HenryContrerasTan** | Frontend, AI features, developer |
 
 The charter describes roles other than Project Manager as proposed and adjustable by team agreement.
 
