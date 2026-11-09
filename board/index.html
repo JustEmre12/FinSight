@@ -38,7 +38,7 @@ input:focus,select:focus{outline:2px solid #58c9b5;outline-offset:2px}
 .card-meta{display:flex;gap:5px;flex-wrap:wrap}
 .tag{font-size:10px;border:1px solid #3b555f;padding:3px 6px;border-radius:6px;color:#b4d2d1}
 .tag.high{border-color:#ab7250;color:#ffcaa9}.tag.medium{border-color:#76754a;color:#ddd19b}
-.tag.number{border-color:#255a55;color:#85dfc4}
+.tag.number{border-color:#255a55;color:#85dfc4}.owners{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.owner{font-size:9.5px;background:#0c1e25;border:1px solid #31535a;color:#b8d8d5;padding:3px 6px;border-radius:999px}
 .empty{font-size:12px;color:#66878c;padding:22px 8px;text-align:center}
 .footer{font-size:12px;color:#94b2b0;margin:10px 0 26px;line-height:1.8}
 .notice{border-left:3px solid #5bd6b5;padding:10px 13px;background:#102e2d;font-size:12px;color:#b8d5cc;line-height:1.6;margin-bottom:20px;border-radius:0 8px 8px 0;max-width:1100px}
@@ -51,12 +51,12 @@ input:focus,select:focus{outline:2px solid #58c9b5;outline-offset:2px}
 <a class="brand" href="https://github.com/JustEmre12/FinSight" target="_blank" rel="noopener">
 <span class="logo">F</span><span><h1>FinSight <span style="font-weight:400;color:#a4c6bd">/ Workboard</span></h1><span class="small">FINANCIAL MARKET RESEARCH · STUDENT PROJECT</span></span>
 </a>
-<p class="sub">A live, read-only view of the team's GitHub Issues. See completed documents, requirements, development tasks and decisions in their proper stages.</p>
+<p class="sub">A live, read-only Scrum view of FinSight GitHub Issues, including current stages, priorities, work areas and verified assignees.</p>
 </div>
 <div class="actions"><a class="button" href="https://github.com/JustEmre12/FinSight/issues" target="_blank" rel="noopener">Open GitHub Issues ↗</a><button class="button" id="refresh">Refresh</button></div>
 </header>
 <main>
-<div class="notice"><strong>Progress integrity:</strong> “Done” refers to documented assignments, not implemented website features. “In Progress” is a provisional planning lane until teammates confirm activity. The webpage does not change GitHub Issues; edit labels in GitHub.</div>
+<div class="notice"><strong>Current milestone:</strong> AI reliability + backend/auth foundation + MongoDB application handoff. “Done” means a verified milestone, not automatically a production-complete feature. Asad is the documented backend owner, but his GitHub handle is still pending verification.</div>
 <div class="summary">
 <div><strong id="total">Loading Issues…</strong><div class="small" id="status">Fetching public GitHub task data</div></div>
 <div class="filters"><input id="query" aria-label="Search tasks" type="search" placeholder="Search issues / # / area"><select id="priority" aria-label="Filter by priority"><option value="">All priorities</option><option value="high">High priority</option><option value="medium">Medium priority</option><option value="low">Low priority</option></select></div>
@@ -68,9 +68,9 @@ input:focus,select:focus{outline:2px solid #58c9b5;outline-offset:2px}
 const meta=[
 {key:"backlog",title:"Product Backlog",desc:"Not yet ready for coding"},
 {key:"ready",title:"Ready",desc:"Defined and available to pick up"},
-{key:"in-progress",title:"In Progress",desc:"Provisional planning focus"},
-{key:"in-review",title:"In Review",desc:"Needs review or sign-off"},
-{key:"done",title:"Done",desc:"Written deliverables completed"},
+{key:"in-progress",title:"In Progress",desc:"Active work with implementation / evaluation evidence"},
+{key:"in-review",title:"In Review",desc:"Built or documented; awaiting acceptance / integration review"},
+{key:"done",title:"Done",desc:"Verified documentation, prototype or workflow milestone"},
 {key:"blocked",title:"Blocked",desc:"Waiting for decision or access"},
 {key:"future",title:"Future",desc:"Outside present MVP"}
 ];
@@ -101,7 +101,9 @@ function render(){
    for(const t of label(item).filter(x=>x.startsWith("priority:")||x.startsWith("area:"))){
     const tag=document.createElement("span");tag.className="tag "+(t.endsWith("high")?"high":t.endsWith("medium")?"medium":"");tag.textContent=t.replace(/^(area|priority):/,"");tags.append(tag);
    }
-   a.append(no,title,tags);cards.append(a);
+   const owners=document.createElement("div");owners.className="owners";
+   for(const person of (item.assignees||[])){const o=document.createElement("span");o.className="owner";o.textContent="@"+person.login;owners.append(o)}
+   a.append(no,title,tags,owners);cards.append(a);
   }
   if(!subset.length){const e=document.createElement("p");e.className="empty";e.textContent="No matching tasks";cards.append(e)}
   section.append(cards);board.append(section);
