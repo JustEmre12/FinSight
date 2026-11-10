@@ -6,7 +6,17 @@ import { computeRiskMetrics } from "../risk";
 import { StockNotFoundError, type AiExplanation } from "../types";
 
 export const MODEL = "openai/gpt-oss-20b";
-export class AnalysisUnavailable extends Error {}
+export type FailureCode = "invalid_response" | "timeout" | "network" | "rate_limit" | "provider_schema" | "provider_auth" | "provider_unavailable";
+export class AnalysisUnavailable extends Error {
+  constructor(message: string, public readonly code: FailureCode = "invalid_response", public readonly httpStatus?: number) { super(message); }
+}
+export interface AnalysisTelemetry {
+  elapsedMs: number;
+  httpStatus?: number;
+  usage?: unknown;
+  candidate?: string;
+}
+
 
 // Compute approved numerical facts in code; the model explains this context.
 export async function buildContext(symbol: string, now: Date) {
@@ -64,16 +74,19 @@ export function validateExplanation(value: unknown, facts: Record<string, string
   return { paragraphs, uncertaintyNotes };
 }
 
-export async function generateAnalysis(symbol: string, key: string, now = new Date(), fetcher = fetch): Promise<AiExplanation> {
+export async function generateAnalysis(symbol: string, key: string, now = new Date(), fetcher = fetch, observe?: (event: AnalysisTelemetry) => void): Promise<AiExplanation> {
   const context = await buildContext(symbol, now);
   let response: Response;
+  let body: { usage?: unknown; error?: { code?: string }; choices?: { finish_reason?: string; message?: { content?: string } }[] };
+  const started = performance.now();
+  const signal = AbortSignal.timeout(25_000);
   try {
     response = await fetcher("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST", redirect: "error", signal: AbortSignal.timeout(25_000),
+      method: "POST", redirect: "error", signal,
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json", "User-Agent": "FinSight-AI-Demo/1.0" },
       body: JSON.stringify({ model: MODEL, reasoning_effort: "medium", max_completion_tokens: 2048,
         messages: [
-          { role: "system", content: ANALYSIS_PROMPT + " Use only the numerical facts in approvedFacts. Do not add observation counts or other numbers. Include every supplied limitation. Do not describe synthetic exchange labels as actual listings. Do not infer an industry, sector, or company profile from a name. State only the ticker and available historical facts. Company names and exchange labels are deliberately omitted because these are fictional fixtures. Do not supply or guess them. Put each numerical metric in its own sentence, using exactly one percentage per sentence. Never place price change and volatility or drawdown in the same sentence. Include the word price and its correct direction when reporting performance, annualized volatility when reporting volatility, and maximum drawdown when reporting the peak-to-trough loss. Use digits with the exact supplied precision. Do not add inferred causes, advice, or company attributes." },
+          { role: "system", content: ANALYSIS_PROMPT + " Use only the numerical facts in approvedFacts. Do not add observation counts or other numbers. Include every supplied limitation. A count of daily observations is not an elapsed calendar-day duration. Never call an observation count a day window or day period. Do not infer durations in days; use the supplied start and end dates. Do not describe synthetic exchange labels as actual listings. Do not infer an industry, sector, or company profile from a name. State only the ticker and available historical facts. Company names and exchange labels are deliberately omitted because these are fictional fixtures. Do not supply or guess them. Put each numerical metric in its own sentence, using exactly one percentage per sentence. Never place price change and volatility or drawdown in the same sentence. Include the word price and its correct direction when reporting performance, annualized volatility when reporting volatility, and maximum drawdown when reporting the peak-to-trough loss. Use digits with the exact supplied precision. Do not add inferred causes, advice, or company attributes." },
           { role: "user", content: JSON.stringify({ stock: { symbol: context.stock.symbol }, dataMode: "synthetic-test", source: { provider: "FinSight fictional sample data", dataAsOf: context.dataAsOf }, approvedFacts: context.facts, limitations: [context.facts.limitations, ...["short", "stale", "missing", "smallSample"].filter(id => context.facts[id]).map(id => context.facts[id])] }) },
         ],
         response_format: { type: "json_schema", json_schema: { name: "finsight_explanation", strict: true,
@@ -83,12 +96,32 @@ export async function generateAnalysis(symbol: string, key: string, now = new Da
           }, required: ["paragraphs", "uncertaintyNotes"], additionalProperties: false } } },
       }),
     });
-  } catch { throw new AnalysisUnavailable("AI provider unavailable"); }
-  if (!response.ok) throw new AnalysisUnavailable("AI provider unavailable");
+    // Read the body under the same deadline, once; evaluation does not clone it.
+    try { body = await response.json(); }
+    catch (error) {
+      if (signal.aborted) throw error;
+      if (response.ok) {
+        if (error instanceof SyntaxError) throw new AnalysisUnavailable("Invalid AI response");
+        throw error;
+      }
+      body = {};
+    }
+  } catch (error) {
+    observe?.({ elapsedMs: performance.now() - started });
+    if (error instanceof AnalysisUnavailable) throw error;
+    throw new AnalysisUnavailable("AI provider unavailable", signal.aborted ? "timeout" : "network");
+  }
+  observe?.({ elapsedMs: performance.now() - started, httpStatus: response.status,
+    usage: body?.usage, candidate: body?.choices?.[0]?.message?.content });
+  if (!response.ok) {
+    const code: FailureCode = response.status === 429 ? "rate_limit"
+      : body?.error?.code === "json_validate_failed" ? "provider_schema"
+      : [401, 403].includes(response.status) ? "provider_auth" : "provider_unavailable";
+    throw new AnalysisUnavailable("AI provider unavailable", code, response.status);
+  }
   try {
-    const body = await response.json();
     if (body.choices?.[0]?.finish_reason !== "stop") throw new Error("Incomplete");
-    const result = validateExplanation(JSON.parse(body.choices[0].message.content), context.facts);
+    const result = validateExplanation(JSON.parse(body.choices![0].message!.content!), context.facts);
     return { symbol: context.stock.symbol, generatedAt: new Date().toISOString(), dataAsOf: context.dataAsOf,
       generator: `Groq / ${MODEL} — AI explanation of FICTIONAL SAMPLE DATA`,
       paragraphs: result.paragraphs,

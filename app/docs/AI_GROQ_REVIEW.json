@@ -1,0 +1,59 @@
+{
+  "reviewer": "Codex AI assistant; not independent human/team approval",
+  "groupAcceptance": "PENDING",
+  "finalCohort": {
+    "calls": 12,
+    "validated": 10,
+    "validationRejected": 2,
+    "timeouts": 0,
+    "providerErrors": 0,
+    "allValidGate": "FAILED",
+    "latencySeconds": {
+      "min": 1.3326922079999932,
+      "median": 1.694586708000017,
+      "max": 8.865347791999985
+    },
+    "acceptedAnswerReview": "10 accepted answers reviewed against frozen contexts: metric values, directions, dates, sample disclosure and relevant stale/missing/short warnings. No additional factual failure identified; this is not exhaustive verification.",
+    "withheld": [
+      {
+        "symbol": "NOVA",
+        "repetition": 2,
+        "finding": "Two percentages/metrics combined in one sentence; correctly rejected by strict format policy."
+      },
+      {
+        "symbol": "BRKW",
+        "repetition": 3,
+        "finding": "The value is an immediate reference to volatility; conservative false rejection because this wording is outside the narrow reference rule."
+      }
+    ]
+  },
+  "earlierCohorts": [
+    {
+      "artifact": "AI_GROQ_DIAGNOSTIC_EVIDENCE.json",
+      "calls": 12,
+      "validated": 11,
+      "finding": "One correct Its value reference rejected; corrected afterward."
+    },
+    {
+      "artifact": "AI_GROQ_DURATION_REVIEW_EVIDENCE.json",
+      "calls": 12,
+      "validated": 12,
+      "assistantReviewFailures": [
+        {
+          "symbol": "LUMA",
+          "repetition": 1
+        },
+        {
+          "symbol": "LUMA",
+          "repetition": 3
+        }
+      ],
+      "finding": "55 observations mislabeled a 55-day window; prompt and validator corrected afterward. Automated success was not semantic success."
+    }
+  ],
+  "limitations": [
+    "Small synthetic sample, successive code versions; do not pool into a single reliability estimate.",
+    "No claim of consistent successful generation, production readiness or independent financial review.",
+    "No claim that historical unavailable calls were caused by a specific network or machine event."
+  ]
+}
